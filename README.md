@@ -8,8 +8,6 @@ Every problem note follows the same shape, so patterns stay comparable across to
 
 Each approach carries commented code and its own time/space analysis.
 
----
-
 ## Topics
 
 | # | Topic | Core Focus | Problems | Status |
@@ -30,8 +28,6 @@ Each approach carries commented code and its own time/space analysis.
 | 14 | Bit Manipulation | XOR tricks, masks, bit counting | – | Planned |
 | 15 | Intervals | Merge, insert, overlap counting | – | Planned |
 | 16 | Databases | Joins, window functions, aggregation | – | Planned |
-
----
 
 ## 01. Array
 
@@ -54,8 +50,6 @@ Each approach carries commented code and its own time/space analysis.
 | 13 | [Find Second Smallest and Second Largest Element in an Array](01.%20Array/01.%20Easy/13.%20Find%20Second%20Smallest%20and%20Second%20Largest%20Element%20in%20an%20Array.md) | Basic | Four trackers in a single pass | `O(n)` | `O(1)` |
 | 14 | [First and Second Smallests](01.%20Array/01.%20Easy/14.%20First%20and%20Second%20Smallests.md) | Basic | Two trackers, update smallest before second | `O(n)` | `O(1)` |
 
----
-
 ## 02. Two Pointers
 
 | # | Problem | Difficulty | Key Idea | Time | Space |
@@ -65,8 +59,6 @@ Each approach carries commented code and its own time/space analysis.
 | 3 | [167. Two Sum II - Input Array Is Sorted](02.%20Two%20pointers/02.%20Medium/02.%20167.%20Two%20Sum%20II%20-%20Input%20Array%20Is%20Sorted.md) | Medium | Sorted order makes each pointer move decidable | `O(n)` | `O(1)` |
 | 4 | [11. Container With Most Water](02.%20Two%20pointers/02.%20Medium/03.%2011.%20Container%20With%20Most%20Water.md) | Medium | Always move the shorter line; width only shrinks | `O(n)` | `O(1)` |
 | 5 | [42. Trapping Rain Water](02.%20Two%20pointers/03.%20Hard/01.%2042.%20Trapping%20Rain%20Water.md) | Hard | Process the smaller side; its max bounds the water | `O(n)` | `O(1)` |
-
----
 
 ## Repository Layout
 
@@ -89,8 +81,6 @@ dsa-notes/
 ```
 
 Folders and files are numbered so they sort in study order: topic → difficulty tier → problem.
-
----
 
 ## Language
 

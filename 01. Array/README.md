@@ -4,8 +4,6 @@ Arrays are the foundation of most DSA patterns. Nearly every later topic — two
 
 These notes work through the TUF array sheet, tier by tier.
 
----
-
 ## Problems
 
 ### 01. Easy
@@ -34,8 +32,6 @@ Planned.
 ### 03. Hard
 
 Planned.
-
----
 
 ## Core Patterns in This Topic
 
@@ -85,8 +81,6 @@ Replace a data structure with an identity.
 | XOR self-cancel | `a ^ a = 0`, `a ^ 0 = a` | Single Number, Missing Number |
 | Sum formula | `n * (n + 1) / 2` | Missing Number |
 | Triple reversal | `reverse(all)` then reverse each part | Rotate Array |
-
----
 
 ## Why Start Here
 
