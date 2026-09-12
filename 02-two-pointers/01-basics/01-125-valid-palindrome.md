@@ -1,0 +1,414 @@
+# 125. Valid Palindrome
+
+| | |
+|---|---|
+| **Difficulty** | Easy |
+| **Pattern** | Two Pointers |
+| **LeetCode** | [125. Valid Palindrome](https://leetcode.com/problems/valid-palindrome/) |
+| **Time** | `O(n)` |
+| **Space** | `O(1)` |
+
+---
+
+## 1. Problem Statement
+
+A phrase is a **palindrome** if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.
+
+Given a string `s`, return `true` if it is a **palindrome**, or `false` otherwise.
+
+### Examples
+
+```text
+Input:  s = "A man, a plan, a canal: Panama"
+Output: true
+Explanation: "amanaplanacanalpanama" is a palindrome.
+```
+
+```text
+Input:  s = "race a car"
+Output: false
+Explanation: "raceacar" is not a palindrome.
+```
+
+```text
+Input:  s = " "
+Output: true
+Explanation: s is an empty string "" after removing non-alphanumeric
+characters. Since an empty string reads the same forward and backward,
+it is a palindrome.
+```
+
+### Constraints
+
+- `1 <= s.length <= 2 * 10^5`
+- `s` consists only of printable ASCII characters.
+
+---
+
+## 2. Problem Explanation
+
+You are given a string `s`.
+
+You need to check whether it is a **palindrome** after:
+
+1. Removing all non-alphanumeric characters.
+2. Ignoring uppercase and lowercase differences.
+
+A palindrome means the string reads the same from left to right and right to left.
+
+### Example
+
+```text
+Input:
+s = "A man, a plan, a canal: Panama"
+
+After cleaning:
+"amanaplanacanalpanama"
+
+Reverse:
+"amanaplanacanalpanama"
+
+Output:
+true
+```
+
+```text
+Input:
+s = "race a car"
+
+After cleaning:
+"raceacar"
+
+Reverse:
+"racaecar"
+
+Output:
+false
+```
+
+---
+
+## 3. Intuition
+
+A normal palindrome check compares:
+
+```text
+first character  with last character
+second character with second last character
+third character  with third last character
+...
+```
+
+But here we have extra rules:
+
+```text
+Ignore spaces
+Ignore commas
+Ignore colons
+Ignore symbols
+Ignore uppercase/lowercase difference
+```
+
+So instead of cleaning the string separately, we can use **two pointers**:
+
+```text
+left pointer  -> starts from beginning
+right pointer -> starts from end
+```
+
+Then:
+
+```text
+If left character is not alphanumeric, skip it.
+If right character is not alphanumeric, skip it.
+Otherwise compare both lowercase characters.
+```
+
+---
+
+## 4. Brute Force Approach
+
+### Idea
+
+First create a new cleaned string that contains only lowercase alphanumeric characters.
+
+Then check whether this cleaned string is equal to its reverse.
+
+### Steps
+
+```text
+s = "A man, a plan, a canal: Panama"
+
+Cleaned string:
+"amanaplanacanalpanama"
+
+Reverse cleaned string:
+"amanaplanacanalpanama"
+
+Both are equal, so answer is true.
+```
+
+### Complexity
+
+| | | |
+|---|---|---|
+| **Time** | `O(n)` | We traverse the string once to clean it, and reversing also takes `O(n)`. |
+| **Space** | `O(n)` | Because we create a new cleaned string. |
+
+### Code
+
+```python
+# Define the class solution
+class Solution:
+
+    # Define the method
+    def isPalindrome(self, s: str) -> bool:
+
+        # Create an empty list to store only valid lowercase characters
+        cleaned_chars = []
+
+        # Traverse every character in the input string
+        for ch in s:
+
+            # Check whether the current character is alphanumeric
+            if ch.isalnum():
+
+                # Convert the character to lowercase and store it
+                cleaned_chars.append(ch.lower())
+
+        # Convert the list of characters into a string
+        cleaned_string = ''.join(cleaned_chars)
+
+        # Compare the cleaned string with its reversed version
+        return cleaned_string == cleaned_string[::-1]
+```
+
+---
+
+## 5. Better Approach Using Two Pointers
+
+### Idea
+
+Instead of creating a new cleaned string, we can directly check the original string using two pointers.
+
+- One pointer starts from the beginning.
+- One pointer starts from the end.
+- We skip invalid characters from both sides.
+- Then we compare valid characters.
+
+### Why this is better?
+
+Brute force uses extra space:
+
+```text
+cleaned string = O(n)
+```
+
+Two pointer method avoids that. It only uses:
+
+```text
+left pointer
+right pointer
+```
+
+So space becomes:
+
+```text
+O(1)
+```
+
+---
+
+## 6. Most Optimal Solution — Two Pointers
+
+### Core Intuition
+
+We only care about valid alphanumeric characters.
+
+So we move from both ends:
+
+```text
+left  = 0
+right = len(s) - 1
+```
+
+Then:
+
+```text
+If s[left] is not alphanumeric:
+    left++
+
+If s[right] is not alphanumeric:
+    right--
+
+Otherwise:
+    compare lowercase s[left] and lowercase s[right]
+```
+
+If at any point characters do not match, return `False`.
+
+If all matching characters pass, return `True`.
+
+---
+
+## 7. Working Example
+
+```text
+s = "A man, a plan, a canal: Panama"
+```
+
+Initial pointers:
+
+```text
+left  = 0  -> 'A'
+right = 29 -> 'a'
+```
+
+Compare:
+
+```text
+'a' == 'a'
+```
+
+Move both:
+
+```text
+left++
+right--
+```
+
+Now:
+
+```text
+left points to ' '
+```
+
+Space is not alphanumeric, so skip it.
+
+Continue this process. Eventually every valid character matches.
+
+So output is:
+
+```text
+true
+```
+
+### Smaller Example
+
+```text
+s = "race a car"
+```
+
+Clean valid comparison:
+
+```text
+r  == r
+a  == a
+c  != a
+```
+
+At mismatch:
+
+```text
+return False
+```
+
+---
+
+## 8. Time and Space Complexity
+
+| | | |
+|---|---|---|
+| **Time** | `O(n)` | Each character is visited at most once by either `left` or `right`. |
+| **Space** | `O(1)` | No extra string or array is created. |
+
+---
+
+## 9. Optimal Code
+
+```python
+# Define the class solution
+class Solution:
+
+    # Define the method
+    def isPalindrome(self, s: str) -> bool:
+
+        # Start the left pointer from the beginning of the string
+        left = 0
+
+        # Start the right pointer from the end of the string
+        right = len(s) - 1
+
+        # Continue checking while left pointer is before right pointer
+        while left < right:
+
+            # Skip characters from the left side that are not alphanumeric
+            while left < right and not s[left].isalnum():
+
+                # Move left pointer to the next character
+                left += 1
+
+            # Skip characters from the right side that are not alphanumeric
+            while left < right and not s[right].isalnum():
+
+                # Move right pointer to the previous character
+                right -= 1
+
+            # Compare lowercase version of both valid characters
+            if s[left].lower() != s[right].lower():
+
+                # If characters do not match, string is not a palindrome
+                return False
+
+            # Move left pointer forward after successful comparison
+            left += 1
+
+            # Move right pointer backward after successful comparison
+            right -= 1
+
+        # If all valid character pairs matched, string is a palindrome
+        return True
+```
+
+---
+
+## 10. Dry Run
+
+Input:
+
+```text
+s = "0P"
+```
+
+Pointers:
+
+```text
+left  = 0 -> '0'
+right = 1 -> 'P'
+```
+
+Both are alphanumeric.
+
+Compare:
+
+```text
+'0' != 'p'
+```
+
+So:
+
+```text
+return False
+```
+
+Output:
+
+```text
+false
+```
+
+---
+
+## 11. Interview Explanation
+
+> I will use two pointers, one from the start and one from the end. Since the problem says to ignore non-alphanumeric characters, I will skip them from both sides. Once both pointers are on valid characters, I will compare them in lowercase. If they mismatch, I return false. If all pairs match, I return true. This avoids building a cleaned string and gives O(n) time with O(1) space.
