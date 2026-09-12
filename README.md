@@ -14,7 +14,7 @@ Each approach carries commented code and its own time/space analysis.
 
 | # | Topic | Core Focus | Problems | Status |
 |:---:|:---|:---|:---:|:---:|
-| 01 | Array | Prefix sums, Kadane, in-place rearrangement | – | Planned |
+| 01 | [Array](01.%20Array/) | Prefix sums, Kadane, in-place rearrangement | 14 | **Easy done** |
 | 02 | [Two Pointers](02.%20Two%20pointers/) | Converging pointers, fast/slow, fixed element + scan | 5 | **Done** |
 | 03 | Stacks and Queues | Monotonic stack, next greater element | – | Planned |
 | 04 | Sliding Window | Fixed and variable windows, longest/shortest substring | – | Planned |
@@ -30,6 +30,29 @@ Each approach carries commented code and its own time/space analysis.
 | 14 | Bit Manipulation | XOR tricks, masks, bit counting | – | Planned |
 | 15 | Intervals | Merge, insert, overlap counting | – | Planned |
 | 16 | Databases | Joins, window functions, aggregation | – | Planned |
+
+---
+
+## 01. Array
+
+### Easy
+
+| # | Problem | Difficulty | Key Idea | Time | Space |
+|:---:|:---|:---:|:---|:---:|:---:|
+| 1 | [Largest in Array](01.%20Array/01.%20Easy/01.%20Largest%20in%20Array.md) | Basic | Track the max seen so far in one scan | `O(n)` | `O(1)` |
+| 2 | [Second Largest](01.%20Array/01.%20Easy/02.%20Second%20Largest.md) | Basic | Keep two variables, update in order | `O(n)` | `O(1)` |
+| 3 | [Array Search](01.%20Array/01.%20Easy/03.%20Array%20Search.md) | Basic | Linear scan, return index on match | `O(n)` | `O(1)` |
+| 4 | [1752. Check if Array Is Sorted and Rotated](01.%20Array/01.%20Easy/04.%201752.%20Check%20if%20Array%20Is%20Sorted%20and%20Rotated.md) | Easy | Count the "drops"; at most one is allowed | `O(n)` | `O(1)` |
+| 5 | [136. Single Number](01.%20Array/01.%20Easy/05.%20136.%20Single%20Number.md) | Easy | XOR cancels every pair, leaving the loner | `O(n)` | `O(1)` |
+| 6 | [268. Missing Number](01.%20Array/01.%20Easy/06.%20268.%20Missing%20Number.md) | Easy | Expected sum minus actual sum, or XOR | `O(n)` | `O(1)` |
+| 7 | [485. Max Consecutive Ones](01.%20Array/01.%20Easy/07.%20485.%20Max%20Consecutive%20Ones.md) | Easy | Running streak counter, reset on zero | `O(n)` | `O(1)` |
+| 8 | [189. Rotate Array](01.%20Array/01.%20Easy/08.%20189.%20Rotate%20Array.md) | Medium | Reverse whole, then reverse both parts | `O(n)` | `O(1)` |
+| 9 | [283. Move Zeroes](01.%20Array/01.%20Easy/09.%20283.%20Move%20Zeroes.md) | Easy | Slow pointer marks the next non-zero slot | `O(n)` | `O(1)` |
+| 10 | [88. Merge Sorted Array](01.%20Array/01.%20Easy/10.%2088.%20Merge%20Sorted%20Array.md) | Easy | Fill from the back to avoid overwriting | `O(m+n)` | `O(1)` |
+| 11 | [Longest Subarray with Sum K](01.%20Array/01.%20Easy/11.%20Longest%20Subarray%20with%20Sum%20K.md) | Medium | Prefix sum + first-seen index in a hashmap | `O(n)` | `O(n)` |
+| 12 | [Largest subarray with 0 sum](01.%20Array/01.%20Easy/12.%20Largest%20subarray%20with%200%20sum.md) | Medium | Same prefix sum means zero in between | `O(n)` | `O(n)` |
+| 13 | [Find Second Smallest and Second Largest Element in an Array](01.%20Array/01.%20Easy/13.%20Find%20Second%20Smallest%20and%20Second%20Largest%20Element%20in%20an%20Array.md) | Basic | Four trackers in a single pass | `O(n)` | `O(1)` |
+| 14 | [First and Second Smallests](01.%20Array/01.%20Easy/14.%20First%20and%20Second%20Smallests.md) | Basic | Two trackers, update smallest before second | `O(n)` | `O(1)` |
 
 ---
 
@@ -49,6 +72,11 @@ Each approach carries commented code and its own time/space analysis.
 
 ```text
 dsa-notes/
+├── 01. Array/
+│   └── 01. Easy/
+│       ├── 01. Largest in Array.md
+│       ├── ...
+│       └── 14. First and Second Smallests.md
 └── 02. Two pointers/
     ├── 01. Basics/
     │   └── 01. 125. Valid Palindrome.md
