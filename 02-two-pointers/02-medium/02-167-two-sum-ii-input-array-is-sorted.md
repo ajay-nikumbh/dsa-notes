@@ -1,0 +1,561 @@
+# 167. Two Sum II - Input Array Is Sorted
+
+| | |
+|---|---|
+| **Difficulty** | Medium |
+| **Pattern** | Two Pointers |
+| **LeetCode** | [167. Two Sum II - Input Array Is Sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) |
+| **Time** | `O(n)` |
+| **Space** | `O(1)` |
+
+---
+
+## 1. Problem Statement
+
+Given a **1-indexed** array of integers `numbers` that is already **sorted in non-decreasing order**, find two numbers such that they add up to a specific `target` number. Let these two numbers be `numbers[index1]` and `numbers[index2]` where `1 <= index1 < index2 <= numbers.length`.
+
+Return the indices of the two numbers `index1` and `index2`, **each incremented by one**, as an integer array `[index1, index2]` of length 2.
+
+The tests are generated such that there is **exactly one solution**. You **may not** use the same element twice.
+
+Your solution must use only constant extra space.
+
+### Examples
+
+```text
+Input:  numbers = [2,7,11,15], target = 9
+Output: [1,2]
+Explanation: The sum of 2 and 7 is 9. Therefore, index1 = 1, index2 = 2. We return [1, 2].
+```
+
+```text
+Input:  numbers = [2,3,4], target = 6
+Output: [1,3]
+Explanation: The sum of 2 and 4 is 6. Therefore index1 = 1, index2 = 3. We return [1, 3].
+```
+
+```text
+Input:  numbers = [-1,0], target = -1
+Output: [1,2]
+Explanation: The sum of -1 and 0 is -1. Therefore index1 = 1, index2 = 2. We return [1, 2].
+```
+
+### Constraints
+
+- `2 <= numbers.length <= 3 * 10^4`
+- `-1000 <= numbers[i] <= 1000`
+- `numbers` is sorted in **non-decreasing order**.
+- `-1000 <= target <= 1000`
+- The tests are generated such that there is **exactly one solution**.
+
+---
+
+## 2. Problem Explanation
+
+You are given a **1-indexed** sorted array `numbers`.
+
+You are also given an integer `target`.
+
+You need to find two numbers such that:
+
+```text
+numbers[index1] + numbers[index2] == target
+```
+
+Return their indexes as:
+
+```text
+[index1, index2]
+```
+
+Important points:
+
+```text
+Array is sorted in non-decreasing order.
+Indexes are 1-based, not 0-based.
+Exactly one solution exists.
+You cannot use the same element twice.
+```
+
+### Example
+
+```text
+Input:
+numbers = [2, 7, 11, 15]
+target = 9
+
+Output:
+[1, 2]
+```
+
+Because:
+
+```text
+numbers[0] + numbers[1] = 2 + 7 = 9
+```
+
+But answer should be 1-indexed:
+
+```text
+[1, 2]
+```
+
+---
+
+## 3. Core Intuition
+
+This problem is different from normal Two Sum because the array is already **sorted**.
+
+Sorted array means:
+
+```text
+Small values are on the left.
+Large values are on the right.
+```
+
+So we can use two pointers:
+
+```text
+left  -> start of array
+right -> end of array
+```
+
+Then check:
+
+```text
+current_sum = numbers[left] + numbers[right]
+```
+
+Now there are three cases:
+
+```text
+If current_sum == target:
+    We found the answer.
+
+If current_sum < target:
+    Sum is too small, so we need a bigger number.
+    Move left pointer forward.
+
+If current_sum > target:
+    Sum is too large, so we need a smaller number.
+    Move right pointer backward.
+```
+
+This works only because the array is sorted.
+
+---
+
+## 4. Brute Force Approach
+
+### Idea
+
+Try every pair of numbers and check if their sum equals the target.
+
+### Example
+
+```text
+numbers = [2, 7, 11, 15]
+target = 9
+```
+
+Check all pairs:
+
+```text
+2 + 7  = 9    found
+2 + 11 = 13
+2 + 15 = 17
+7 + 11 = 18
+...
+```
+
+Return:
+
+```text
+[1, 2]
+```
+
+### Complexity
+
+| | | |
+|---|---|---|
+| **Time** | `O(n^2)` | Because for every element, we check all elements after it. |
+| **Space** | `O(1)` | Because we do not use any extra data structure. |
+
+### Code
+
+```python
+# Define the class solution
+class Solution:
+
+    # Define the method
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+
+        # Store the length of the array
+        n = len(numbers)
+
+        # Pick the first number using index i
+        for i in range(n):
+
+            # Pick the second number using index j after i
+            for j in range(i + 1, n):
+
+                # Check whether the selected pair forms the target sum
+                if numbers[i] + numbers[j] == target:
+
+                    # Return 1-based indexes as required by the problem
+                    return [i + 1, j + 1]
+
+        # This line is never reached because exactly one solution exists
+        return []
+```
+
+---
+
+## 5. Better Approach — Hash Map
+
+### Idea
+
+This is similar to normal Two Sum.
+
+For every number, calculate:
+
+```text
+needed = target - current_number
+```
+
+Then check if this needed value was seen before.
+
+### Example
+
+```text
+numbers = [2, 7, 11, 15]
+target = 9
+```
+
+At index 0:
+
+```text
+current = 2
+needed  = 7
+```
+
+7 not seen yet. Store:
+
+```text
+2 -> index 0
+```
+
+At index 1:
+
+```text
+current = 7
+needed  = 2
+```
+
+2 already exists in hash map. Return:
+
+```text
+[1, 2]
+```
+
+### Complexity
+
+| | | |
+|---|---|---|
+| **Time** | `O(n)` | We traverse the array once. |
+| **Space** | `O(n)` | Because we store numbers in a hash map. |
+
+### Code
+
+```python
+# Define the class solution
+class Solution:
+
+    # Define the method
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+
+        # Create a dictionary to store number and its index
+        seen = {}
+
+        # Traverse every number with its index
+        for index, num in enumerate(numbers):
+
+            # Calculate the number needed to complete the target
+            needed = target - num
+
+            # Check if the needed number already exists in the dictionary
+            if needed in seen:
+
+                # Return the previous index and current index in 1-based format
+                return [seen[needed] + 1, index + 1]
+
+            # Store the current number with its index
+            seen[num] = index
+
+        # This line is never reached because exactly one solution exists
+        return []
+```
+
+---
+
+## 6. Why Hash Map Is Not the Best Here
+
+Hash map gives good time complexity:
+
+```text
+O(n)
+```
+
+But it ignores the most important information:
+
+```text
+The array is sorted.
+```
+
+Because the array is sorted, we can solve it with:
+
+```text
+O(n) time
+O(1) space
+```
+
+That is better than hash map.
+
+---
+
+## 7. Most Optimal Approach — Two Pointers
+
+### Intuition
+
+Place one pointer at the smallest number and one pointer at the largest number.
+
+```text
+left  = 0
+right = len(numbers) - 1
+```
+
+Now calculate:
+
+```text
+current_sum = numbers[left] + numbers[right]
+```
+
+Because the array is sorted:
+
+### Case 1: Sum is too small
+
+```text
+current_sum < target
+```
+
+This means we need a bigger sum. The only useful move is:
+
+```text
+left += 1
+```
+
+Because moving `right` backward would make the sum even smaller.
+
+### Case 2: Sum is too large
+
+```text
+current_sum > target
+```
+
+This means we need a smaller sum. The only useful move is:
+
+```text
+right -= 1
+```
+
+Because moving `left` forward would make the sum even bigger.
+
+### Case 3: Sum is equal to target
+
+```text
+current_sum == target
+```
+
+We found the answer. Return:
+
+```text
+[left + 1, right + 1]
+```
+
+Because the problem wants 1-based indexes.
+
+---
+
+## 8. Working Example
+
+```text
+numbers = [2, 7, 11, 15]
+target = 9
+```
+
+Initial pointers:
+
+```text
+left  = 0 -> numbers[left]  = 2
+right = 3 -> numbers[right] = 15
+```
+
+Current sum:
+
+```text
+2 + 15 = 17
+```
+
+17 is greater than 9. So we need a smaller sum. Move right pointer:
+
+```text
+right = 2 -> numbers[right] = 11
+```
+
+Current sum:
+
+```text
+2 + 11 = 13
+```
+
+13 is greater than 9. Move right pointer again:
+
+```text
+right = 1 -> numbers[right] = 7
+```
+
+Current sum:
+
+```text
+2 + 7 = 9
+```
+
+Found target. Return 1-based indexes:
+
+```text
+[left + 1, right + 1] = [1, 2]
+```
+
+---
+
+## 9. Another Example
+
+```text
+numbers = [2, 3, 4]
+target = 6
+```
+
+Initial pointers:
+
+```text
+left  = 0 -> 2
+right = 2 -> 4
+```
+
+Sum:
+
+```text
+2 + 4 = 6
+```
+
+Return:
+
+```text
+[1, 3]
+```
+
+---
+
+## 10. Time and Space Complexity of Optimal Solution
+
+| | | |
+|---|---|---|
+| **Time** | `O(n)` | Because each pointer moves at most n times. |
+| **Space** | `O(1)` | Because we use only two variables: `left` and `right`. |
+
+---
+
+## 11. Optimal Code
+
+```python
+# Define the class solution
+class Solution:
+
+    # Define the method
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+
+        # Initialize the left pointer at the start of the sorted array
+        left = 0
+
+        # Initialize the right pointer at the end of the sorted array
+        right = len(numbers) - 1
+
+        # Continue until the two pointers meet
+        while left < right:
+
+            # Calculate the sum of the numbers at both pointers
+            current_sum = numbers[left] + numbers[right]
+
+            # If the current sum is equal to target, we found the answer
+            if current_sum == target:
+
+                # Return 1-based indexes as required by the problem
+                return [left + 1, right + 1]
+
+            # If current sum is smaller than target, we need a bigger number
+            elif current_sum < target:
+
+                # Move left pointer forward to increase the sum
+                left += 1
+
+            # If current sum is greater than target, we need a smaller number
+            else:
+
+                # Move right pointer backward to decrease the sum
+                right -= 1
+
+        # This line is never reached because exactly one valid answer exists
+        return []
+```
+
+---
+
+## 12. Dry Run
+
+Input:
+
+```text
+numbers = [-1, 0]
+target = -1
+```
+
+Initial pointers:
+
+```text
+left  = 0 -> -1
+right = 1 -> 0
+```
+
+Current sum:
+
+```text
+-1 + 0 = -1
+```
+
+This equals target. Return 1-based indexes:
+
+```text
+[1, 2]
+```
+
+Output:
+
+```text
+[1, 2]
+```
+
+---
+
+## 13. Interview Explanation
+
+> Since the array is already sorted, I use two pointers: one at the start and one at the end. I compute the sum of both. If the sum equals the target, I return the two indexes incremented by one. If the sum is smaller than the target, I move the left pointer forward to increase the sum. If the sum is larger, I move the right pointer backward to decrease the sum. Sorting guarantees each move is the only useful direction, so this runs in `O(n)` time with `O(1)` space, which beats the hash map approach on space.
