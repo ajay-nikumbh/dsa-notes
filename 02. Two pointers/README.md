@@ -4,8 +4,6 @@ The two pointer technique uses two indices moving through a data structure — u
 
 It applies when the data is **sorted** or has a **monotonic property**, so that moving one pointer reliably moves the answer in a known direction.
 
----
-
 ## Problems
 
 | # | Tier | Problem | Difficulty | Key Idea | Time | Space |
@@ -15,8 +13,6 @@ It applies when the data is **sorted** or has a **monotonic property**, so that 
 | 3 | Medium | [167. Two Sum II - Input Array Is Sorted](02.%20Medium/02.%20167.%20Two%20Sum%20II%20-%20Input%20Array%20Is%20Sorted.md) | Medium | Sorted order makes each pointer move decidable | `O(n)` | `O(1)` |
 | 4 | Medium | [11. Container With Most Water](02.%20Medium/03.%2011.%20Container%20With%20Most%20Water.md) | Medium | Always move the shorter line; width only shrinks | `O(n)` | `O(1)` |
 | 5 | Hard | [42. Trapping Rain Water](03.%20Hard/01.%2042.%20Trapping%20Rain%20Water.md) | Hard | Process the smaller side; its max bounds the water | `O(n)` | `O(1)` |
-
----
 
 ## Core Patterns
 
@@ -46,8 +42,6 @@ for i in range(n):
 
 Used in: 3Sum.
 
----
-
 ## How to Decide Which Pointer to Move
 
 This is the heart of the pattern. The move must never skip a better answer.
@@ -59,8 +53,6 @@ This is the heart of the pattern. The move must never skip a better answer.
 | Trapping Rain Water | Process the side with the **smaller** height | That side's `max` is guaranteed to be the limiting boundary |
 | 3Sum | Same as Two Sum II, per fixed element | Sorting makes the inner scan monotonic |
 
----
-
 ## Why Sorting Matters
 
 Sorting is what makes pointer movement *decidable*. Without it, a smaller sum gives no information about which side to move.
@@ -71,8 +63,6 @@ Sorting also makes duplicate skipping trivial — equal values become adjacent:
 if i > 0 and nums[i] == nums[i - 1]:
     continue
 ```
-
----
 
 ## Complexity Summary
 
