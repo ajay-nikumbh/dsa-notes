@@ -1,6 +1,6 @@
 # DSA Notes
 
-Structured notes for Data Structures & Algorithms, following the [Striver / TUF](https://takeuforward.org/) sheet.
+Structured notes for Data Structures & Algorithms
 
 Every problem note follows the same shape, so patterns stay comparable across topics:
 
