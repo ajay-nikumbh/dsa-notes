@@ -18,9 +18,12 @@ This page teaches the topic from zero: what an array actually is in memory, the 
 10. [In-Place Reversal and Rotation](#10-in-place-reversal-and-rotation)
 11. [Sorting as a Preprocessing Step](#11-sorting-as-a-preprocessing-step)
 12. [Bit Tricks on Arrays](#12-bit-tricks-on-arrays)
-13. [Common Traps](#13-common-traps)
-14. [Pattern Recognition Cheat Sheet](#14-pattern-recognition-cheat-sheet)
-15. [Problems](#15-problems)
+13. [Partitioning and the Dutch National Flag](#13-partitioning-and-the-dutch-national-flag)
+14. [Boyer-Moore Voting](#14-boyer-moore-voting)
+15. [Matrix Basics](#15-matrix-basics)
+16. [Common Traps](#16-common-traps)
+17. [Pattern Recognition Cheat Sheet](#17-pattern-recognition-cheat-sheet)
+18. [Problems](#18-problems)
 
 ## 1. What an Array Is
 
@@ -482,7 +485,133 @@ def missing_number(nums):
 
 The sum formula `n*(n+1)//2 - sum(nums)` also works and reads more clearly, but can overflow in languages with fixed-width integers. XOR never overflows.
 
-## 13. Common Traps
+## 13. Partitioning and the Dutch National Flag
+
+**The idea:** rearrange an array into regions using pointers as region boundaries. The loop invariant *is* the algorithm.
+
+Three-way partition (Sort Colors) keeps four regions while scanning:
+
+```text
+[ 0 0 0 | 1 1 1 | ? ? ? ? | 2 2 2 ]
+         low     mid      high
+  known0   known1  unknown   known2
+```
+
+```python
+def sort_colors(nums):
+    low, mid, high = 0, 0, len(nums) - 1
+    while mid <= high:
+        if nums[mid] == 0:
+            nums[low], nums[mid] = nums[mid], nums[low]
+            low += 1
+            mid += 1          # swapped-in value came from below mid: already seen
+        elif nums[mid] == 1:
+            mid += 1          # already in place
+        else:
+            nums[mid], nums[high] = nums[high], nums[mid]
+            high -= 1         # do NOT advance mid: swapped-in value is unexamined
+    return nums
+```
+
+The asymmetry is the whole trick. Swapping with `low` brings back a value you already classified, so `mid` advances. Swapping with `high` brings back an unknown, so `mid` stays to examine it.
+
+## 14. Boyer-Moore Voting
+
+**The idea:** find an element appearing more than `n/2` times using `O(1)` space, by pairing off different values until only the majority can survive.
+
+```python
+def majority_element(nums):
+    candidate, count = None, 0
+    for x in nums:
+        if count == 0:
+            candidate = x          # no one is winning; adopt a new candidate
+        count += 1 if x == candidate else -1
+    return candidate
+```
+
+**Why it works:** each decrement cancels one occurrence of the candidate against one of something else. An element occurring more than `n/2` times has more copies than everything else combined, so it cannot be fully cancelled.
+
+`count` is *not* a frequency — it is a lead margin. If a majority is not guaranteed, add a second pass to confirm the candidate really appears more than `n/2` times.
+
+## 15. Matrix Basics
+
+A 2D array is rows of arrays. Two conventions to keep straight:
+
+```text
+matrix[row][col]       row first, then column
+m = len(matrix)        number of rows
+n = len(matrix[0])     number of columns
+```
+
+### Transpose
+
+Reflect across the main diagonal. Iterate only the upper triangle, or you swap everything back.
+
+```python
+def transpose(matrix):
+    n = len(matrix)
+    for i in range(n):
+        for j in range(i + 1, n):          # j starts at i+1, not 0
+            matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
+    return matrix
+```
+
+### Rotate 90 degrees clockwise
+
+Transpose, then reverse each row. Two reflections compose into a rotation.
+
+```text
+1 2 3      transpose     1 4 7      reverse rows    7 4 1
+4 5 6      ─────────>    2 5 8      ───────────>    8 5 2
+7 8 9                    3 6 9                      9 6 3
+```
+
+```python
+def rotate(matrix):
+    transpose(matrix)
+    for row in matrix:
+        row.reverse()
+    return matrix
+```
+
+Anticlockwise is the same idea: transpose, then reverse each *column* (or reverse the row order first, then transpose).
+
+### Spiral traversal
+
+Keep four boundaries and shrink them inward.
+
+```python
+def spiral_order(matrix):
+    if not matrix:
+        return []
+    top, bottom = 0, len(matrix) - 1
+    left, right = 0, len(matrix[0]) - 1
+    out = []
+    while top <= bottom and left <= right:
+        for c in range(left, right + 1):
+            out.append(matrix[top][c])
+        top += 1
+        for r in range(top, bottom + 1):
+            out.append(matrix[r][right])
+        right -= 1
+        if top <= bottom:                      # guard: row may already be consumed
+            for c in range(right, left - 1, -1):
+                out.append(matrix[bottom][c])
+            bottom -= 1
+        if left <= right:                      # guard: column may already be consumed
+            for r in range(bottom, top - 1, -1):
+                out.append(matrix[r][left])
+            left += 1
+    return out
+```
+
+The two `if` guards are not optional. On a single-row matrix, `top` passes `bottom` after the first pass; without the guard the bottom row is emitted twice.
+
+### Marking in place
+
+To record "this row must be cleared" without extra space, store the flag inside the matrix itself — typically in row 0 and column 0. The catch is that `matrix[0][0]` belongs to both markers, so column 0 needs its own separate flag variable, and the writing pass must run backwards so markers are read before being overwritten.
+
+## 16. Common Traps
 
 | Trap | Broken | Correct |
 |:---|:---|:---|
@@ -507,7 +636,7 @@ grid[0][0] = 1
 # [[1, 0, 0], [0, 0, 0], [0, 0, 0]]   correct
 ```
 
-## 14. Pattern Recognition Cheat Sheet
+## 17. Pattern Recognition Cheat Sheet
 
 Read the problem, match the signal, reach for the pattern.
 
@@ -525,6 +654,13 @@ Read the problem, match the signal, reach for the pattern.
 | "find a pair", array unsorted | Hashmap of seen values | `O(n)` / `O(n)` |
 | "longest window satisfying X", positives | Sliding window | `O(n)` / `O(1)` |
 | Need all pairs/triplets | Sort, then fix one + two pointers | `O(n^2)` |
+| "sort 3 distinct values in place" | Dutch National Flag | `O(n)` / `O(1)` |
+| "element appearing > n/2 times" | Boyer-Moore voting | `O(n)` / `O(1)` |
+| "count subarrays summing to k" | Prefix sum + hashmap of counts | `O(n)` / `O(n)` |
+| "longest consecutive sequence" | Hash set, start only at run heads | `O(n)` / `O(n)` |
+| "rotate/transpose a matrix" | Transpose then reverse | `O(n^2)` / `O(1)` |
+| "spiral / layer-by-layer" | Four shrinking boundaries | `O(m*n)` |
+| "next lexicographic arrangement" | Pivot, swap, reverse suffix | `O(n)` / `O(1)` |
 
 ### Choosing between the three "find a pair" tools
 
@@ -534,7 +670,7 @@ Read the problem, match the signal, reach for the pattern.
 | Unsorted, want original indices | Hashmap | Sorting destroys indices |
 | Unsorted, want values, space-constrained | Sort then two pointers | Trades `O(n log n)` time for `O(1)` space |
 
-## 15. Problems
+## 18. Problems
 
 ### 01. Easy
 
