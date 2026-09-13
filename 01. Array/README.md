@@ -711,7 +711,19 @@ Read the problem, match the signal, reach for the pattern.
 
 ### 03. Hard
 
-Planned.
+| # | Problem | Difficulty | Pattern | Key Idea | Time | Space |
+|:---:|:---|:---:|:---|:---|:---:|:---:|
+| 1 | [118. Pascal's Triangle](03.%20Hard/01.%20118.%20Pascal%27s%20Triangle.md) | Easy | Row-by-row | Each row is built from the row above | `O(n^2)` | `O(1)` |
+| 2 | [229. Majority Element II](03.%20Hard/02.%20229.%20Majority%20Element%20II.md) | Medium | Boyer-Moore n/3 | Two candidates; verification is mandatory | `O(n)` | `O(1)` |
+| 3 | [15. 3Sum](03.%20Hard/03.%2015.%203Sum.md) | Medium | Sort + two pointers | Fix one, scan the rest, skip duplicates | `O(n^2)` | `O(1)` |
+| 4 | [18. 4Sum](03.%20Hard/04.%2018.%204Sum.md) | Medium | Sort + fix two | kSum: each fixed element adds a loop | `O(n^3)` | `O(1)` |
+| 5 | [Count Subarrays with given XOR](03.%20Hard/05.%20Count%20Subarrays%20with%20given%20XOR.md) | Hard | Prefix XOR + map | Need prefix ^ k, since XOR is its own inverse | `O(n)` | `O(n)` |
+| 6 | [56. Merge Intervals](03.%20Hard/06.%2056.%20Merge%20Intervals.md) | Medium | Sort + sweep | Sort by start, extend the running block | `O(n log n)` | `O(n)` |
+| 7 | [88. Merge Sorted Array](03.%20Hard/07.%2088.%20Merge%20Sorted%20Array.md) | Easy | Fill from back | Never overwrite unread data | `O(m+n)` | `O(1)` |
+| 8 | [Missing And Repeating](03.%20Hard/08.%20Missing%20And%20Repeating.md) | Hard | Maths / XOR | Two equations recover both unknowns | `O(n)` | `O(1)` |
+| 9 | [Count Inversions](03.%20Hard/09.%20Count%20Inversions.md) | Hard | Merge sort | Count a whole left block per comparison | `O(n log n)` | `O(n)` |
+| 10 | [493. Reverse Pairs](03.%20Hard/10.%20493.%20Reverse%20Pairs.md) | Hard | Merge sort | Count in a separate pass before merging | `O(n log n)` | `O(n)` |
+| 11 | [152. Maximum Product Subarray](03.%20Hard/11.%20152.%20Maximum%20Product%20Subarray.md) | Medium | Min/max tracking | A negative swaps the running max and min | `O(n)` | `O(1)` |
 
 ## Where This Leads
 
