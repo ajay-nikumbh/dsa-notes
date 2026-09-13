@@ -693,7 +693,21 @@ Read the problem, match the signal, reach for the pattern.
 
 ### 02. Medium
 
-Planned.
+| # | Problem | Difficulty | Pattern | Key Idea | Time | Space |
+|:---:|:---|:---:|:---|:---|:---:|:---:|
+| 1 | [1. Two Sum](02.%20Medium/01.%201.%20Two%20Sum.md) | Medium | Hash Map | Store complements; check before insert | `O(n)` | `O(n)` |
+| 2 | [75. Sort Colors](02.%20Medium/02.%2075.%20Sort%20Colors.md) | Medium | Dutch Flag | Three regions, one pass | `O(n)` | `O(1)` |
+| 3 | [169. Majority Element](02.%20Medium/03.%20169.%20Majority%20Element.md) | Easy | Boyer-Moore | Pairwise cancellation leaves the majority | `O(n)` | `O(1)` |
+| 4 | [53. Maximum Subarray](02.%20Medium/04.%2053.%20Maximum%20Subarray.md) | Medium | Kadane | Extend or restart at each element | `O(n)` | `O(1)` |
+| 5 | [121. Best Time to Buy and Sell Stock](02.%20Medium/05.%20121.%20Best%20Time%20to%20Buy%20and%20Sell%20Stock.md) | Easy | Single-pass | Track min price, best profit against it | `O(n)` | `O(1)` |
+| 6 | [2149. Rearrange Array Elements by Sign](02.%20Medium/06.%202149.%20Rearrange%20Array%20Elements%20by%20Sign.md) | Medium | Two write indices | Sign fixes the slot; cursors step by 2 | `O(n)` | `O(n)` |
+| 7 | [31. Next Permutation](02.%20Medium/07.%2031.%20Next%20Permutation.md) | Medium | Pivot + reverse | Find pivot, swap successor, reverse suffix | `O(n)` | `O(1)` |
+| 8 | [Array Leaders](02.%20Medium/08.%20Array%20Leaders.md) | Easy | Right-to-left scan | Running max from the right | `O(n)` | `O(1)` |
+| 9 | [128. Longest Consecutive Sequence](02.%20Medium/09.%20128.%20Longest%20Consecutive%20Sequence.md) | Medium | Hash Set | Only walk runs from their head | `O(n)` | `O(n)` |
+| 10 | [73. Set Matrix Zeroes](02.%20Medium/10.%2073.%20Set%20Matrix%20Zeroes.md) | Medium | In-place marking | Row 0 and col 0 become the markers | `O(m*n)` | `O(1)` |
+| 11 | [48. Rotate Image](02.%20Medium/11.%2048.%20Rotate%20Image.md) | Medium | Transpose + reverse | Two reflections compose to a rotation | `O(n^2)` | `O(1)` |
+| 12 | [54. Spiral Matrix](02.%20Medium/12.%2054.%20Spiral%20Matrix.md) | Medium | Four boundaries | Shrink the rectangle layer by layer | `O(m*n)` | `O(1)` |
+| 13 | [560. Subarray Sum Equals K](02.%20Medium/13.%20560.%20Subarray%20Sum%20Equals%20K.md) | Medium | Prefix + hashmap | Count earlier sums equal to sum - k | `O(n)` | `O(n)` |
 
 ### 03. Hard
 
