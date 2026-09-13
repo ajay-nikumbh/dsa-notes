@@ -17,7 +17,7 @@ Counts are problems written, broken down by difficulty tier.
 | 01 | [**Array**](01.%20Array/) | Prefix sums, Kadane, in-place rearrangement | 14 | 13 | 11 | **38** | Complete |
 | 02 | [**Two Pointers**](02.%20Two%20pointers/) | Converging pointers, fast/slow, fix one + scan | 1 | 3 | 1 | **5** | Complete |
 | 03 | Stacks and Queues | Monotonic stack, next greater element | – | – | – | – | Planned |
-| 04 | Sliding Window | Fixed and variable windows | – | – | – | – | Planned |
+| 04 | [**Sliding Window**](04.%20Sliding%20window/) | Fixed/variable windows, at-most trick | 6 | 7 | 2 | **15** | Complete |
 | 05 | Linked List | Reversal, cycle detection, merge | – | – | – | – | Planned |
 | 06 | Binary Search | On answer space, rotated arrays | – | – | – | – | Planned |
 | 07 | Recursion | Subsets, permutations, backtracking | – | – | – | – | Planned |
@@ -34,8 +34,8 @@ Counts are problems written, broken down by difficulty tier.
 ```mermaid
 flowchart LR
     A["01 Array"]:::done --> B["02 Two Pointers"]:::done
-    B --> C["03 Stacks<br/>and Queues"]:::next
-    C --> D["04 Sliding<br/>Window"]:::todo
+    B --> C["04 Sliding Window"]:::done
+    C --> D["03 Stacks<br/>and Queues"]:::next
     D --> E["05 Linked<br/>List"]:::todo
     E --> F["06 Binary<br/>Search"]:::todo
 
@@ -117,20 +117,44 @@ Two indices moving under a rule, replacing a nested loop. The hard part is provi
 | 4 | Medium | [11. Container With Most Water](02.%20Two%20pointers/02.%20Medium/03.%2011.%20Container%20With%20Most%20Water.md) | Medium | Always move the shorter line | `O(n)` | `O(1)` |
 | 5 | Hard | [42. Trapping Rain Water](02.%20Two%20pointers/03.%20Hard/01.%2042.%20Trapping%20Rain%20Water.md) | Hard | Process the smaller side; its max bounds it | `O(n)` | `O(1)` |
 
+## 04. Sliding Window
+
+Two pointers bound a region that grows right and shrinks left. Turns `O(n^2)` subarray scans into one `O(n)` pass.
+
+**[Read the full Sliding Window guide →](04.%20Sliding%20window/)** covers both window shapes, the universal skeleton, and the at-most trick.
+
+| # | Tier | Problem | Difficulty | Key Idea | Time | Space |
+|:---:|:---:|:---|:---:|:---|:---:|:---:|
+| 1 | Intro | [Introduction to Sliding Window](04.%20Sliding%20window/01.%20Introduction/01.%20Introduction%20to%20Sliding%20Window.md) | – | The technique end to end | – | – |
+| 2 | Basic | [1423. Maximum Points from Cards](04.%20Sliding%20window/02.%20Basic/01.%201423.%20Maximum%20Points%20You%20Can%20Obtain%20from%20Cards.md) | Medium | Taking both ends = leaving a middle window | `O(n)` | `O(1)` |
+| 3 | Basic | [3. Longest Substring Without Repeating Characters](04.%20Sliding%20window/02.%20Basic/02.%203.%20Longest%20Substring%20Without%20Repeating%20Characters.md) | Medium | Jump `left` with a `max` guard | `O(n)` | `O(min(n,charset))` |
+| 4 | Basic | [1004. Max Consecutive Ones III](04.%20Sliding%20window/02.%20Basic/03.%201004.%20Max%20Consecutive%20Ones%20III.md) | Medium | "Flip k zeroes" = "at most k zeroes" | `O(n)` | `O(1)` |
+| 5 | Basic | [904. Fruit Into Baskets](04.%20Sliding%20window/02.%20Basic/04.%20904.%20Fruit%20Into%20Baskets.md) | Medium | Story for "at most 2 distinct" | `O(n)` | `O(1)` |
+| 6 | Basic | [209. Minimum Size Subarray Sum](04.%20Sliding%20window/02.%20Basic/05.%20209.%20Minimum%20Size%20Subarray%20Sum.md) | Medium | Minimising: record inside the shrink | `O(n)` | `O(1)` |
+| 7 | Basic | [713. Subarray Product Less Than K](04.%20Sliding%20window/02.%20Basic/06.%20713.%20Subarray%20Product%20Less%20Than%20K.md) | Medium | Valid window adds `right - left + 1` | `O(n)` | `O(1)` |
+| 8 | At Most | [340. At Most K Distinct Characters](04.%20Sliding%20window/03.%20At%20Most/01.%20340.%20Longest%20Substring%20With%20At%20Most%20K%20Distinct%20Characters.md) | Medium | The parent count-map template | `O(n)` | `O(k)` |
+| 9 | At Most | [159. At Most Two Distinct Characters](04.%20Sliding%20window/03.%20At%20Most/02.%20159.%20Longest%20Substring%20with%20At%20Most%20Two%20Distinct%20Characters.md) | Medium | The `k = 2` instance of 340 | `O(n)` | `O(1)` |
+| 10 | Trick | [930. Binary Subarrays With Sum](04.%20Sliding%20window/04.%20At%20Most%20Trick/01.%20930.%20Binary%20Subarrays%20With%20Sum.md) | Medium | `exactly(k) = atMost(k) - atMost(k-1)` | `O(n)` | `O(1)` |
+| 11 | Trick | [1248. Count Number of Nice Subarrays](04.%20Sliding%20window/04.%20At%20Most%20Trick/02.%201248.%20Count%20Number%20of%20Nice%20Subarrays.md) | Medium | Map odd to 1, even to 0, becomes 930 | `O(n)` | `O(1)` |
+| 12 | Trick | [992. Subarrays with K Different Integers](04.%20Sliding%20window/04.%20At%20Most%20Trick/03.%20992.%20Subarrays%20with%20K%20Different%20Integers.md) | Hard | Same trick over the count-map template | `O(n)` | `O(k)` |
+| 13 | Repeating | [1358. Substrings Containing All Three Characters](04.%20Sliding%20window/05.%20Repeating%20Characters/01.%201358.%20Number%20of%20Substrings%20Containing%20All%20Three%20Characters.md) | Medium | Add `min(last_a, last_b, last_c) + 1` | `O(n)` | `O(1)` |
+| 14 | Repeating | [424. Longest Repeating Character Replacement](04.%20Sliding%20window/05.%20Repeating%20Characters/02.%20424.%20Longest%20Repeating%20Character%20Replacement.md) | Medium | Valid when `size - max_freq <= k` | `O(n)` | `O(1)` |
+| 15 | Hard | [76. Minimum Window Substring](04.%20Sliding%20window/06.%20Hard/01.%2076.%20Minimum%20Window%20Substring.md) | Hard | `have == required` counter | `O(n+m)` | `O(charset)` |
+
 ## Repository Layout
 
 ```text
 dsa-notes/
-├── 01. Array/
-│   ├── README.md            ← full topic guide
-│   ├── 01. Easy/            ← 14 problems
-│   ├── 02. Medium/          ← 13 problems
-│   └── 03. Hard/            ← 11 problems
-└── 02. Two pointers/
+├── 01. Array/               ← 38 problems
+├── 02. Two pointers/        ← 5 problems
+└── 04. Sliding window/      ← 15 notes
     ├── README.md            ← full topic guide
-    ├── 01. Basics/
-    ├── 02. Medium/
-    └── 03. Hard/
+    ├── 01. Introduction/
+    ├── 02. Basic/
+    ├── 03. At Most/
+    ├── 04. At Most Trick/
+    ├── 05. Repeating Characters/
+    └── 06. Hard/
 ```
 
 Folders and files are numbered so they sort in study order: topic → difficulty tier → problem.
