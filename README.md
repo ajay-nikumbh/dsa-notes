@@ -12,7 +12,7 @@ Each approach carries commented code and its own time/space analysis.
 
 | # | Topic | Core Focus | Problems | Status |
 |:---:|:---|:---|:---:|:---:|
-| 01 | [Array](01.%20Array/) | Prefix sums, Kadane, in-place rearrangement | 14 | **Easy done** |
+| 01 | [Array](01.%20Array/) | Prefix sums, Kadane, in-place rearrangement | 27 | **Easy + Medium** |
 | 02 | [Two Pointers](02.%20Two%20pointers/) | Converging pointers, fast/slow, fixed element + scan | 5 | **Done** |
 | 03 | Stacks and Queues | Monotonic stack, next greater element | – | Planned |
 | 04 | Sliding Window | Fixed and variable windows, longest/shortest substring | – | Planned |
@@ -49,6 +49,24 @@ Each approach carries commented code and its own time/space analysis.
 | 12 | [Largest subarray with 0 sum](01.%20Array/01.%20Easy/12.%20Largest%20subarray%20with%200%20sum.md) | Medium | Same prefix sum means zero in between | `O(n)` | `O(n)` |
 | 13 | [Find Second Smallest and Second Largest Element in an Array](01.%20Array/01.%20Easy/13.%20Find%20Second%20Smallest%20and%20Second%20Largest%20Element%20in%20an%20Array.md) | Basic | Four trackers in a single pass | `O(n)` | `O(1)` |
 | 14 | [First and Second Smallests](01.%20Array/01.%20Easy/14.%20First%20and%20Second%20Smallests.md) | Basic | Two trackers, update smallest before second | `O(n)` | `O(1)` |
+
+### Medium
+
+| # | Problem | Difficulty | Key Idea | Time | Space |
+|:---:|:---|:---:|:---|:---:|:---:|
+| 1 | [1. Two Sum](01.%20Array/02.%20Medium/01.%201.%20Two%20Sum.md) | Medium | Store complements; check before insert | `O(n)` | `O(n)` |
+| 2 | [75. Sort Colors](01.%20Array/02.%20Medium/02.%2075.%20Sort%20Colors.md) | Medium | Three regions, one pass | `O(n)` | `O(1)` |
+| 3 | [169. Majority Element](01.%20Array/02.%20Medium/03.%20169.%20Majority%20Element.md) | Easy | Pairwise cancellation leaves the majority | `O(n)` | `O(1)` |
+| 4 | [53. Maximum Subarray](01.%20Array/02.%20Medium/04.%2053.%20Maximum%20Subarray.md) | Medium | Extend or restart at each element | `O(n)` | `O(1)` |
+| 5 | [121. Best Time to Buy and Sell Stock](01.%20Array/02.%20Medium/05.%20121.%20Best%20Time%20to%20Buy%20and%20Sell%20Stock.md) | Easy | Track min price, best profit against it | `O(n)` | `O(1)` |
+| 6 | [2149. Rearrange Array Elements by Sign](01.%20Array/02.%20Medium/06.%202149.%20Rearrange%20Array%20Elements%20by%20Sign.md) | Medium | Sign fixes the slot; cursors step by 2 | `O(n)` | `O(n)` |
+| 7 | [31. Next Permutation](01.%20Array/02.%20Medium/07.%2031.%20Next%20Permutation.md) | Medium | Find pivot, swap successor, reverse suffix | `O(n)` | `O(1)` |
+| 8 | [Array Leaders](01.%20Array/02.%20Medium/08.%20Array%20Leaders.md) | Easy | Running max from the right | `O(n)` | `O(1)` |
+| 9 | [128. Longest Consecutive Sequence](01.%20Array/02.%20Medium/09.%20128.%20Longest%20Consecutive%20Sequence.md) | Medium | Only walk runs from their head | `O(n)` | `O(n)` |
+| 10 | [73. Set Matrix Zeroes](01.%20Array/02.%20Medium/10.%2073.%20Set%20Matrix%20Zeroes.md) | Medium | Row 0 and col 0 become the markers | `O(m*n)` | `O(1)` |
+| 11 | [48. Rotate Image](01.%20Array/02.%20Medium/11.%2048.%20Rotate%20Image.md) | Medium | Two reflections compose to a rotation | `O(n^2)` | `O(1)` |
+| 12 | [54. Spiral Matrix](01.%20Array/02.%20Medium/12.%2054.%20Spiral%20Matrix.md) | Medium | Shrink the rectangle layer by layer | `O(m*n)` | `O(1)` |
+| 13 | [560. Subarray Sum Equals K](01.%20Array/02.%20Medium/13.%20560.%20Subarray%20Sum%20Equals%20K.md) | Medium | Count earlier sums equal to sum - k | `O(n)` | `O(n)` |
 
 ## 02. Two Pointers
 
