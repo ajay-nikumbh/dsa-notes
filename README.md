@@ -24,7 +24,7 @@ Counts are problems written, broken down by difficulty tier.
 | 08 | Trees | Traversals, BST properties, LCA | – | – | – | – | Planned |
 | 09 | Heaps | Top-K, merge K sorted, running median | – | – | – | – | Planned |
 | 10 | Greedy | Interval scheduling, exchange argument | – | – | – | – | Planned |
-| 11 | Graphs | BFS/DFS, topological sort, union-find | – | – | – | – | Planned |
+| 11 | [**Graphs**](11.%20Graphs/) | BFS/DFS, cycle detection, bipartite | 4 | 14 | – | **18** | In progress |
 | 12 | Dynamic Programming | 1D/2D states, knapsack, LIS | – | – | – | – | Planned |
 | 13 | Maths and Geometry | Number theory, matrix rotation, GCD | – | – | – | – | Planned |
 | 14 | Bit Manipulation | XOR tricks, masks, bit counting | – | – | – | – | Planned |
@@ -171,6 +171,33 @@ One question repeated at every level: what are my choices here, and which do I t
 | 20 | Hard | [Sudoku Solver](07.%20Recursion/03.%20Hard%20Problems/06.%20Sudoku%20Solver.md) | Hard | Boolean propagation stops at one solution |
 | 21 | Hard | [Expression Add Operators](07.%20Recursion/03.%20Hard%20Problems/07.%20Expression%20Add%20Operators.md) | Hard | Split + operator choice |
 
+## 11. Graphs
+
+The most general structure in the sheet — arrays, lists, and trees are all restricted graphs. Nearly every problem here is BFS or DFS wearing a different costume.
+
+**[Read the full Graphs guide →](11.%20Graphs/)** covers representations, BFS vs DFS, multi-source BFS, the reversed-thinking trick, and cycle detection for both undirected and directed graphs.
+
+| # | Tier | Note / Problem | Difficulty | Key Idea |
+|:---:|:---:|:---|:---:|:---|
+| 1 | Intro | [Introduction to Graphs](11.%20Graphs/01.%20Introductions/01.%20Introduction%20to%20Graphs.md) | – | Vertices, edges, representations |
+| 2 | Intro | [Connected Components in Graphs](11.%20Graphs/01.%20Introductions/02.%20Connected%20Components%20in%20Graphs.md) | – | What a component is |
+| 3 | Intro | [Breadth First Search](11.%20Graphs/01.%20Introductions/03.%20Breadth%20First%20Search.md) | – | Queue-based level-order traversal |
+| 4 | Intro | [Depth First Search](11.%20Graphs/01.%20Introductions/04.%20Depth%20First%20Search.md) | – | Stack/recursion-based traversal |
+| 5 | BFS/DFS | [547. Number of Provinces](11.%20Graphs/02.%20BFS%20and%20DFS/01.%20547.%20Number%20of%20Provinces.md) | Medium | Count connected components on a matrix |
+| 6 | BFS/DFS | [200. Number of Islands](11.%20Graphs/02.%20BFS%20and%20DFS/02.%20200.%20Number%20of%20Islands.md) | Medium | Components on a grid |
+| 7 | BFS/DFS | [733. Flood Fill](11.%20Graphs/02.%20BFS%20and%20DFS/03.%20733.%20Flood%20Fill.md) | Easy | Same traversal, painting instead of counting |
+| 8 | BFS/DFS | [994. Rotten Oranges](11.%20Graphs/02.%20BFS%20and%20DFS/04.%20994.%20Rotten%20Oranges.md) | Medium | Multi-source BFS, one level per minute |
+| 9 | BFS/DFS | [Detect Cycle — Undirected, BFS](11.%20Graphs/02.%20BFS%20and%20DFS/05.%20Detect%20Cycle%20in%20an%20Undirected%20Graph%20using%20BFS.md) | Medium | Track (node, parent) pairs |
+| 10 | BFS/DFS | [Detect Cycle — Undirected, DFS](11.%20Graphs/02.%20BFS%20and%20DFS/06.%20Detect%20Cycle%20in%20an%20Undirected%20Graph%20using%20DFS.md) | Medium | Same idea, recursive |
+| 11 | BFS/DFS | [542. 01 Matrix](11.%20Graphs/02.%20BFS%20and%20DFS/07.%20542.%2001%20Matrix.md) | Medium | Multi-source BFS from every zero |
+| 12 | BFS/DFS | [130. Surrounded Regions](11.%20Graphs/02.%20BFS%20and%20DFS/08.%20130.%20Surrounded%20Regions.md) | Medium | Reversed: mark from the border inward |
+| 13 | BFS/DFS | [1020. Number of Enclaves](11.%20Graphs/02.%20BFS%20and%20DFS/09.%201020.%20Number%20of%20Enclaves.md) | Medium | Same trick, count instead of flip |
+| 14 | BFS/DFS | [Number of Distinct Islands](11.%20Graphs/02.%20BFS%20and%20DFS/10.%20Number%20of%20Distinct%20Islands.md) | Medium | Normalize shape to relative coordinates |
+| 15 | BFS/DFS | [785. Is Graph Bipartite (BFS)](11.%20Graphs/02.%20BFS%20and%20DFS/11.%20785.%20Is%20Graph%20Bipartite%20%28BFS%29.md) | Medium | 2-coloring via BFS |
+| 16 | BFS/DFS | [785. Is Graph Bipartite (DFS)](11.%20Graphs/02.%20BFS%20and%20DFS/12.%20785.%20Is%20Graph%20Bipartite%20%28DFS%29.md) | Medium | Same 2-coloring, recursive |
+| 17 | BFS/DFS | [Detect Cycle in a Directed Graph](11.%20Graphs/02.%20BFS%20and%20DFS/13.%20Detect%20Cycle%20in%20a%20Directed%20Graph%20using%20DFS.md) | Medium | visited + path_visited, back-edge vs cross-edge |
+| 18 | BFS/DFS | [802. Find Eventual Safe States](11.%20Graphs/02.%20BFS%20and%20DFS/14.%20802.%20Find%20Eventual%20Safe%20States.md) | Medium | Same machinery, memoized per node |
+
 ## Repository Layout
 
 ```text
@@ -178,11 +205,11 @@ dsa-notes/
 ├── 01. Array/               ← 38 problems
 ├── 02. Two pointers/        ← 5 problems
 ├── 04. Sliding window/      ← 15 notes
-└── 07. Recursion/           ← 20 notes
+├── 07. Recursion/           ← 20 notes
+└── 11. Graphs/              ← 18 notes (sections 1-2)
     ├── README.md            ← full topic guide
-    ├── 01. Introduction/
-    ├── 02. Standard Problems/
-    └── 03. Hard Problems/
+    ├── 01. Introductions/
+    └── 02. BFS and DFS/
 ```
 
 Folders and files are numbered so they sort in study order: topic → difficulty tier → problem.
