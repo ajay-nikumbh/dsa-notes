@@ -20,7 +20,7 @@ Counts are problems written, broken down by difficulty tier.
 | 04 | [**Sliding Window**](04.%20Sliding%20window/) | Fixed/variable windows, at-most trick | 6 | 7 | 2 | **15** | Complete |
 | 05 | Linked List | Reversal, cycle detection, merge | – | – | – | – | Planned |
 | 06 | Binary Search | On answer space, rotated arrays | – | – | – | – | Planned |
-| 07 | Recursion | Subsets, permutations, backtracking | – | – | – | – | Planned |
+| 07 | [**Recursion**](07.%20Recursion/) | Pick/not-pick, backtracking, constraints | 2 | 5 | 13 | **20** | Complete |
 | 08 | Trees | Traversals, BST properties, LCA | – | – | – | – | Planned |
 | 09 | Heaps | Top-K, merge K sorted, running median | – | – | – | – | Planned |
 | 10 | Greedy | Interval scheduling, exchange argument | – | – | – | – | Planned |
@@ -141,20 +141,48 @@ Two pointers bound a region that grows right and shrinks left. Turns `O(n^2)` su
 | 14 | Repeating | [424. Longest Repeating Character Replacement](04.%20Sliding%20window/05.%20Repeating%20Characters/02.%20424.%20Longest%20Repeating%20Character%20Replacement.md) | Medium | Valid when `size - max_freq <= k` | `O(n)` | `O(1)` |
 | 15 | Hard | [76. Minimum Window Substring](04.%20Sliding%20window/06.%20Hard/01.%2076.%20Minimum%20Window%20Substring.md) | Hard | `have == required` counter | `O(n+m)` | `O(charset)` |
 
+## 07. Recursion
+
+One question repeated at every level: what are my choices here, and which do I try next? This topic builds from the call stack up through pick/not-pick to full backtracking with constraints.
+
+**[Read the full Recursion guide →](07.%20Recursion/)** covers the call stack, the pick/not-pick pattern, the duplicate-skip trick, grid backtracking, and constraint backtracking.
+
+| # | Tier | Note / Problem | Difficulty | Key Idea |
+|:---:|:---:|:---|:---:|:---|
+| 1 | Intro | [Introduction to Recursion](07.%20Recursion/01.%20Introduction/01.%20Introduction%20to%20Recursion.md) | – | Call stack, base case, stack overflow |
+| 2 | Intro | [Problems on Recursion](07.%20Recursion/01.%20Introduction/02.%20Problems%20on%20Recursion.md) | – | Normal order vs backtracking order |
+| 3 | Intro | [Parameterized and Functional Recursion](07.%20Recursion/01.%20Introduction/03.%20Parameterized%20and%20Functional%20Recursion.md) | – | Answer as parameter vs return value |
+| 4 | Intro | [Problems on Functional Recursion](07.%20Recursion/01.%20Introduction/04.%20Problems%20on%20Functional%20Recursion.md) | – | Worked functional-recursion problems |
+| 5 | Intro | [Multiple Recursion Calls](07.%20Recursion/01.%20Introduction/05.%20Multiple%20Recursion%20Calls.md) | – | Branching recursion, Fibonacci, memoization |
+| 6 | Intro | [Recursion on Subsequences](07.%20Recursion/01.%20Introduction/06.%20Recursion%20on%20Subsequences.md) | – | Pick/not-pick — the topic's core pattern |
+| 7 | Intro | [All Kinds of Patterns in Recursion](07.%20Recursion/01.%20Introduction/07.%20All%20Kinds%20of%20Patterns%20in%20Recursion.md) | – | Taxonomy: print-all, find-one, count |
+| 8 | Standard | [39. Combination Sum](07.%20Recursion/02.%20Standard%20Problems/01.%2039.%20Combination%20Sum.md) | Medium | Pick keeps the same index |
+| 9 | Standard | [40. Combination Sum II](07.%20Recursion/02.%20Standard%20Problems/02.%2040.%20Combination%20Sum%20II.md) | Medium | Sort + skip-siblings dedup |
+| 10 | Standard | [Subset Sums](07.%20Recursion/02.%20Standard%20Problems/03.%20Subset%20Sums.md) | Easy | Collect the sum at every leaf |
+| 11 | Standard | [78. Subsets](07.%20Recursion/02.%20Standard%20Problems/04.%2078.%20Subsets.md) | Medium | Pure pick/not-pick, `2^n` leaves |
+| 12 | Standard | [90. Subsets II](07.%20Recursion/02.%20Standard%20Problems/05.%2090.%20Subsets%20II.md) | Medium | Subsets plus duplicate-skip |
+| 13 | Standard | [46. Permutations](07.%20Recursion/02.%20Standard%20Problems/06.%2046.%20Permutations.md) | Medium | Try every unused element per position |
+| 14 | Standard | [47. Permutations II](07.%20Recursion/02.%20Standard%20Problems/07.%2047.%20Permutations%20II.md) | Medium | `not used[i-1]` dedup |
+| 15 | Hard | [131. Palindrome Partitioning](07.%20Recursion/03.%20Hard%20Problems/01.%20131.%20Palindrome%20Partitioning.md) | Medium | Try every palindromic prefix |
+| 16 | Hard | [79. Word Search](07.%20Recursion/03.%20Hard%20Problems/02.%2079.%20Word%20Search.md) | Medium | Grid DFS, mark and restore |
+| 17 | Hard | [51. N-Queens](07.%20Recursion/03.%20Hard%20Problems/03.%2051.%20N-Queens.md) | Hard | O(1) column/diagonal safety check |
+| 18 | Hard | [Rat in a Maze](07.%20Recursion/03.%20Hard%20Problems/04.%20Rat%20in%20a%20Maze.md) | Hard | Grid DFS, all valid paths |
+| 19 | Hard | [M-Coloring Problem](07.%20Recursion/03.%20Hard%20Problems/05.%20M-Coloring%20Problem.md) | Hard | Graph constraint backtracking |
+| 20 | Hard | [Sudoku Solver](07.%20Recursion/03.%20Hard%20Problems/06.%20Sudoku%20Solver.md) | Hard | Boolean propagation stops at one solution |
+| 21 | Hard | [Expression Add Operators](07.%20Recursion/03.%20Hard%20Problems/07.%20Expression%20Add%20Operators.md) | Hard | Split + operator choice |
+
 ## Repository Layout
 
 ```text
 dsa-notes/
 ├── 01. Array/               ← 38 problems
 ├── 02. Two pointers/        ← 5 problems
-└── 04. Sliding window/      ← 15 notes
+├── 04. Sliding window/      ← 15 notes
+└── 07. Recursion/           ← 20 notes
     ├── README.md            ← full topic guide
     ├── 01. Introduction/
-    ├── 02. Basic/
-    ├── 03. At Most/
-    ├── 04. At Most Trick/
-    ├── 05. Repeating Characters/
-    └── 06. Hard/
+    ├── 02. Standard Problems/
+    └── 03. Hard Problems/
 ```
 
 Folders and files are numbered so they sort in study order: topic → difficulty tier → problem.
