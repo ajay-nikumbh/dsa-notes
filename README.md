@@ -1,10 +1,27 @@
 # DSA Notes
 
-Structured notes for Data Structures & Algorithms, built from the TUF sheet.
+Structured notes for Data Structures & Algorithms.
 
 Every problem note follows the same shape, so patterns stay comparable across topics:
 
-> Problem statement → Core theory → Edge cases → Brute force → Better approach → Optimal approach → Dry run → Complexity → Common mistakes → Interview follow-ups → Runnable tests
+```mermaid
+flowchart LR
+    A["Problem<br/>Statement"]:::a --> B["Core<br/>Theory"]:::b
+    B --> C["Edge<br/>Cases"]:::a
+    C --> D["Brute<br/>Force"]:::c
+    D --> E["Better<br/>Approach"]:::c
+    E --> F["Optimal<br/>Approach"]:::d
+    F --> G["Dry<br/>Run"]:::a
+    G --> H["Complexity"]:::b
+    H --> I["Common<br/>Mistakes"]:::a
+    I --> J["Interview<br/>Follow-ups"]:::b
+    J --> K["Verify<br/>(runnable)"]:::d
+
+    classDef a fill:#1f2937,stroke:#6b7280,color:#e5e7eb
+    classDef b fill:#1e3a5f,stroke:#3b82f6,color:#dbeafe
+    classDef c fill:#78350f,stroke:#f59e0b,color:#fef3c7
+    classDef d fill:#065f46,stroke:#10b981,color:#ecfdf5
+```
 
 Each approach carries commented Python and its own time/space analysis. Every note ends with a **Verify** block — the optimal solution plus asserts you can paste straight into a REPL.
 
@@ -30,24 +47,28 @@ Counts are problems written, broken down by difficulty tier.
 | 14 | Bit Manipulation | XOR tricks, masks, bit counting | – | – | – | – | Planned |
 | 15 | Intervals | Merge, insert, overlap counting | – | – | – | – | Planned |
 | 16 | Databases | Joins, window functions, aggregation | – | – | – | – | Planned |
+| | **Total** | | **27** | **42** | **27** | **96** | |
 
 ```mermaid
 flowchart TD
-    A["01 Array"]:::done --> B["02 Two Pointers"]:::done
-    B --> C["04 Sliding Window"]:::done
-    C --> D["07 Recursion"]:::done
-    D --> E["11 Graphs"]:::inprog
-    E --> F["03 Stacks and Queues"]:::next
-    F --> G["05 Linked List"]:::todo
-    G --> H["06 Binary Search"]:::todo
-    H --> I["08 Trees"]:::todo
-    I --> J["09 Heaps"]:::todo
-    J --> K["10 Greedy"]:::todo
-    K --> L["12 Dynamic Programming"]:::todo
-    L --> M["13 Maths and Geometry"]:::todo
-    M --> N["14 Bit Manipulation"]:::todo
-    N --> O["15 Intervals"]:::todo
-    O --> P["16 Databases"]:::todo
+    A(["01 Array"]):::done -.-> B(["02 Two<br/>Pointers"]):::done
+    B -.-> C(["04 Sliding<br/>Window"]):::done
+    C -.-> D(["07<br/>Recursion"]):::done
+    D -.-> E(["11 Graphs"]):::inprog
+    E -.-> F(["03 Stacks<br/>and Queues"]):::next
+
+    F --> G(["05 Linked<br/>List"]):::todo
+    F --> H(["06 Binary<br/>Search"]):::todo
+    G --> I(["08 Trees"]):::todo
+    H --> I
+    I --> J(["09 Heaps"]):::todo
+    I --> K(["10 Greedy"]):::todo
+    J --> L(["12 Dynamic<br/>Programming"]):::todo
+    K --> L
+    L --> M(["13 Maths and<br/>Geometry"]):::todo
+    L --> N(["14 Bit<br/>Manipulation"]):::todo
+    M --> O(["15<br/>Intervals"]):::todo
+    N --> P(["16<br/>Databases"]):::todo
 
     classDef done fill:#065f46,stroke:#10b981,color:#ecfdf5
     classDef inprog fill:#78350f,stroke:#f59e0b,color:#fef3c7
@@ -208,33 +229,3 @@ The most general structure in the sheet — arrays, lists, and trees are all res
 | 16 | BFS/DFS | [785. Is Graph Bipartite (DFS)](11.%20Graphs/02.%20BFS%20and%20DFS/12.%20785.%20Is%20Graph%20Bipartite%20%28DFS%29.md) | Medium | Same 2-coloring, recursive |
 | 17 | BFS/DFS | [Detect Cycle in a Directed Graph](11.%20Graphs/02.%20BFS%20and%20DFS/13.%20Detect%20Cycle%20in%20a%20Directed%20Graph%20using%20DFS.md) | Medium | visited + path_visited, back-edge vs cross-edge |
 | 18 | BFS/DFS | [802. Find Eventual Safe States](11.%20Graphs/02.%20BFS%20and%20DFS/14.%20802.%20Find%20Eventual%20Safe%20States.md) | Medium | Same machinery, memoized per node |
-
-## Repository Layout
-
-```text
-dsa-notes/
-├── 01. Array/               ← 38 problems
-├── 02. Two pointers/        ← 5 problems
-├── 04. Sliding window/      ← 15 notes
-├── 07. Recursion/           ← 20 notes
-└── 11. Graphs/              ← 18 notes (sections 1-2)
-    ├── README.md            ← full topic guide
-    ├── 01. Introductions/
-    └── 02. BFS and DFS/
-```
-
-Folders and files are numbered so they sort in study order: topic → difficulty tier → problem.
-
-## How to Use These Notes
-
-| If you want to | Go to |
-|:---|:---|
-| Learn a topic from scratch | The topic `README.md` — it teaches the concepts end to end |
-| Revise before an interview | A problem's **Interview Explanation** and **Interview Follow-ups** |
-| Check you actually understand | The **Verify** block — paste it into a REPL and run it |
-| Debug a wrong submission | The **Common Mistakes** table |
-| Find the right pattern for a new problem | The topic guide's **Pattern Recognition Cheat Sheet** |
-
-## Language
-
-Solutions are written in **Python 3**, with line-by-line comments intended for revision rather than brevity.
