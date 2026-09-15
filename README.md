@@ -32,14 +32,25 @@ Counts are problems written, broken down by difficulty tier.
 | 16 | Databases | Joins, window functions, aggregation | – | – | – | – | Planned |
 
 ```mermaid
-flowchart LR
+flowchart TD
     A["01 Array"]:::done --> B["02 Two Pointers"]:::done
     B --> C["04 Sliding Window"]:::done
-    C --> D["03 Stacks<br/>and Queues"]:::next
-    D --> E["05 Linked<br/>List"]:::todo
-    E --> F["06 Binary<br/>Search"]:::todo
+    C --> D["07 Recursion"]:::done
+    D --> E["11 Graphs"]:::inprog
+    E --> F["03 Stacks and Queues"]:::next
+    F --> G["05 Linked List"]:::todo
+    G --> H["06 Binary Search"]:::todo
+    H --> I["08 Trees"]:::todo
+    I --> J["09 Heaps"]:::todo
+    J --> K["10 Greedy"]:::todo
+    K --> L["12 Dynamic Programming"]:::todo
+    L --> M["13 Maths and Geometry"]:::todo
+    M --> N["14 Bit Manipulation"]:::todo
+    N --> O["15 Intervals"]:::todo
+    O --> P["16 Databases"]:::todo
 
     classDef done fill:#065f46,stroke:#10b981,color:#ecfdf5
+    classDef inprog fill:#78350f,stroke:#f59e0b,color:#fef3c7
     classDef next fill:#1e3a5f,stroke:#3b82f6,color:#dbeafe
     classDef todo fill:#1f2937,stroke:#6b7280,color:#e5e7eb
 ```
