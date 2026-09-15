@@ -52,19 +52,18 @@ Counts are problems written, broken down by difficulty tier.
 ```mermaid
 flowchart TD
     A(["Array"]):::done -.-> B(["Two<br/>Pointers"]):::done
-    B -.-> C(["Sliding<br/>Window"]):::done
-    C -.-> D(["Recursion"]):::done
-    D -.-> E(["Graphs"]):::inprog
-    E -.-> F(["Stacks and<br/>Queues"]):::next
+    B -.-> C(["Stacks and<br/>Queues"]):::todo
+    C -.-> D(["Sliding<br/>Window"]):::done
+    D -.-> E(["Linked<br/>List"]):::todo
+    E -.-> F(["Binary<br/>Search"]):::todo
+    F -.-> G(["Recursion"]):::done
+    G -.-> H(["Graphs"]):::inprog
 
-    F --> G(["Linked<br/>List"]):::todo
-    F --> H(["Binary<br/>Search"]):::todo
-    G --> I(["Trees"]):::todo
-    H --> I
-    I --> J(["Heaps"]):::todo
+    H --> I(["Trees"]):::todo
+    H --> J(["Heaps"]):::todo
     I --> K(["Greedy"]):::todo
-    J --> L(["Dynamic<br/>Programming"]):::todo
-    K --> L
+    J --> K
+    K --> L(["Dynamic<br/>Programming"]):::todo
     L --> M(["Intervals"]):::todo
     L --> N(["Bit<br/>Manipulation"]):::todo
     M --> O(["Maths and<br/>Geometry"]):::todo
