@@ -51,24 +51,21 @@ Counts are problems written, broken down by difficulty tier.
 
 ```mermaid
 flowchart TD
-    A(["01 Array"]):::done -.-> B(["02 Two<br/>Pointers"]):::done
-    B -.-> C(["04 Sliding<br/>Window"]):::done
-    C -.-> D(["07<br/>Recursion"]):::done
-    D -.-> E(["11 Graphs"]):::inprog
-    E -.-> F(["03 Stacks<br/>and Queues"]):::next
-
-    F --> G(["05 Linked<br/>List"]):::todo
-    F --> H(["06 Binary<br/>Search"]):::todo
-    G --> I(["08 Trees"]):::todo
-    H --> I
-    I --> J(["09 Heaps"]):::todo
-    I --> K(["10 Greedy"]):::todo
-    J --> L(["12 Dynamic<br/>Programming"]):::todo
-    K --> L
-    L --> M(["13 Maths and<br/>Geometry"]):::todo
-    L --> N(["14 Bit<br/>Manipulation"]):::todo
-    M --> O(["15<br/>Intervals"]):::todo
-    N --> P(["16<br/>Databases"]):::todo
+    A(["Array"]):::done --> B(["Two<br/>Pointers"]):::done
+    B --> C(["Sliding<br/>Window"]):::done
+    C --> D(["Stacks and<br/>Queues"]):::next
+    D --> E(["Linked<br/>List"]):::todo
+    E --> F(["Recursion"]):::done
+    F --> G(["Binary<br/>Search"]):::todo
+    G --> H(["Trees"]):::todo
+    H --> I(["Heaps"]):::todo
+    I --> J(["Greedy"]):::todo
+    J --> K(["Graphs"]):::inprog
+    K --> L(["Dynamic<br/>Programming"]):::todo
+    L --> M(["Intervals"]):::todo
+    M --> N(["Bit<br/>Manipulation"]):::todo
+    N --> O(["Maths and<br/>Geometry"]):::todo
+    O --> P(["Databases"]):::todo
 
     classDef done fill:#065f46,stroke:#10b981,color:#ecfdf5
     classDef inprog fill:#78350f,stroke:#f59e0b,color:#fef3c7
