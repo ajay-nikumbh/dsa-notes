@@ -424,7 +424,7 @@ Folder layout mirrors the pattern order below. **Written** = full note; **Pendin
 
 | # | Problem | Difficulty | Key Idea | Status |
 |:---:|:---|:---:|:---|:---:|
-| 1 | [Disjoint Set Union (Rank, Size, Path Compression)](07.%20Disjoint%20Set%20Union/01.%20DSU%20Fundamentals/01.%20Disjoint%20Set%20Union%20%28Rank%2C%20Size%2C%20Path%20Compression%29.md) | Medium | Union by rank or size plus path compression gives near-constant find | Pending |
+| 1 | [Disjoint Set Union (Rank, Size, Path Compression)](07.%20Disjoint%20Set%20Union/01.%20DSU%20Fundamentals/01.%20Disjoint%20Set%20Union%20%28Rank%2C%20Size%2C%20Path%20Compression%29.md) | Medium | Union by rank or size plus path compression gives near-constant find | Written |
 
 #### Basic Connectivity and Components
 
