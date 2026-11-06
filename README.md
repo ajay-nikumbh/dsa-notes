@@ -5,17 +5,18 @@ Structured notes for Data Structures & Algorithms.
 Every problem note follows the same shape, so patterns stay comparable across topics:
 
 ```mermaid
-flowchart LR
-    A["Problem<br/>Statement"]:::a --> B["Core<br/>Theory"]:::b
-    B --> C["Edge<br/>Cases"]:::a
-    C --> D["Brute<br/>Force"]:::c
-    D --> E["Better<br/>Approach"]:::c
-    E --> F["Optimal<br/>Approach"]:::d
-    F --> G["Dry<br/>Run"]:::a
-    G --> H["Complexity"]:::b
-    H --> I["Common<br/>Mistakes"]:::a
-    I --> J["Interview<br/>Follow-ups"]:::b
-    J --> K["Verify<br/>(runnable)"]:::d
+flowchart TD
+    A(["1. Problem<br/>Statement"]):::a --> B(["2. Core<br/>Theory"]):::b
+    B --> C(["3. Edge<br/>Cases"]):::a
+    C --> D(["4. Brute<br/>Force"]):::c
+    D --> E(["5. Better<br/>Approach"]):::c
+    E --> F(["6. Visual Walkthrough<br/>(story version)"]):::b
+    F --> G(["7. Step-by-Step<br/>Dry Run"]):::a
+    G --> H(["8. Optimal Code<br/>+ Tests"]):::d
+    H --> I(["9. Complexity"]):::b
+    I --> J(["10. Common<br/>Mistakes"]):::a
+    J --> K(["11. Interview<br/>Follow-ups"]):::b
+    K --> L(["12. Interview<br/>Explanation"]):::d
 
     classDef a fill:#1f2937,stroke:#6b7280,color:#e5e7eb
     classDef b fill:#1e3a5f,stroke:#3b82f6,color:#dbeafe
@@ -23,7 +24,7 @@ flowchart LR
     classDef d fill:#065f46,stroke:#10b981,color:#ecfdf5
 ```
 
-Each approach carries commented Python and its own time/space analysis. Every note ends with a **Verify** block — the optimal solution plus asserts you can paste straight into a REPL.
+Every code line has a comment above it. Each note traces one example step by step, first as a simple story with pictures, then with the exact arrays. The optimal code ends with asserts that check every traced step, so you can paste it straight into a REPL.
 
 ## Topics
 
@@ -49,29 +50,29 @@ Counts are problems written, broken down by difficulty tier.
 | 16 | Databases | Joins, window functions, aggregation | – | – | – | – | Planned |
 | | **Total** | | **28** | **50** | **29** | **107** | |
 
+**Suggested learning order.** Each topic uses ideas from the ones before it. Arrays come first. Two pointers and sliding window build on arrays. Binary search, stacks and linked lists need only those basics. Recursion comes before trees. Trees and heaps come before graphs, because graph traversal generalizes tree traversal and Dijkstra needs a heap. Greedy and intervals come next, then dynamic programming, which needs recursion. Bit manipulation, maths and databases can be done any time at the end. Green = complete, orange = in progress, gray = planned.
+
 ```mermaid
 flowchart TD
-    A(["Array"]):::done -.-> B(["Two<br/>Pointers"]):::done
-    B -.-> C(["Stacks and<br/>Queues"]):::todo
-    C -.-> D(["Sliding<br/>Window"]):::done
-    D -.-> E(["Linked<br/>List"]):::todo
-    E -.-> F(["Binary<br/>Search"]):::todo
-    F -.-> G(["Recursion"]):::done
-    G -.-> H(["Graphs"]):::inprog
-
-    H --> I(["Trees"]):::todo
-    H --> J(["Heaps"]):::todo
-    I --> K(["Greedy"]):::todo
-    J --> K
-    K --> L(["Dynamic<br/>Programming"]):::todo
-    L --> M(["Intervals"]):::todo
-    L --> N(["Bit<br/>Manipulation"]):::todo
-    M --> O(["Maths and<br/>Geometry"]):::todo
-    N --> P(["Databases"]):::todo
+    A(["1. Array"]):::done
+    A -.-> B(["2. Two<br/>Pointers"]):::done
+    B -.-> C(["3. Sliding<br/>Window"]):::done
+    C -.-> D(["4. Binary<br/>Search"]):::todo
+    D -.-> E(["5. Stacks and<br/>Queues"]):::todo
+    E -.-> F(["6. Linked<br/>List"]):::todo
+    F -.-> G(["7. Recursion"]):::done
+    G -.-> H(["8. Trees"]):::todo
+    H -.-> I(["9. Heaps"]):::todo
+    I -.-> J(["10. Graphs"]):::inprog
+    J -.-> K(["11. Greedy"]):::todo
+    K -.-> L(["12. Intervals"]):::todo
+    L -.-> M(["13. Dynamic<br/>Programming"]):::todo
+    M -.-> N(["14. Bit<br/>Manipulation"]):::todo
+    N -.-> O(["15. Maths and<br/>Geometry"]):::todo
+    O -.-> P(["16. Databases"]):::todo
 
     classDef done fill:#065f46,stroke:#10b981,color:#ecfdf5
     classDef inprog fill:#78350f,stroke:#f59e0b,color:#fef3c7
-    classDef next fill:#1e3a5f,stroke:#3b82f6,color:#dbeafe
     classDef todo fill:#1f2937,stroke:#6b7280,color:#e5e7eb
 ```
 
