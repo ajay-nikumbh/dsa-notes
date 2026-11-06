@@ -437,29 +437,29 @@ Folder layout mirrors the pattern order below. **Written** = full note; **Pendin
 
 | # | Problem | Difficulty | Key Idea | Status |
 |:---:|:---|:---:|:---|:---:|
-| 1 | [684. Redundant Connection](07.%20Disjoint%20Set%20Union/03.%20Cycle%20Detection%20and%20Redundant%20Connections/01.%20684.%20Redundant%20Connection.md) | Medium | The first edge whose endpoints already share a root closes a cycle | Pending |
-| 2 | [Detect Cycle using DSU](07.%20Disjoint%20Set%20Union/03.%20Cycle%20Detection%20and%20Redundant%20Connections/02.%20Detect%20Cycle%20using%20DSU.md) | Medium | An edge inside one set means a cycle in an undirected graph | Pending |
-| 3 | [1319. Number of Operations to Make Network Connected](07.%20Disjoint%20Set%20Union/03.%20Cycle%20Detection%20and%20Redundant%20Connections/03.%201319.%20Number%20of%20Operations%20to%20Make%20Network%20Connected.md) | Medium | Spare edges = redundant unions; need components - 1 of them | Pending |
+| 1 | [684. Redundant Connection](07.%20Disjoint%20Set%20Union/03.%20Cycle%20Detection%20and%20Redundant%20Connections/01.%20684.%20Redundant%20Connection.md) | Medium | The first edge whose endpoints already share a root closes a cycle | Written |
+| 2 | [Detect Cycle using DSU](07.%20Disjoint%20Set%20Union/03.%20Cycle%20Detection%20and%20Redundant%20Connections/02.%20Detect%20Cycle%20using%20DSU.md) | Medium | An edge inside one set means a cycle in an undirected graph | Written |
+| 3 | [1319. Number of Operations to Make Network Connected](07.%20Disjoint%20Set%20Union/03.%20Cycle%20Detection%20and%20Redundant%20Connections/03.%201319.%20Number%20of%20Operations%20to%20Make%20Network%20Connected.md) | Medium | Spare edges = redundant unions; need components - 1 of them | Written |
 
 #### Equality, Identity and Record Merging
 
 | # | Problem | Difficulty | Key Idea | Status |
 |:---:|:---|:---:|:---|:---:|
-| 1 | [721. Accounts Merge](07.%20Disjoint%20Set%20Union/04.%20Equality%2C%20Identity%20and%20Record%20Merging/01.%20721.%20Accounts%20Merge.md) | Medium | Map each email to an account index, union accounts sharing an email | Pending |
-| 2 | [990. Satisfiability of Equality Equations](07.%20Disjoint%20Set%20Union/04.%20Equality%2C%20Identity%20and%20Record%20Merging/02.%20990.%20Satisfiability%20of%20Equality%20Equations.md) | Medium | Union all '==' pairs first, then reject any '!=' pair in one set | Pending |
+| 1 | [721. Accounts Merge](07.%20Disjoint%20Set%20Union/04.%20Equality%2C%20Identity%20and%20Record%20Merging/01.%20721.%20Accounts%20Merge.md) | Medium | Map each email to an account index, union accounts sharing an email | Written |
+| 2 | [990. Satisfiability of Equality Equations](07.%20Disjoint%20Set%20Union/04.%20Equality%2C%20Identity%20and%20Record%20Merging/02.%20990.%20Satisfiability%20of%20Equality%20Equations.md) | Medium | Union all '==' pairs first, then reject any '!=' pair in one set | Written |
 
 #### Dynamic and Grid DSU
 
 | # | Problem | Difficulty | Key Idea | Status |
 |:---:|:---|:---:|:---|:---:|
-| 1 | [305. Number of Islands II](07.%20Disjoint%20Set%20Union/05.%20Dynamic%20and%20Grid%20DSU/01.%20305.%20Number%20of%20Islands%20II.md) | Hard | Add land online; each union with a neighbor island drops the count by 1 | Pending |
-| 2 | [827. Making A Large Island](07.%20Disjoint%20Set%20Union/05.%20Dynamic%20and%20Grid%20DSU/02.%20827.%20Making%20A%20Large%20Island.md) | Hard | DSU sizes per island, then try each 0 and sum distinct neighbor roots | Pending |
+| 1 | [305. Number of Islands II](07.%20Disjoint%20Set%20Union/05.%20Dynamic%20and%20Grid%20DSU/01.%20305.%20Number%20of%20Islands%20II.md) | Hard | Add land online; each union with a neighbor island drops the count by 1 | Written |
+| 2 | [827. Making A Large Island](07.%20Disjoint%20Set%20Union/05.%20Dynamic%20and%20Grid%20DSU/02.%20827.%20Making%20A%20Large%20Island.md) | Hard | DSU sizes per island, then try each 0 and sum distinct neighbor roots | Written |
 
 #### Creative DSU Modeling
 
 | # | Problem | Difficulty | Key Idea | Status |
 |:---:|:---|:---:|:---|:---:|
-| 1 | [947. Most Stones Removed with Same Row or Column](07.%20Disjoint%20Set%20Union/06.%20Creative%20DSU%20Modeling/01.%20947.%20Most%20Stones%20Removed%20with%20Same%20Row%20or%20Column.md) | Medium | Union each stone's row and column node; answer = stones - components | Pending |
+| 1 | [947. Most Stones Removed with Same Row or Column](07.%20Disjoint%20Set%20Union/06.%20Creative%20DSU%20Modeling/01.%20947.%20Most%20Stones%20Removed%20with%20Same%20Row%20or%20Column.md) | Medium | Union each stone's row and column node; answer = stones - components | Written |
 
 ### 08. Famous Graph Algorithms
 
