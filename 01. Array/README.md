@@ -672,58 +672,192 @@ Read the problem, match the signal, reach for the pattern.
 
 ## 18. Problems
 
-### 01. Easy
+Folders follow the pattern order below. **Written** = full note; **Pending** = question added, note to follow.
 
-| # | Problem | Difficulty | Pattern | Key Idea | Time | Space |
-|:---:|:---|:---:|:---|:---|:---:|:---:|
-| 1 | [Largest in Array](01.%20Easy/01.%20Largest%20in%20Array.md) | Basic | Single-pass | Track the max seen so far | `O(n)` | `O(1)` |
-| 2 | [Second Largest](01.%20Easy/02.%20Second%20Largest.md) | Basic | Single-pass | Two trackers, demote before promote | `O(n)` | `O(1)` |
-| 3 | [Array Search](01.%20Easy/03.%20Array%20Search.md) | Basic | Traversal | Linear scan, return index on match | `O(n)` | `O(1)` |
-| 4 | [1752. Check if Array Is Sorted and Rotated](01.%20Easy/04.%201752.%20Check%20if%20Array%20Is%20Sorted%20and%20Rotated.md) | Easy | Circular traversal | Count drops; at most one allowed | `O(n)` | `O(1)` |
-| 5 | [136. Single Number](01.%20Easy/05.%20136.%20Single%20Number.md) | Easy | XOR | Pairs cancel, the loner survives | `O(n)` | `O(1)` |
-| 6 | [268. Missing Number](01.%20Easy/06.%20268.%20Missing%20Number.md) | Easy | XOR / sum formula | Expected minus actual | `O(n)` | `O(1)` |
-| 7 | [485. Max Consecutive Ones](01.%20Easy/07.%20485.%20Max%20Consecutive%20Ones.md) | Easy | Streak counting | Reset the run on zero | `O(n)` | `O(1)` |
-| 8 | [189. Rotate Array](01.%20Easy/08.%20189.%20Rotate%20Array.md) | Medium | Triple reversal | Reverse all, then each part | `O(n)` | `O(1)` |
-| 9 | [283. Move Zeroes](01.%20Easy/09.%20283.%20Move%20Zeroes.md) | Easy | Slow/fast | Slow marks the next keeper slot | `O(n)` | `O(1)` |
-| 10 | [88. Merge Sorted Array](01.%20Easy/10.%2088.%20Merge%20Sorted%20Array.md) | Easy | Fill from back | Never overwrite unread data | `O(m+n)` | `O(1)` |
-| 11 | [Longest Subarray with Sum K](01.%20Easy/11.%20Longest%20Subarray%20with%20Sum%20K.md) | Medium | Prefix + hashmap | Store first index of each sum | `O(n)` | `O(n)` |
-| 12 | [Largest subarray with 0 sum](01.%20Easy/12.%20Largest%20subarray%20with%200%20sum.md) | Medium | Prefix + hashmap | Repeated sum means zero between | `O(n)` | `O(n)` |
-| 13 | [Find Second Smallest and Second Largest](01.%20Easy/13.%20Find%20Second%20Smallest%20and%20Second%20Largest%20Element%20in%20an%20Array.md) | Basic | Single-pass | Four trackers in one scan | `O(n)` | `O(1)` |
-| 14 | [First and Second Smallests](01.%20Easy/14.%20First%20and%20Second%20Smallests.md) | Basic | Single-pass | Demote before promote | `O(n)` | `O(1)` |
+### 01. Basic Traversal and Selection
 
-### 02. Medium
+| # | Problem | Difficulty | Key Idea | Status |
+|:---:|:---|:---:|:---|:---:|
+| 1 | [Largest in Array](01.%20Basic%20Traversal%20and%20Selection/01.%20Largest%20in%20Array.md) | Basic | Track the biggest value seen so far in one pass | Written |
+| 2 | [Second Largest](01.%20Basic%20Traversal%20and%20Selection/02.%20Second%20Largest.md) | Easy | Keep two trackers; demote the old max before promoting a new one | Written |
+| 3 | [Array Search](01.%20Basic%20Traversal%20and%20Selection/03.%20Array%20Search.md) | Basic | Scan left to right and stop at the first match | Written |
+| 4 | [485. Max Consecutive Ones](01.%20Basic%20Traversal%20and%20Selection/04.%20485.%20Max%20Consecutive%20Ones.md) | Easy | Running streak that resets on a zero | Written |
+| 5 | [Array Leaders](01.%20Basic%20Traversal%20and%20Selection/05.%20Array%20Leaders.md) | Easy | Scan from the right with a running maximum | Written |
+| 6 | [First and Second Smallests](01.%20Basic%20Traversal%20and%20Selection/06.%20First%20and%20Second%20Smallests.md) | Easy | Second-largest trick mirrored for the minimum | Written |
+| 7 | [Find Second Smallest and Second Largest](01.%20Basic%20Traversal%20and%20Selection/07.%20Find%20Second%20Smallest%20and%20Second%20Largest%20Element%20in%20an%20Array.md) | Easy | Four trackers updated in one pass | Written |
+| 8 | [1295. Find Numbers with Even Number of Digits](01.%20Basic%20Traversal%20and%20Selection/08.%201295.%20Find%20Numbers%20with%20Even%20Number%20of%20Digits.md) | Easy | Count digits of each number and check if the count is even | Pending |
+| 9 | [1480. Running Sum of 1d Array](01.%20Basic%20Traversal%20and%20Selection/09.%201480.%20Running%20Sum%20of%201d%20Array.md) | Easy | Each answer is the previous answer plus the current number | Pending |
+| 10 | [1512. Number of Good Pairs](01.%20Basic%20Traversal%20and%20Selection/10.%201512.%20Number%20of%20Good%20Pairs.md) | Easy | A value seen k times before adds k new pairs | Pending |
+| 11 | [1672. Richest Customer Wealth](01.%20Basic%20Traversal%20and%20Selection/11.%201672.%20Richest%20Customer%20Wealth.md) | Easy | Sum each row and keep the largest sum | Pending |
+| 12 | [1732. Find the Highest Altitude](01.%20Basic%20Traversal%20and%20Selection/12.%201732.%20Find%20the%20Highest%20Altitude.md) | Easy | Running sum of gains; track its maximum including 0 | Pending |
+| 13 | [1920. Build Array from Permutation](01.%20Basic%20Traversal%20and%20Selection/13.%201920.%20Build%20Array%20from%20Permutation.md) | Easy | ans[i] = nums[nums[i]]; in-place trick stores two values in one cell | Pending |
+| 14 | [1929. Concatenation of Array](01.%20Basic%20Traversal%20and%20Selection/14.%201929.%20Concatenation%20of%20Array.md) | Easy | ans[i] and ans[i + n] both get nums[i] | Pending |
+| 15 | [2011. Final Value of Variable After Performing Operations](01.%20Basic%20Traversal%20and%20Selection/15.%202011.%20Final%20Value%20of%20Variable%20After%20Performing%20Operations.md) | Easy | Add 1 for every '++' operation and subtract 1 for every '--' | Pending |
+| 16 | [2114. Maximum Number of Words Found in Sentences](01.%20Basic%20Traversal%20and%20Selection/16.%202114.%20Maximum%20Number%20of%20Words%20Found%20in%20Sentences.md) | Easy | Words = spaces + 1; keep the maximum | Pending |
+| 17 | [2176. Count Equal and Divisible Pairs in an Array](01.%20Basic%20Traversal%20and%20Selection/17.%202176.%20Count%20Equal%20and%20Divisible%20Pairs%20in%20an%20Array.md) | Easy | Check every pair i < j for equal values and (i * j) % k == 0 | Pending |
+| 18 | [2574. Left and Right Sum Differences](01.%20Basic%20Traversal%20and%20Selection/18.%202574.%20Left%20and%20Right%20Sum%20Differences.md) | Easy | Right sum = total - left sum - current | Pending |
+| 19 | [2652. Sum Multiples](01.%20Basic%20Traversal%20and%20Selection/19.%202652.%20Sum%20Multiples.md) | Easy | Add every number from 1 to n divisible by 3, 5 or 7 | Pending |
+| 20 | [2798. Number of Employees Who Met the Target](01.%20Basic%20Traversal%20and%20Selection/20.%202798.%20Number%20of%20Employees%20Who%20Met%20the%20Target.md) | Easy | Count hours that are at least the target | Pending |
+| 21 | [2824. Count Pairs Whose Sum is Less than Target](01.%20Basic%20Traversal%20and%20Selection/21.%202824.%20Count%20Pairs%20Whose%20Sum%20is%20Less%20than%20Target.md) | Easy | Sort, then two pointers count many pairs at once | Pending |
+| 22 | [2942. Find Words Containing Character](01.%20Basic%20Traversal%20and%20Selection/22.%202942.%20Find%20Words%20Containing%20Character.md) | Easy | Collect indices of words that contain the character | Pending |
+| 23 | [2951. Find the Peaks](01.%20Basic%20Traversal%20and%20Selection/23.%202951.%20Find%20the%20Peaks.md) | Easy | An inner index is a peak if it beats both neighbors | Pending |
+| 24 | [3005. Count Elements With Maximum Frequency](20.%20Frequency%20Array%20%28Counting%20Buckets%29/03.%203005.%20Count%20Elements%20With%20Maximum%20Frequency.md) (see Frequency Array) | Easy | Count frequencies, then add all counts equal to the max | Pending |
+| 25 | [3065. Minimum Operations to Exceed Threshold Value I](01.%20Basic%20Traversal%20and%20Selection/25.%203065.%20Minimum%20Operations%20to%20Exceed%20Threshold%20Value%20I.md) | Easy | Count numbers smaller than k | Pending |
+| 26 | [3146. Permutation Difference between Two Strings](01.%20Basic%20Traversal%20and%20Selection/26.%203146.%20Permutation%20Difference%20between%20Two%20Strings.md) | Easy | Store each character's index in s, sum |index in s - index in t| | Pending |
+| 27 | [414. Third Maximum Number](01.%20Basic%20Traversal%20and%20Selection/27.%20414.%20Third%20Maximum%20Number.md) | Easy | Three distinct trackers shifted down like second largest | Pending |
+| 28 | [747. Largest Number At Least Twice of Others](01.%20Basic%20Traversal%20and%20Selection/28.%20747.%20Largest%20Number%20At%20Least%20Twice%20of%20Others.md) | Easy | Track largest and second largest; compare largest >= 2 * second | Pending |
+| 29 | [896. Monotonic Array](01.%20Basic%20Traversal%20and%20Selection/29.%20896.%20Monotonic%20Array.md) | Easy | One pass with two flags: ever went up, ever went down | Pending |
+| 30 | [941. Valid Mountain Array](01.%20Basic%20Traversal%20and%20Selection/30.%20941.%20Valid%20Mountain%20Array.md) | Easy | Walk up while increasing, then down while decreasing; must end at the last index | Pending |
+| 31 | [1299. Replace Elements with Greatest Element on Right Side](01.%20Basic%20Traversal%20and%20Selection/31.%201299.%20Replace%20Elements%20with%20Greatest%20Element%20on%20Right%20Side.md) | Easy | Scan from the right with a running maximum | Pending |
+| 32 | [1431. Kids With the Greatest Number of Candies](01.%20Basic%20Traversal%20and%20Selection/32.%201431.%20Kids%20With%20the%20Greatest%20Number%20of%20Candies.md) | Easy | Compare candies + extra with the current maximum | Pending |
 
-| # | Problem | Difficulty | Pattern | Key Idea | Time | Space |
-|:---:|:---|:---:|:---|:---|:---:|:---:|
-| 1 | [1. Two Sum](02.%20Medium/01.%201.%20Two%20Sum.md) | Medium | Hash Map | Store complements; check before insert | `O(n)` | `O(n)` |
-| 2 | [75. Sort Colors](02.%20Medium/02.%2075.%20Sort%20Colors.md) | Medium | Dutch Flag | Three regions, one pass | `O(n)` | `O(1)` |
-| 3 | [169. Majority Element](02.%20Medium/03.%20169.%20Majority%20Element.md) | Easy | Boyer-Moore | Pairwise cancellation leaves the majority | `O(n)` | `O(1)` |
-| 4 | [53. Maximum Subarray](02.%20Medium/04.%2053.%20Maximum%20Subarray.md) | Medium | Kadane | Extend or restart at each element | `O(n)` | `O(1)` |
-| 5 | [121. Best Time to Buy and Sell Stock](02.%20Medium/05.%20121.%20Best%20Time%20to%20Buy%20and%20Sell%20Stock.md) | Easy | Single-pass | Track min price, best profit against it | `O(n)` | `O(1)` |
-| 6 | [2149. Rearrange Array Elements by Sign](02.%20Medium/06.%202149.%20Rearrange%20Array%20Elements%20by%20Sign.md) | Medium | Two write indices | Sign fixes the slot; cursors step by 2 | `O(n)` | `O(n)` |
-| 7 | [31. Next Permutation](02.%20Medium/07.%2031.%20Next%20Permutation.md) | Medium | Pivot + reverse | Find pivot, swap successor, reverse suffix | `O(n)` | `O(1)` |
-| 8 | [Array Leaders](02.%20Medium/08.%20Array%20Leaders.md) | Easy | Right-to-left scan | Running max from the right | `O(n)` | `O(1)` |
-| 9 | [128. Longest Consecutive Sequence](02.%20Medium/09.%20128.%20Longest%20Consecutive%20Sequence.md) | Medium | Hash Set | Only walk runs from their head | `O(n)` | `O(n)` |
-| 10 | [73. Set Matrix Zeroes](02.%20Medium/10.%2073.%20Set%20Matrix%20Zeroes.md) | Medium | In-place marking | Row 0 and col 0 become the markers | `O(m*n)` | `O(1)` |
-| 11 | [48. Rotate Image](02.%20Medium/11.%2048.%20Rotate%20Image.md) | Medium | Transpose + reverse | Two reflections compose to a rotation | `O(n^2)` | `O(1)` |
-| 12 | [54. Spiral Matrix](02.%20Medium/12.%2054.%20Spiral%20Matrix.md) | Medium | Four boundaries | Shrink the rectangle layer by layer | `O(m*n)` | `O(1)` |
-| 13 | [560. Subarray Sum Equals K](02.%20Medium/13.%20560.%20Subarray%20Sum%20Equals%20K.md) | Medium | Prefix + hashmap | Count earlier sums equal to sum - k | `O(n)` | `O(n)` |
+### 02. Rotation and Cyclic Arrays
 
-### 03. Hard
+| # | Problem | Difficulty | Key Idea | Status |
+|:---:|:---|:---:|:---|:---:|
+| 1 | [1752. Check if Array Is Sorted and Rotated](02.%20Rotation%20and%20Cyclic%20Arrays/01.%201752.%20Check%20if%20Array%20Is%20Sorted%20and%20Rotated.md) | Easy | Count drops around the circle; at most one is allowed | Written |
+| 2 | [189. Rotate Array](02.%20Rotation%20and%20Cyclic%20Arrays/02.%20189.%20Rotate%20Array.md) | Medium | Reverse all, then reverse each part | Written |
 
-| # | Problem | Difficulty | Pattern | Key Idea | Time | Space |
-|:---:|:---|:---:|:---|:---|:---:|:---:|
-| 1 | [118. Pascal's Triangle](03.%20Hard/01.%20118.%20Pascal%27s%20Triangle.md) | Easy | Row-by-row | Each row is built from the row above | `O(n^2)` | `O(1)` |
-| 2 | [229. Majority Element II](03.%20Hard/02.%20229.%20Majority%20Element%20II.md) | Medium | Boyer-Moore n/3 | Two candidates; verification is mandatory | `O(n)` | `O(1)` |
-| 3 | [15. 3Sum](03.%20Hard/03.%2015.%203Sum.md) | Medium | Sort + two pointers | Fix one, scan the rest, skip duplicates | `O(n^2)` | `O(1)` |
-| 4 | [18. 4Sum](03.%20Hard/04.%2018.%204Sum.md) | Medium | Sort + fix two | kSum: each fixed element adds a loop | `O(n^3)` | `O(1)` |
-| 5 | [Count Subarrays with given XOR](03.%20Hard/05.%20Count%20Subarrays%20with%20given%20XOR.md) | Hard | Prefix XOR + map | Need prefix ^ k, since XOR is its own inverse | `O(n)` | `O(n)` |
-| 6 | [56. Merge Intervals](03.%20Hard/06.%2056.%20Merge%20Intervals.md) | Medium | Sort + sweep | Sort by start, extend the running block | `O(n log n)` | `O(n)` |
-| 7 | [88. Merge Sorted Array](03.%20Hard/07.%2088.%20Merge%20Sorted%20Array.md) | Easy | Fill from back | Never overwrite unread data | `O(m+n)` | `O(1)` |
-| 8 | [Missing And Repeating](03.%20Hard/08.%20Missing%20And%20Repeating.md) | Hard | Maths / XOR | Two equations recover both unknowns | `O(n)` | `O(1)` |
-| 9 | [Count Inversions](03.%20Hard/09.%20Count%20Inversions.md) | Hard | Merge sort | Count a whole left block per comparison | `O(n log n)` | `O(n)` |
-| 10 | [493. Reverse Pairs](03.%20Hard/10.%20493.%20Reverse%20Pairs.md) | Hard | Merge sort | Count in a separate pass before merging | `O(n log n)` | `O(n)` |
-| 11 | [152. Maximum Product Subarray](03.%20Hard/11.%20152.%20Maximum%20Product%20Subarray.md) | Medium | Min/max tracking | A negative swaps the running max and min | `O(n)` | `O(1)` |
+### 03. Two Pointers and In-place Rearrangement
+
+| # | Problem | Difficulty | Key Idea | Status |
+|:---:|:---|:---:|:---|:---:|
+| 1 | [283. Move Zeroes](03.%20Two%20Pointers%20and%20In-place%20Rearrangement/01.%20283.%20Move%20Zeroes.md) | Easy | Slow pointer marks where the next non-zero goes | Written |
+| 2 | [88. Merge Sorted Array](03.%20Two%20Pointers%20and%20In-place%20Rearrangement/02.%2088.%20Merge%20Sorted%20Array.md) | Easy | Fill from the back so nothing is overwritten | Written |
+| 3 | [2149. Rearrange Array Elements by Sign](03.%20Two%20Pointers%20and%20In-place%20Rearrangement/03.%202149.%20Rearrange%20Array%20Elements%20by%20Sign.md) | Medium | Two write cursors stepping by two | Written |
+
+### 04. Hashing (Set)
+
+| # | Problem | Difficulty | Key Idea | Status |
+|:---:|:---|:---:|:---|:---:|
+| 1 | [128. Longest Consecutive Sequence](04.%20Hashing%20%28Set%29/01.%20128.%20Longest%20Consecutive%20Sequence.md) | Medium | Start counting only from the first number of a run | Written |
+
+### 05. XOR and Math Tricks
+
+| # | Problem | Difficulty | Key Idea | Status |
+|:---:|:---|:---:|:---|:---:|
+| 1 | [136. Single Number](05.%20XOR%20and%20Math%20Tricks/01.%20136.%20Single%20Number.md) | Easy | XOR everything; pairs cancel | Written |
+| 2 | [268. Missing Number](05.%20XOR%20and%20Math%20Tricks/02.%20268.%20Missing%20Number.md) | Easy | Expected sum minus actual sum, or XOR of indices and values | Written |
+| 3 | [Missing And Repeating](05.%20XOR%20and%20Math%20Tricks/03.%20Missing%20And%20Repeating.md) | Medium | Two equations from sum and sum of squares | Written |
+
+### 06. Sorting + Two Pointers
+
+| # | Problem | Difficulty | Key Idea | Status |
+|:---:|:---|:---:|:---|:---:|
+| 1 | [1. Two Sum](06.%20Sorting%20%2B%20Two%20Pointers/01.%201.%20Two%20Sum.md) | Easy | Hash map of complements, or sort + two pointers | Written |
+| 2 | [15. 3Sum](06.%20Sorting%20%2B%20Two%20Pointers/02.%2015.%203Sum.md) | Medium | Fix one, two pointers on the rest, skip duplicates | Written |
+| 3 | [18. 4Sum](06.%20Sorting%20%2B%20Two%20Pointers/03.%2018.%204Sum.md) | Medium | Fix two, two pointers on the rest | Written |
+
+### 07. Dutch National Flag (Partitioning)
+
+| # | Problem | Difficulty | Key Idea | Status |
+|:---:|:---|:---:|:---|:---:|
+| 1 | [75. Sort Colors](07.%20Dutch%20National%20Flag%20%28Partitioning%29/01.%2075.%20Sort%20Colors.md) | Medium | Three regions with low, mid, high pointers | Written |
+
+### 08. Prefix Sum + HashMap
+
+| # | Problem | Difficulty | Key Idea | Status |
+|:---:|:---|:---:|:---|:---:|
+| 1 | [Longest Subarray with Sum K](08.%20Prefix%20Sum%20%2B%20HashMap/01.%20Longest%20Subarray%20with%20Sum%20K.md) | Medium | First index of each prefix sum gives the longest window | Written |
+| 2 | [Largest subarray with 0 sum](08.%20Prefix%20Sum%20%2B%20HashMap/02.%20Largest%20subarray%20with%200%20sum.md) | Medium | Two equal prefix sums mean the middle sums to zero | Written |
+| 3 | [560. Subarray Sum Equals K](08.%20Prefix%20Sum%20%2B%20HashMap/03.%20560.%20Subarray%20Sum%20Equals%20K.md) | Medium | Count earlier prefixes equal to current - k | Written |
+
+### 09. Prefix XOR + HashMap
+
+| # | Problem | Difficulty | Key Idea | Status |
+|:---:|:---|:---:|:---|:---:|
+| 1 | [Count Subarrays with given XOR](09.%20Prefix%20XOR%20%2B%20HashMap/01.%20Count%20Subarrays%20with%20given%20XOR.md) | Medium | Count earlier prefix XORs equal to current ^ k | Written |
+
+### 10. Kadane (Running Optimization)
+
+| # | Problem | Difficulty | Key Idea | Status |
+|:---:|:---|:---:|:---|:---:|
+| 1 | [53. Maximum Subarray](10.%20Kadane%20%28Running%20Optimization%29/01.%2053.%20Maximum%20Subarray.md) | Medium | Extend the running sum or restart here | Written |
+| 2 | [121. Best Time to Buy and Sell Stock](10.%20Kadane%20%28Running%20Optimization%29/02.%20121.%20Best%20Time%20to%20Buy%20and%20Sell%20Stock.md) | Easy | Track the lowest price so far | Written |
+| 3 | [152. Maximum Product Subarray](10.%20Kadane%20%28Running%20Optimization%29/03.%20152.%20Maximum%20Product%20Subarray.md) | Medium | Track running max and min; a negative swaps them | Written |
+
+### 11. Boyer-Moore Voting
+
+| # | Problem | Difficulty | Key Idea | Status |
+|:---:|:---|:---:|:---|:---:|
+| 1 | [169. Majority Element](11.%20Boyer-Moore%20Voting/01.%20169.%20Majority%20Element.md) | Easy | Different values cancel; the majority survives | Written |
+| 2 | [229. Majority Element II](11.%20Boyer-Moore%20Voting/02.%20229.%20Majority%20Element%20II.md) | Medium | Two candidates, then verify their counts | Written |
+
+### 12. Permutation
+
+| # | Problem | Difficulty | Key Idea | Status |
+|:---:|:---|:---:|:---|:---:|
+| 1 | [31. Next Permutation](12.%20Permutation/01.%2031.%20Next%20Permutation.md) | Medium | Find pivot, swap with next larger, reverse suffix | Written |
+
+### 13. Matrix Patterns
+
+| # | Problem | Difficulty | Key Idea | Status |
+|:---:|:---|:---:|:---|:---:|
+| 1 | [118. Pascal's Triangle](13.%20Matrix%20Patterns/01.%20118.%20Pascal%27s%20Triangle.md) | Easy | Each row is built from the row above | Written |
+| 2 | [73. Set Matrix Zeroes](13.%20Matrix%20Patterns/02.%2073.%20Set%20Matrix%20Zeroes.md) | Medium | Use row 0 and column 0 as markers | Written |
+| 3 | [48. Rotate Image](13.%20Matrix%20Patterns/03.%2048.%20Rotate%20Image.md) | Medium | Transpose, then reverse each row | Written |
+| 4 | [54. Spiral Matrix](13.%20Matrix%20Patterns/04.%2054.%20Spiral%20Matrix.md) | Medium | Four shrinking boundaries | Written |
+
+### 14. Intervals
+
+| # | Problem | Difficulty | Key Idea | Status |
+|:---:|:---|:---:|:---|:---:|
+| 1 | [56. Merge Intervals](14.%20Intervals/01.%2056.%20Merge%20Intervals.md) | Medium | Sort by start, extend or close the current block | Written |
+
+### 15. Merge Sort Counting
+
+| # | Problem | Difficulty | Key Idea | Status |
+|:---:|:---|:---:|:---|:---:|
+| 1 | [Count Inversions](15.%20Merge%20Sort%20Counting/01.%20Count%20Inversions.md) | Hard | During merge, one comparison counts a whole left block | Written |
+| 2 | [493. Reverse Pairs](15.%20Merge%20Sort%20Counting/02.%20493.%20Reverse%20Pairs.md) | Hard | Count pairs in a separate pass before each merge | Written |
+
+### 16. Prefix and Suffix Precomputation
+
+| # | Problem | Difficulty | Key Idea | Status |
+|:---:|:---|:---:|:---|:---:|
+| 1 | [238. Product of Array Except Self](16.%20Prefix%20and%20Suffix%20Precomputation/01.%20238.%20Product%20of%20Array%20Except%20Self.md) | Medium | Product of everything left times product of everything right | Pending |
+| 2 | [724. Find Pivot Index](16.%20Prefix%20and%20Suffix%20Precomputation/02.%20724.%20Find%20Pivot%20Index.md) | Easy | Left sum equals total - left sum - current | Pending |
+| 3 | [1991. Find the Middle Index in Array](16.%20Prefix%20and%20Suffix%20Precomputation/03.%201991.%20Find%20the%20Middle%20Index%20in%20Array.md) | Easy | Same as pivot index: left sum equals right sum | Pending |
+| 4 | [2012. Sum of Beauty in the Array](16.%20Prefix%20and%20Suffix%20Precomputation/04.%202012.%20Sum%20of%20Beauty%20in%20the%20Array.md) | Medium | Prefix max and suffix min decide beauty 2; neighbors decide beauty 1 | Pending |
+| 5 | [42. Trapping Rain Water (Prefix and Suffix)](16.%20Prefix%20and%20Suffix%20Precomputation/05.%2042.%20Trapping%20Rain%20Water%20%28Prefix%20and%20Suffix%29.md) | Hard | Water at i = min(max on left, max on right) - height | Pending |
+
+### 17. Cyclic Sort (Correct Index Placement)
+
+| # | Problem | Difficulty | Key Idea | Status |
+|:---:|:---|:---:|:---|:---:|
+| 1 | [268. Missing Number (Cyclic Sort)](17.%20Cyclic%20Sort%20%28Correct%20Index%20Placement%29/01.%20268.%20Missing%20Number%20%28Cyclic%20Sort%29.md) | Easy | Put each value at its own index; the empty spot is missing | Pending |
+| 2 | [645. Set Mismatch](17.%20Cyclic%20Sort%20%28Correct%20Index%20Placement%29/02.%20645.%20Set%20Mismatch.md) | Easy | After cyclic sort, the wrong spot shows the duplicate and the missing value | Pending |
+| 3 | [448. Find All Numbers Disappeared in an Array](17.%20Cyclic%20Sort%20%28Correct%20Index%20Placement%29/03.%20448.%20Find%20All%20Numbers%20Disappeared%20in%20an%20Array.md) | Easy | After cyclic sort, every index with the wrong value is missing | Pending |
+| 4 | [442. Find All Duplicates in an Array](17.%20Cyclic%20Sort%20%28Correct%20Index%20Placement%29/04.%20442.%20Find%20All%20Duplicates%20in%20an%20Array.md) | Medium | After cyclic sort, values in wrong spots are duplicates | Pending |
+| 5 | [41. First Missing Positive](17.%20Cyclic%20Sort%20%28Correct%20Index%20Placement%29/05.%2041.%20First%20Missing%20Positive.md) | Hard | Place 1..n at index 0..n-1, then find the first wrong spot | Pending |
+
+### 18. Difference Array (Range Update)
+
+| # | Problem | Difficulty | Key Idea | Status |
+|:---:|:---|:---:|:---|:---:|
+| 1 | [370. Range Addition](18.%20Difference%20Array%20%28Range%20Update%29/01.%20370.%20Range%20Addition.md) | Medium | Add at start, subtract after end, then take a running sum | Pending |
+| 2 | [1109. Corporate Flight Bookings](18.%20Difference%20Array%20%28Range%20Update%29/02.%201109.%20Corporate%20Flight%20Bookings.md) | Medium | Each booking is one range addition on a difference array | Pending |
+| 3 | [1094. Car Pooling](18.%20Difference%20Array%20%28Range%20Update%29/03.%201094.%20Car%20Pooling.md) | Medium | Add riders at pickup, remove at drop-off, check the running sum | Pending |
+| 4 | [2381. Shifting Letters II](18.%20Difference%20Array%20%28Range%20Update%29/04.%202381.%20Shifting%20Letters%20II.md) | Medium | Difference array of shifts, then apply each running shift mod 26 | Pending |
+| 5 | [2772. Apply Operations to Make All Array Elements Equal to Zero](18.%20Difference%20Array%20%28Range%20Update%29/05.%202772.%20Apply%20Operations%20to%20Make%20All%20Array%20Elements%20Equal%20to%20Zero.md) | Medium | Greedy left to right with a difference array of active decrements | Pending |
+
+### 19. 2D Prefix Sum
+
+| # | Problem | Difficulty | Key Idea | Status |
+|:---:|:---|:---:|:---|:---:|
+| 1 | [304. Range Sum Query 2D - Immutable](19.%202D%20Prefix%20Sum/01.%20304.%20Range%20Sum%20Query%202D%20-%20Immutable.md) | Medium | Prefix sum grid; answer with four lookups | Pending |
+| 2 | [1314. Matrix Block Sum](19.%202D%20Prefix%20Sum/02.%201314.%20Matrix%20Block%20Sum.md) | Medium | Clamp the block and use the 2D prefix sum | Pending |
+| 3 | [1074. Number of Submatrices That Sum to Target](19.%202D%20Prefix%20Sum/03.%201074.%20Number%20of%20Submatrices%20That%20Sum%20to%20Target.md) | Hard | Fix two rows, then 560 on the column sums | Pending |
+
+### 20. Frequency Array (Counting Buckets)
+
+| # | Problem | Difficulty | Key Idea | Status |
+|:---:|:---|:---:|:---|:---:|
+| 1 | [1207. Unique Number of Occurrences](20.%20Frequency%20Array%20%28Counting%20Buckets%29/01.%201207.%20Unique%20Number%20of%20Occurrences.md) | Easy | Count values, then check the counts are all different | Pending |
+| 2 | [1748. Sum of Unique Elements](20.%20Frequency%20Array%20%28Counting%20Buckets%29/02.%201748.%20Sum%20of%20Unique%20Elements.md) | Easy | Add values whose count is exactly 1 | Pending |
+| 3 | [3005. Count Elements With Maximum Frequency](20.%20Frequency%20Array%20%28Counting%20Buckets%29/03.%203005.%20Count%20Elements%20With%20Maximum%20Frequency.md) | Easy | Count frequencies, then add all counts equal to the max | Pending |
+| 4 | [274. H-Index](20.%20Frequency%20Array%20%28Counting%20Buckets%29/04.%20274.%20H-Index.md) | Medium | Bucket papers by citations, then scan from high to low | Pending |
+| 5 | [1338. Reduce Array Size to The Half](20.%20Frequency%20Array%20%28Counting%20Buckets%29/05.%201338.%20Reduce%20Array%20Size%20to%20The%20Half.md) | Medium | Remove the most frequent values first until half is gone | Pending |
 
 ## Where This Leads
 

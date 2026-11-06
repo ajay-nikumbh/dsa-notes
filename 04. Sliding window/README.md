@@ -227,7 +227,7 @@ A later negative pulls an over-large sum back down,
 so "sum > target, therefore shrink" is simply wrong.
 ```
 
-**When negatives break it:** use prefix sums plus a hash map instead. That is exactly what [560. Subarray Sum Equals K](../01.%20Array/02.%20Medium/13.%20560.%20Subarray%20Sum%20Equals%20K.md) does, and it is why that problem lives in the Array topic rather than this one.
+**When negatives break it:** use prefix sums plus a hash map instead. That is exactly what [560. Subarray Sum Equals K](../01.%20Array/08.%20Prefix%20Sum%20%2B%20HashMap/03.%20560.%20Subarray%20Sum%20Equals%20K.md) does, and it is why that problem lives in the Array topic rather than this one.
 
 ## 9. While vs If When Shrinking
 
