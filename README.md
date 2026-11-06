@@ -41,13 +41,13 @@ Counts are problems written, broken down by difficulty tier.
 | 08 | Trees | Traversals, BST properties, LCA | – | – | – | – | Planned |
 | 09 | Heaps | Top-K, merge K sorted, running median | – | – | – | – | Planned |
 | 10 | Greedy | Interval scheduling, exchange argument | – | – | – | – | Planned |
-| 11 | [**Graphs**](11.%20Graphs/) | BFS/DFS, topo sort, Dijkstra, MST, DSU | 5 | 16 | – | **21** | In progress |
+| 11 | [**Graphs**](11.%20Graphs/) | BFS/DFS, topo sort, Dijkstra, MST, DSU | 5 | 22 | 2 | **29** | In progress |
 | 12 | Dynamic Programming | 1D/2D states, knapsack, LIS | – | – | – | – | Planned |
 | 13 | Maths and Geometry | Number theory, matrix rotation, GCD | – | – | – | – | Planned |
 | 14 | Bit Manipulation | XOR tricks, masks, bit counting | – | – | – | – | Planned |
 | 15 | Intervals | Merge, insert, overlap counting | – | – | – | – | Planned |
 | 16 | Databases | Joins, window functions, aggregation | – | – | – | – | Planned |
-| | **Total** | | **28** | **44** | **27** | **99** | |
+| | **Total** | | **28** | **50** | **29** | **107** | |
 
 ```mermaid
 flowchart TD
@@ -414,29 +414,29 @@ The most general structure in the sheet — arrays, lists, and trees are all res
 
 | # | Problem | Difficulty | Key Idea | Source | Time | Space | Status |
 |:---:|:---|:---:|:---|:---:|:---:|:---:|:---:|
-| 1 | [684. Redundant Connection](11.%20Graphs/07.%20Disjoint%20Set%20Union/03.%20Cycle%20Detection%20and%20Redundant%20Connections/01.%20684.%20Redundant%20Connection.md) | Medium | The first edge whose endpoints already share a root closes a cycle | [684. Redundant Connection](https://leetcode.com/problems/redundant-connection/) | – | – | Pending |
-| 2 | [Detect Cycle using DSU](11.%20Graphs/07.%20Disjoint%20Set%20Union/03.%20Cycle%20Detection%20and%20Redundant%20Connections/02.%20Detect%20Cycle%20using%20DSU.md) | Medium | An edge inside one set means a cycle in an undirected graph | [Detect Cycle using DSU](https://www.geeksforgeeks.org/problems/detect-cycle-using-dsu/1) | – | – | Pending |
-| 3 | [1319. Number of Operations to Make Network Connected](11.%20Graphs/07.%20Disjoint%20Set%20Union/03.%20Cycle%20Detection%20and%20Redundant%20Connections/03.%201319.%20Number%20of%20Operations%20to%20Make%20Network%20Connected.md) | Medium | Spare edges = redundant unions; need components - 1 of them | [1319. Number of Operations to Make Network Connected](https://leetcode.com/problems/number-of-operations-to-make-network-connected/) | – | – | Pending |
+| 1 | [684. Redundant Connection](11.%20Graphs/07.%20Disjoint%20Set%20Union/03.%20Cycle%20Detection%20and%20Redundant%20Connections/01.%20684.%20Redundant%20Connection.md) | Medium | The first edge whose endpoints already share a root closes a cycle | [684. Redundant Connection](https://leetcode.com/problems/redundant-connection/) | `O(n · α(n))` | `O(n)` | Written |
+| 2 | [Detect Cycle using DSU](11.%20Graphs/07.%20Disjoint%20Set%20Union/03.%20Cycle%20Detection%20and%20Redundant%20Connections/02.%20Detect%20Cycle%20using%20DSU.md) | Medium | An edge inside one set means a cycle in an undirected graph | [Detect Cycle using DSU](https://www.geeksforgeeks.org/problems/detect-cycle-using-dsu/1) | `O((V + E) · α(V))` | `O(V)` | Written |
+| 3 | [1319. Number of Operations to Make Network Connected](11.%20Graphs/07.%20Disjoint%20Set%20Union/03.%20Cycle%20Detection%20and%20Redundant%20Connections/03.%201319.%20Number%20of%20Operations%20to%20Make%20Network%20Connected.md) | Medium | Spare edges = redundant unions; need components - 1 of them | [1319. Number of Operations to Make Network Connected](https://leetcode.com/problems/number-of-operations-to-make-network-connected/) | `O((n + E) · α(n))` | `O(n)` | Written |
 
 #### Equality, Identity and Record Merging
 
 | # | Problem | Difficulty | Key Idea | Source | Time | Space | Status |
 |:---:|:---|:---:|:---|:---:|:---:|:---:|:---:|
-| 1 | [721. Accounts Merge](11.%20Graphs/07.%20Disjoint%20Set%20Union/04.%20Equality%2C%20Identity%20and%20Record%20Merging/01.%20721.%20Accounts%20Merge.md) | Medium | Map each email to an account index, union accounts sharing an email | [721. Accounts Merge](https://leetcode.com/problems/accounts-merge/) | – | – | Pending |
-| 2 | [990. Satisfiability of Equality Equations](11.%20Graphs/07.%20Disjoint%20Set%20Union/04.%20Equality%2C%20Identity%20and%20Record%20Merging/02.%20990.%20Satisfiability%20of%20Equality%20Equations.md) | Medium | Union all '==' pairs first, then reject any '!=' pair in one set | [990. Satisfiability of Equality Equations](https://leetcode.com/problems/satisfiability-of-equality-equations/) | – | – | Pending |
+| 1 | [721. Accounts Merge](11.%20Graphs/07.%20Disjoint%20Set%20Union/04.%20Equality%2C%20Identity%20and%20Record%20Merging/01.%20721.%20Accounts%20Merge.md) | Medium | Map each email to an account index, union accounts sharing an email | [721. Accounts Merge](https://leetcode.com/problems/accounts-merge/) | `O(NK log(NK))` | `O(NK)` | Written |
+| 2 | [990. Satisfiability of Equality Equations](11.%20Graphs/07.%20Disjoint%20Set%20Union/04.%20Equality%2C%20Identity%20and%20Record%20Merging/02.%20990.%20Satisfiability%20of%20Equality%20Equations.md) | Medium | Union all '==' pairs first, then reject any '!=' pair in one set | [990. Satisfiability of Equality Equations](https://leetcode.com/problems/satisfiability-of-equality-equations/) | `O(n · α(26))` ≈ `O(n)` | `O(1)` (26 letters) | Written |
 
 #### Dynamic and Grid DSU
 
 | # | Problem | Difficulty | Key Idea | Source | Time | Space | Status |
 |:---:|:---|:---:|:---|:---:|:---:|:---:|:---:|
-| 1 | [305. Number of Islands II](11.%20Graphs/07.%20Disjoint%20Set%20Union/05.%20Dynamic%20and%20Grid%20DSU/01.%20305.%20Number%20of%20Islands%20II.md) | Hard | Add land online; each union with a neighbor island drops the count by 1 | [305. Number of Islands II](https://leetcode.com/problems/number-of-islands-ii/) | – | – | Pending |
-| 2 | [827. Making A Large Island](11.%20Graphs/07.%20Disjoint%20Set%20Union/05.%20Dynamic%20and%20Grid%20DSU/02.%20827.%20Making%20A%20Large%20Island.md) | Hard | DSU sizes per island, then try each 0 and sum distinct neighbor roots | [827. Making A Large Island](https://leetcode.com/problems/making-a-large-island/) | – | – | Pending |
+| 1 | [305. Number of Islands II](11.%20Graphs/07.%20Disjoint%20Set%20Union/05.%20Dynamic%20and%20Grid%20DSU/01.%20305.%20Number%20of%20Islands%20II.md) | Hard | Add land online; each union with a neighbor island drops the count by 1 | [305. Number of Islands II](https://leetcode.com/problems/number-of-islands-ii/) | `O(m·n + k · α(m·n))` | `O(m·n)` | Written |
+| 2 | [827. Making A Large Island](11.%20Graphs/07.%20Disjoint%20Set%20Union/05.%20Dynamic%20and%20Grid%20DSU/02.%20827.%20Making%20A%20Large%20Island.md) | Hard | DSU sizes per island, then try each 0 and sum distinct neighbor roots | [827. Making A Large Island](https://leetcode.com/problems/making-a-large-island/) | `O(n^2 · α(n^2))` | `O(n^2)` | Written |
 
 #### Creative DSU Modeling
 
 | # | Problem | Difficulty | Key Idea | Source | Time | Space | Status |
 |:---:|:---|:---:|:---|:---:|:---:|:---:|:---:|
-| 1 | [947. Most Stones Removed with Same Row or Column](11.%20Graphs/07.%20Disjoint%20Set%20Union/06.%20Creative%20DSU%20Modeling/01.%20947.%20Most%20Stones%20Removed%20with%20Same%20Row%20or%20Column.md) | Medium | Union each stone's row and column node; answer = stones - components | [947. Most Stones Removed with Same Row or Column](https://leetcode.com/problems/most-stones-removed-with-same-row-or-column/) | – | – | Pending |
+| 1 | [947. Most Stones Removed with Same Row or Column](11.%20Graphs/07.%20Disjoint%20Set%20Union/06.%20Creative%20DSU%20Modeling/01.%20947.%20Most%20Stones%20Removed%20with%20Same%20Row%20or%20Column.md) | Medium | Union each stone's row and column node; answer = stones - components | [947. Most Stones Removed with Same Row or Column](https://leetcode.com/problems/most-stones-removed-with-same-row-or-column/) | `O(n · α(R + C))` | `O(R + C)` | Written |
 
 ### Famous Graph Algorithms
 
