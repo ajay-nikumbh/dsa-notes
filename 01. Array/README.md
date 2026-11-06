@@ -685,31 +685,31 @@ Folders follow the pattern order below. **Written** = full note; **Pending** = q
 | 5 | [Array Leaders](01.%20Basic%20Traversal%20and%20Selection/05.%20Array%20Leaders.md) | Easy | Scan from the right with a running maximum | Written |
 | 6 | [First and Second Smallests](01.%20Basic%20Traversal%20and%20Selection/06.%20First%20and%20Second%20Smallests.md) | Easy | Second-largest trick mirrored for the minimum | Written |
 | 7 | [Find Second Smallest and Second Largest](01.%20Basic%20Traversal%20and%20Selection/07.%20Find%20Second%20Smallest%20and%20Second%20Largest%20Element%20in%20an%20Array.md) | Easy | Four trackers updated in one pass | Written |
-| 8 | [1295. Find Numbers with Even Number of Digits](01.%20Basic%20Traversal%20and%20Selection/08.%201295.%20Find%20Numbers%20with%20Even%20Number%20of%20Digits.md) | Easy | Count digits of each number and check if the count is even | Pending |
-| 9 | [1480. Running Sum of 1d Array](01.%20Basic%20Traversal%20and%20Selection/09.%201480.%20Running%20Sum%20of%201d%20Array.md) | Easy | Each answer is the previous answer plus the current number | Pending |
-| 10 | [1512. Number of Good Pairs](01.%20Basic%20Traversal%20and%20Selection/10.%201512.%20Number%20of%20Good%20Pairs.md) | Easy | A value seen k times before adds k new pairs | Pending |
-| 11 | [1672. Richest Customer Wealth](01.%20Basic%20Traversal%20and%20Selection/11.%201672.%20Richest%20Customer%20Wealth.md) | Easy | Sum each row and keep the largest sum | Pending |
-| 12 | [1732. Find the Highest Altitude](01.%20Basic%20Traversal%20and%20Selection/12.%201732.%20Find%20the%20Highest%20Altitude.md) | Easy | Running sum of gains; track its maximum including 0 | Pending |
-| 13 | [1920. Build Array from Permutation](01.%20Basic%20Traversal%20and%20Selection/13.%201920.%20Build%20Array%20from%20Permutation.md) | Easy | ans[i] = nums[nums[i]]; in-place trick stores two values in one cell | Pending |
-| 14 | [1929. Concatenation of Array](01.%20Basic%20Traversal%20and%20Selection/14.%201929.%20Concatenation%20of%20Array.md) | Easy | ans[i] and ans[i + n] both get nums[i] | Pending |
-| 15 | [2011. Final Value of Variable After Performing Operations](01.%20Basic%20Traversal%20and%20Selection/15.%202011.%20Final%20Value%20of%20Variable%20After%20Performing%20Operations.md) | Easy | Add 1 for every '++' operation and subtract 1 for every '--' | Pending |
-| 16 | [2114. Maximum Number of Words Found in Sentences](01.%20Basic%20Traversal%20and%20Selection/16.%202114.%20Maximum%20Number%20of%20Words%20Found%20in%20Sentences.md) | Easy | Words = spaces + 1; keep the maximum | Pending |
-| 17 | [2176. Count Equal and Divisible Pairs in an Array](01.%20Basic%20Traversal%20and%20Selection/17.%202176.%20Count%20Equal%20and%20Divisible%20Pairs%20in%20an%20Array.md) | Easy | Check every pair i < j for equal values and (i * j) % k == 0 | Pending |
-| 18 | [2574. Left and Right Sum Differences](01.%20Basic%20Traversal%20and%20Selection/18.%202574.%20Left%20and%20Right%20Sum%20Differences.md) | Easy | Right sum = total - left sum - current | Pending |
-| 19 | [2652. Sum Multiples](01.%20Basic%20Traversal%20and%20Selection/19.%202652.%20Sum%20Multiples.md) | Easy | Add every number from 1 to n divisible by 3, 5 or 7 | Pending |
-| 20 | [2798. Number of Employees Who Met the Target](01.%20Basic%20Traversal%20and%20Selection/20.%202798.%20Number%20of%20Employees%20Who%20Met%20the%20Target.md) | Easy | Count hours that are at least the target | Pending |
-| 21 | [2824. Count Pairs Whose Sum is Less than Target](01.%20Basic%20Traversal%20and%20Selection/21.%202824.%20Count%20Pairs%20Whose%20Sum%20is%20Less%20than%20Target.md) | Easy | Sort, then two pointers count many pairs at once | Pending |
-| 22 | [2942. Find Words Containing Character](01.%20Basic%20Traversal%20and%20Selection/22.%202942.%20Find%20Words%20Containing%20Character.md) | Easy | Collect indices of words that contain the character | Pending |
-| 23 | [2951. Find the Peaks](01.%20Basic%20Traversal%20and%20Selection/23.%202951.%20Find%20the%20Peaks.md) | Easy | An inner index is a peak if it beats both neighbors | Pending |
-| 24 | [3005. Count Elements With Maximum Frequency](20.%20Frequency%20Array%20%28Counting%20Buckets%29/03.%203005.%20Count%20Elements%20With%20Maximum%20Frequency.md) (see Frequency Array) | Easy | Count frequencies, then add all counts equal to the max | Pending |
-| 25 | [3065. Minimum Operations to Exceed Threshold Value I](01.%20Basic%20Traversal%20and%20Selection/25.%203065.%20Minimum%20Operations%20to%20Exceed%20Threshold%20Value%20I.md) | Easy | Count numbers smaller than k | Pending |
-| 26 | [3146. Permutation Difference between Two Strings](01.%20Basic%20Traversal%20and%20Selection/26.%203146.%20Permutation%20Difference%20between%20Two%20Strings.md) | Easy | Store each character's index in s, sum |index in s - index in t| | Pending |
-| 27 | [414. Third Maximum Number](01.%20Basic%20Traversal%20and%20Selection/27.%20414.%20Third%20Maximum%20Number.md) | Easy | Three distinct trackers shifted down like second largest | Pending |
-| 28 | [747. Largest Number At Least Twice of Others](01.%20Basic%20Traversal%20and%20Selection/28.%20747.%20Largest%20Number%20At%20Least%20Twice%20of%20Others.md) | Easy | Track largest and second largest; compare largest >= 2 * second | Pending |
-| 29 | [896. Monotonic Array](01.%20Basic%20Traversal%20and%20Selection/29.%20896.%20Monotonic%20Array.md) | Easy | One pass with two flags: ever went up, ever went down | Pending |
-| 30 | [941. Valid Mountain Array](01.%20Basic%20Traversal%20and%20Selection/30.%20941.%20Valid%20Mountain%20Array.md) | Easy | Walk up while increasing, then down while decreasing; must end at the last index | Pending |
-| 31 | [1299. Replace Elements with Greatest Element on Right Side](01.%20Basic%20Traversal%20and%20Selection/31.%201299.%20Replace%20Elements%20with%20Greatest%20Element%20on%20Right%20Side.md) | Easy | Scan from the right with a running maximum | Pending |
-| 32 | [1431. Kids With the Greatest Number of Candies](01.%20Basic%20Traversal%20and%20Selection/32.%201431.%20Kids%20With%20the%20Greatest%20Number%20of%20Candies.md) | Easy | Compare candies + extra with the current maximum | Pending |
+| 8 | [1295. Find Numbers with Even Number of Digits](01.%20Basic%20Traversal%20and%20Selection/08.%201295.%20Find%20Numbers%20with%20Even%20Number%20of%20Digits.md) | Easy | Count digits of each number and check if the count is even | Written |
+| 9 | [1480. Running Sum of 1d Array](01.%20Basic%20Traversal%20and%20Selection/09.%201480.%20Running%20Sum%20of%201d%20Array.md) | Easy | Each answer is the previous answer plus the current number | Written |
+| 10 | [1512. Number of Good Pairs](01.%20Basic%20Traversal%20and%20Selection/10.%201512.%20Number%20of%20Good%20Pairs.md) | Easy | A value seen k times before adds k new pairs | Written |
+| 11 | [1672. Richest Customer Wealth](01.%20Basic%20Traversal%20and%20Selection/11.%201672.%20Richest%20Customer%20Wealth.md) | Easy | Sum each row and keep the largest sum | Written |
+| 12 | [1732. Find the Highest Altitude](01.%20Basic%20Traversal%20and%20Selection/12.%201732.%20Find%20the%20Highest%20Altitude.md) | Easy | Running sum of gains; track its maximum including 0 | Written |
+| 13 | [1920. Build Array from Permutation](01.%20Basic%20Traversal%20and%20Selection/13.%201920.%20Build%20Array%20from%20Permutation.md) | Easy | ans[i] = nums[nums[i]]; in-place trick stores two values in one cell | Written |
+| 14 | [1929. Concatenation of Array](01.%20Basic%20Traversal%20and%20Selection/14.%201929.%20Concatenation%20of%20Array.md) | Easy | ans[i] and ans[i + n] both get nums[i] | Written |
+| 15 | [2011. Final Value of Variable After Performing Operations](01.%20Basic%20Traversal%20and%20Selection/15.%202011.%20Final%20Value%20of%20Variable%20After%20Performing%20Operations.md) | Easy | Add 1 for every '++' operation and subtract 1 for every '--' | Written |
+| 16 | [2114. Maximum Number of Words Found in Sentences](01.%20Basic%20Traversal%20and%20Selection/16.%202114.%20Maximum%20Number%20of%20Words%20Found%20in%20Sentences.md) | Easy | Words = spaces + 1; keep the maximum | Written |
+| 17 | [2176. Count Equal and Divisible Pairs in an Array](01.%20Basic%20Traversal%20and%20Selection/17.%202176.%20Count%20Equal%20and%20Divisible%20Pairs%20in%20an%20Array.md) | Easy | Check every pair i < j for equal values and (i * j) % k == 0 | Written |
+| 18 | [2574. Left and Right Sum Differences](01.%20Basic%20Traversal%20and%20Selection/18.%202574.%20Left%20and%20Right%20Sum%20Differences.md) | Easy | Right sum = total - left sum - current | Written |
+| 19 | [2652. Sum Multiples](01.%20Basic%20Traversal%20and%20Selection/19.%202652.%20Sum%20Multiples.md) | Easy | Add every number from 1 to n divisible by 3, 5 or 7 | Written |
+| 20 | [2798. Number of Employees Who Met the Target](01.%20Basic%20Traversal%20and%20Selection/20.%202798.%20Number%20of%20Employees%20Who%20Met%20the%20Target.md) | Easy | Count hours that are at least the target | Written |
+| 21 | [2824. Count Pairs Whose Sum is Less than Target](01.%20Basic%20Traversal%20and%20Selection/21.%202824.%20Count%20Pairs%20Whose%20Sum%20is%20Less%20than%20Target.md) | Easy | Sort, then two pointers count many pairs at once | Written |
+| 22 | [2942. Find Words Containing Character](01.%20Basic%20Traversal%20and%20Selection/22.%202942.%20Find%20Words%20Containing%20Character.md) | Easy | Collect indices of words that contain the character | Written |
+| 23 | [2951. Find the Peaks](01.%20Basic%20Traversal%20and%20Selection/23.%202951.%20Find%20the%20Peaks.md) | Easy | An inner index is a peak if it beats both neighbors | Written |
+| 24 | [3005. Count Elements With Maximum Frequency](20.%20Frequency%20Array%20%28Counting%20Buckets%29/03.%203005.%20Count%20Elements%20With%20Maximum%20Frequency.md) (see Frequency Array) | Easy | Count frequencies, then add all counts equal to the max | Written |
+| 25 | [3065. Minimum Operations to Exceed Threshold Value I](01.%20Basic%20Traversal%20and%20Selection/25.%203065.%20Minimum%20Operations%20to%20Exceed%20Threshold%20Value%20I.md) | Easy | Count numbers smaller than k | Written |
+| 26 | [3146. Permutation Difference between Two Strings](01.%20Basic%20Traversal%20and%20Selection/26.%203146.%20Permutation%20Difference%20between%20Two%20Strings.md) | Easy | Store each character's index in s, sum |index in s - index in t| | Written |
+| 27 | [414. Third Maximum Number](01.%20Basic%20Traversal%20and%20Selection/27.%20414.%20Third%20Maximum%20Number.md) | Easy | Three distinct trackers shifted down like second largest | Written |
+| 28 | [747. Largest Number At Least Twice of Others](01.%20Basic%20Traversal%20and%20Selection/28.%20747.%20Largest%20Number%20At%20Least%20Twice%20of%20Others.md) | Easy | Track largest and second largest; compare largest >= 2 * second | Written |
+| 29 | [896. Monotonic Array](01.%20Basic%20Traversal%20and%20Selection/29.%20896.%20Monotonic%20Array.md) | Easy | One pass with two flags: ever went up, ever went down | Written |
+| 30 | [941. Valid Mountain Array](01.%20Basic%20Traversal%20and%20Selection/30.%20941.%20Valid%20Mountain%20Array.md) | Easy | Walk up while increasing, then down while decreasing; must end at the last index | Written |
+| 31 | [1299. Replace Elements with Greatest Element on Right Side](01.%20Basic%20Traversal%20and%20Selection/31.%201299.%20Replace%20Elements%20with%20Greatest%20Element%20on%20Right%20Side.md) | Easy | Scan from the right with a running maximum | Written |
+| 32 | [1431. Kids With the Greatest Number of Candies](01.%20Basic%20Traversal%20and%20Selection/32.%201431.%20Kids%20With%20the%20Greatest%20Number%20of%20Candies.md) | Easy | Compare candies + extra with the current maximum | Written |
 
 ### 02. Rotation and Cyclic Arrays
 
@@ -815,49 +815,49 @@ Folders follow the pattern order below. **Written** = full note; **Pending** = q
 
 | # | Problem | Difficulty | Key Idea | Status |
 |:---:|:---|:---:|:---|:---:|
-| 1 | [238. Product of Array Except Self](16.%20Prefix%20and%20Suffix%20Precomputation/01.%20238.%20Product%20of%20Array%20Except%20Self.md) | Medium | Product of everything left times product of everything right | Pending |
-| 2 | [724. Find Pivot Index](16.%20Prefix%20and%20Suffix%20Precomputation/02.%20724.%20Find%20Pivot%20Index.md) | Easy | Left sum equals total - left sum - current | Pending |
-| 3 | [1991. Find the Middle Index in Array](16.%20Prefix%20and%20Suffix%20Precomputation/03.%201991.%20Find%20the%20Middle%20Index%20in%20Array.md) | Easy | Same as pivot index: left sum equals right sum | Pending |
-| 4 | [2012. Sum of Beauty in the Array](16.%20Prefix%20and%20Suffix%20Precomputation/04.%202012.%20Sum%20of%20Beauty%20in%20the%20Array.md) | Medium | Prefix max and suffix min decide beauty 2; neighbors decide beauty 1 | Pending |
-| 5 | [42. Trapping Rain Water (Prefix and Suffix)](16.%20Prefix%20and%20Suffix%20Precomputation/05.%2042.%20Trapping%20Rain%20Water%20%28Prefix%20and%20Suffix%29.md) | Hard | Water at i = min(max on left, max on right) - height | Pending |
+| 1 | [238. Product of Array Except Self](16.%20Prefix%20and%20Suffix%20Precomputation/01.%20238.%20Product%20of%20Array%20Except%20Self.md) | Medium | Product of everything left times product of everything right | Written |
+| 2 | [724. Find Pivot Index](16.%20Prefix%20and%20Suffix%20Precomputation/02.%20724.%20Find%20Pivot%20Index.md) | Easy | Left sum equals total - left sum - current | Written |
+| 3 | [1991. Find the Middle Index in Array](16.%20Prefix%20and%20Suffix%20Precomputation/03.%201991.%20Find%20the%20Middle%20Index%20in%20Array.md) | Easy | Same as pivot index: left sum equals right sum | Written |
+| 4 | [2012. Sum of Beauty in the Array](16.%20Prefix%20and%20Suffix%20Precomputation/04.%202012.%20Sum%20of%20Beauty%20in%20the%20Array.md) | Medium | Prefix max and suffix min decide beauty 2; neighbors decide beauty 1 | Written |
+| 5 | [42. Trapping Rain Water (Prefix and Suffix)](16.%20Prefix%20and%20Suffix%20Precomputation/05.%2042.%20Trapping%20Rain%20Water%20%28Prefix%20and%20Suffix%29.md) | Hard | Water at i = min(max on left, max on right) - height | Written |
 
 ### 17. Cyclic Sort (Correct Index Placement)
 
 | # | Problem | Difficulty | Key Idea | Status |
 |:---:|:---|:---:|:---|:---:|
-| 1 | [268. Missing Number (Cyclic Sort)](17.%20Cyclic%20Sort%20%28Correct%20Index%20Placement%29/01.%20268.%20Missing%20Number%20%28Cyclic%20Sort%29.md) | Easy | Put each value at its own index; the empty spot is missing | Pending |
-| 2 | [645. Set Mismatch](17.%20Cyclic%20Sort%20%28Correct%20Index%20Placement%29/02.%20645.%20Set%20Mismatch.md) | Easy | After cyclic sort, the wrong spot shows the duplicate and the missing value | Pending |
-| 3 | [448. Find All Numbers Disappeared in an Array](17.%20Cyclic%20Sort%20%28Correct%20Index%20Placement%29/03.%20448.%20Find%20All%20Numbers%20Disappeared%20in%20an%20Array.md) | Easy | After cyclic sort, every index with the wrong value is missing | Pending |
-| 4 | [442. Find All Duplicates in an Array](17.%20Cyclic%20Sort%20%28Correct%20Index%20Placement%29/04.%20442.%20Find%20All%20Duplicates%20in%20an%20Array.md) | Medium | After cyclic sort, values in wrong spots are duplicates | Pending |
-| 5 | [41. First Missing Positive](17.%20Cyclic%20Sort%20%28Correct%20Index%20Placement%29/05.%2041.%20First%20Missing%20Positive.md) | Hard | Place 1..n at index 0..n-1, then find the first wrong spot | Pending |
+| 1 | [268. Missing Number (Cyclic Sort)](17.%20Cyclic%20Sort%20%28Correct%20Index%20Placement%29/01.%20268.%20Missing%20Number%20%28Cyclic%20Sort%29.md) | Easy | Put each value at its own index; the empty spot is missing | Written |
+| 2 | [645. Set Mismatch](17.%20Cyclic%20Sort%20%28Correct%20Index%20Placement%29/02.%20645.%20Set%20Mismatch.md) | Easy | After cyclic sort, the wrong spot shows the duplicate and the missing value | Written |
+| 3 | [448. Find All Numbers Disappeared in an Array](17.%20Cyclic%20Sort%20%28Correct%20Index%20Placement%29/03.%20448.%20Find%20All%20Numbers%20Disappeared%20in%20an%20Array.md) | Easy | After cyclic sort, every index with the wrong value is missing | Written |
+| 4 | [442. Find All Duplicates in an Array](17.%20Cyclic%20Sort%20%28Correct%20Index%20Placement%29/04.%20442.%20Find%20All%20Duplicates%20in%20an%20Array.md) | Medium | After cyclic sort, values in wrong spots are duplicates | Written |
+| 5 | [41. First Missing Positive](17.%20Cyclic%20Sort%20%28Correct%20Index%20Placement%29/05.%2041.%20First%20Missing%20Positive.md) | Hard | Place 1..n at index 0..n-1, then find the first wrong spot | Written |
 
 ### 18. Difference Array (Range Update)
 
 | # | Problem | Difficulty | Key Idea | Status |
 |:---:|:---|:---:|:---|:---:|
-| 1 | [370. Range Addition](18.%20Difference%20Array%20%28Range%20Update%29/01.%20370.%20Range%20Addition.md) | Medium | Add at start, subtract after end, then take a running sum | Pending |
-| 2 | [1109. Corporate Flight Bookings](18.%20Difference%20Array%20%28Range%20Update%29/02.%201109.%20Corporate%20Flight%20Bookings.md) | Medium | Each booking is one range addition on a difference array | Pending |
-| 3 | [1094. Car Pooling](18.%20Difference%20Array%20%28Range%20Update%29/03.%201094.%20Car%20Pooling.md) | Medium | Add riders at pickup, remove at drop-off, check the running sum | Pending |
-| 4 | [2381. Shifting Letters II](18.%20Difference%20Array%20%28Range%20Update%29/04.%202381.%20Shifting%20Letters%20II.md) | Medium | Difference array of shifts, then apply each running shift mod 26 | Pending |
-| 5 | [2772. Apply Operations to Make All Array Elements Equal to Zero](18.%20Difference%20Array%20%28Range%20Update%29/05.%202772.%20Apply%20Operations%20to%20Make%20All%20Array%20Elements%20Equal%20to%20Zero.md) | Medium | Greedy left to right with a difference array of active decrements | Pending |
+| 1 | [370. Range Addition](18.%20Difference%20Array%20%28Range%20Update%29/01.%20370.%20Range%20Addition.md) | Medium | Add at start, subtract after end, then take a running sum | Written |
+| 2 | [1109. Corporate Flight Bookings](18.%20Difference%20Array%20%28Range%20Update%29/02.%201109.%20Corporate%20Flight%20Bookings.md) | Medium | Each booking is one range addition on a difference array | Written |
+| 3 | [1094. Car Pooling](18.%20Difference%20Array%20%28Range%20Update%29/03.%201094.%20Car%20Pooling.md) | Medium | Add riders at pickup, remove at drop-off, check the running sum | Written |
+| 4 | [2381. Shifting Letters II](18.%20Difference%20Array%20%28Range%20Update%29/04.%202381.%20Shifting%20Letters%20II.md) | Medium | Difference array of shifts, then apply each running shift mod 26 | Written |
+| 5 | [2772. Apply Operations to Make All Array Elements Equal to Zero](18.%20Difference%20Array%20%28Range%20Update%29/05.%202772.%20Apply%20Operations%20to%20Make%20All%20Array%20Elements%20Equal%20to%20Zero.md) | Medium | Greedy left to right with a difference array of active decrements | Written |
 
 ### 19. 2D Prefix Sum
 
 | # | Problem | Difficulty | Key Idea | Status |
 |:---:|:---|:---:|:---|:---:|
-| 1 | [304. Range Sum Query 2D - Immutable](19.%202D%20Prefix%20Sum/01.%20304.%20Range%20Sum%20Query%202D%20-%20Immutable.md) | Medium | Prefix sum grid; answer with four lookups | Pending |
-| 2 | [1314. Matrix Block Sum](19.%202D%20Prefix%20Sum/02.%201314.%20Matrix%20Block%20Sum.md) | Medium | Clamp the block and use the 2D prefix sum | Pending |
-| 3 | [1074. Number of Submatrices That Sum to Target](19.%202D%20Prefix%20Sum/03.%201074.%20Number%20of%20Submatrices%20That%20Sum%20to%20Target.md) | Hard | Fix two rows, then 560 on the column sums | Pending |
+| 1 | [304. Range Sum Query 2D - Immutable](19.%202D%20Prefix%20Sum/01.%20304.%20Range%20Sum%20Query%202D%20-%20Immutable.md) | Medium | Prefix sum grid; answer with four lookups | Written |
+| 2 | [1314. Matrix Block Sum](19.%202D%20Prefix%20Sum/02.%201314.%20Matrix%20Block%20Sum.md) | Medium | Clamp the block and use the 2D prefix sum | Written |
+| 3 | [1074. Number of Submatrices That Sum to Target](19.%202D%20Prefix%20Sum/03.%201074.%20Number%20of%20Submatrices%20That%20Sum%20to%20Target.md) | Hard | Fix two rows, then 560 on the column sums | Written |
 
 ### 20. Frequency Array (Counting Buckets)
 
 | # | Problem | Difficulty | Key Idea | Status |
 |:---:|:---|:---:|:---|:---:|
-| 1 | [1207. Unique Number of Occurrences](20.%20Frequency%20Array%20%28Counting%20Buckets%29/01.%201207.%20Unique%20Number%20of%20Occurrences.md) | Easy | Count values, then check the counts are all different | Pending |
-| 2 | [1748. Sum of Unique Elements](20.%20Frequency%20Array%20%28Counting%20Buckets%29/02.%201748.%20Sum%20of%20Unique%20Elements.md) | Easy | Add values whose count is exactly 1 | Pending |
-| 3 | [3005. Count Elements With Maximum Frequency](20.%20Frequency%20Array%20%28Counting%20Buckets%29/03.%203005.%20Count%20Elements%20With%20Maximum%20Frequency.md) | Easy | Count frequencies, then add all counts equal to the max | Pending |
-| 4 | [274. H-Index](20.%20Frequency%20Array%20%28Counting%20Buckets%29/04.%20274.%20H-Index.md) | Medium | Bucket papers by citations, then scan from high to low | Pending |
-| 5 | [1338. Reduce Array Size to The Half](20.%20Frequency%20Array%20%28Counting%20Buckets%29/05.%201338.%20Reduce%20Array%20Size%20to%20The%20Half.md) | Medium | Remove the most frequent values first until half is gone | Pending |
+| 1 | [1207. Unique Number of Occurrences](20.%20Frequency%20Array%20%28Counting%20Buckets%29/01.%201207.%20Unique%20Number%20of%20Occurrences.md) | Easy | Count values, then check the counts are all different | Written |
+| 2 | [1748. Sum of Unique Elements](20.%20Frequency%20Array%20%28Counting%20Buckets%29/02.%201748.%20Sum%20of%20Unique%20Elements.md) | Easy | Add values whose count is exactly 1 | Written |
+| 3 | [3005. Count Elements With Maximum Frequency](20.%20Frequency%20Array%20%28Counting%20Buckets%29/03.%203005.%20Count%20Elements%20With%20Maximum%20Frequency.md) | Easy | Count frequencies, then add all counts equal to the max | Written |
+| 4 | [274. H-Index](20.%20Frequency%20Array%20%28Counting%20Buckets%29/04.%20274.%20H-Index.md) | Medium | Bucket papers by citations, then scan from high to low | Written |
+| 5 | [1338. Reduce Array Size to The Half](20.%20Frequency%20Array%20%28Counting%20Buckets%29/05.%201338.%20Reduce%20Array%20Size%20to%20The%20Half.md) | Medium | Remove the most frequent values first until half is gone | Written |
 
 ## Where This Leads
 
