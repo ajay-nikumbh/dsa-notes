@@ -41,7 +41,7 @@ Counts are problems written, broken down by difficulty tier.
 | 08 | Trees | Traversals, BST properties, LCA | – | – | – | – | Planned |
 | 09 | Heaps | Top-K, merge K sorted, running median | – | – | – | – | Planned |
 | 10 | Greedy | Interval scheduling, exchange argument | – | – | – | – | Planned |
-| 11 | [**Graphs**](11.%20Graphs/) | BFS/DFS, cycle detection, bipartite | 4 | 14 | – | **18** | In progress |
+| 11 | [**Graphs**](11.%20Graphs/) | BFS/DFS, topo sort, Dijkstra, MST, DSU | 4 | 14 | – | **18** | In progress |
 | 12 | Dynamic Programming | 1D/2D states, knapsack, LIS | – | – | – | – | Planned |
 | 13 | Maths and Geometry | Number theory, matrix rotation, GCD | – | – | – | – | Planned |
 | 14 | Bit Manipulation | XOR tricks, masks, bit counting | – | – | – | – | Planned |
@@ -254,6 +254,8 @@ The most general structure in the sheet — arrays, lists, and trees are all res
 
 **[Read the full Graphs guide →](11.%20Graphs/)** covers representations, BFS vs DFS, multi-source BFS, the reversed-thinking trick, and cycle detection for both undirected and directed graphs.
 
+Question list now covers all eight Graphs sub-topics: BFS/DFS patterns, Topological Sort, Shortest Path, Dijkstra's Algorithm, Minimum Spanning Tree, Disjoint Set Union, and Famous Graph Algorithms (SCC, bridges, articulation points). Tables below list written notes only. See the [Graphs guide](11.%20Graphs/README.md#12-problems) for the full question list, including questions with notes pending.
+
 ### Foundations (representations, components, traversal)
 
 | # | Note / Problem | Difficulty | Key Idea | Source | Time | Space |
@@ -267,32 +269,32 @@ The most general structure in the sheet — arrays, lists, and trees are all res
 
 | # | Problem | Difficulty | Key Idea | Source | Time | Space |
 |:---:|:---|:---:|:---|:---:|:---:|:---:|
-| 1 | [547. Number of Provinces](11.%20Graphs/02.%20BFS%20and%20DFS/01.%20547.%20Number%20of%20Provinces.md) | Medium | Treat the adjacency matrix as a graph and count how many connected components it contains | [547. Number of Provinces](https://leetcode.com/problems/number-of-provinces/) | `O(n^2)` | `O(n)` |
-| 2 | [200. Number of Islands](11.%20Graphs/02.%20BFS%20and%20DFS/02.%20200.%20Number%20of%20Islands.md) | Medium | Run BFS/DFS from each unvisited land cell to count connected components on the grid | [200. Number of Islands](https://leetcode.com/problems/number-of-islands/) | `O(m*n)` | `O(m*n)` worst case |
-| 3 | [733. Flood Fill](11.%20Graphs/02.%20BFS%20and%20DFS/03.%20733.%20Flood%20Fill.md) | Easy | Reuses the same grid traversal, but repaints connected cells instead of just counting them | [733. Flood Fill](https://leetcode.com/problems/flood-fill/) | `O(m*n)` | `O(m*n)` worst case |
-| 4 | [Number of Distinct Islands](11.%20Graphs/02.%20BFS%20and%20DFS/10.%20Number%20of%20Distinct%20Islands.md) | Medium | Normalize each island's shape to coordinates relative to its starting cell to detect duplicates | [Number of Distinct Islands](https://leetcode.com/problems/number-of-distinct-islands/) | `O(m*n)` | `O(m*n)` |
+| 1 | [547. Number of Provinces](11.%20Graphs/02.%20BFS%20and%20DFS/01.%20Connected%20Components%20%28Grid%20and%20Matrix%29/01.%20547.%20Number%20of%20Provinces.md) | Medium | Treat the adjacency matrix as a graph and count how many connected components it contains | [547. Number of Provinces](https://leetcode.com/problems/number-of-provinces/) | `O(n^2)` | `O(n)` |
+| 2 | [200. Number of Islands](11.%20Graphs/02.%20BFS%20and%20DFS/01.%20Connected%20Components%20%28Grid%20and%20Matrix%29/02.%20200.%20Number%20of%20Islands.md) | Medium | Run BFS/DFS from each unvisited land cell to count connected components on the grid | [200. Number of Islands](https://leetcode.com/problems/number-of-islands/) | `O(m*n)` | `O(m*n)` worst case |
+| 3 | [733. Flood Fill](11.%20Graphs/02.%20BFS%20and%20DFS/01.%20Connected%20Components%20%28Grid%20and%20Matrix%29/03.%20733.%20Flood%20Fill.md) | Easy | Reuses the same grid traversal, but repaints connected cells instead of just counting them | [733. Flood Fill](https://leetcode.com/problems/flood-fill/) | `O(m*n)` | `O(m*n)` worst case |
+| 4 | [Number of Distinct Islands](11.%20Graphs/02.%20BFS%20and%20DFS/07.%20Component%20Shape%20Hashing/01.%20Number%20of%20Distinct%20Islands.md) | Medium | Normalize each island's shape to coordinates relative to its starting cell to detect duplicates | [Number of Distinct Islands](https://leetcode.com/problems/number-of-distinct-islands/) | `O(m*n)` | `O(m*n)` |
 
 ### Multi-Source BFS
 
 | # | Problem | Difficulty | Key Idea | Source | Time | Space |
 |:---:|:---|:---:|:---|:---:|:---:|:---:|
-| 1 | [994. Rotten Oranges](11.%20Graphs/02.%20BFS%20and%20DFS/04.%20994.%20Rotten%20Oranges.md) | Medium | Start BFS from all rotten oranges simultaneously, advancing one time step per BFS level | [994. Rotting Oranges](https://leetcode.com/problems/rotting-oranges/) | `O(n*m)` | `O(n*m)` |
-| 2 | [542. 01 Matrix](11.%20Graphs/02.%20BFS%20and%20DFS/07.%20542.%2001%20Matrix.md) | Medium | Enqueue every zero cell as a BFS source at once to compute nearest-zero distance for all cells | [542. 01 Matrix](https://leetcode.com/problems/01-matrix/) | `O(m*n)` | `O(m*n)` |
+| 1 | [994. Rotten Oranges](11.%20Graphs/02.%20BFS%20and%20DFS/02.%20Multi-Source%20BFS/01.%20994.%20Rotten%20Oranges.md) | Medium | Start BFS from all rotten oranges simultaneously, advancing one time step per BFS level | [994. Rotting Oranges](https://leetcode.com/problems/rotting-oranges/) | `O(n*m)` | `O(n*m)` |
+| 2 | [542. 01 Matrix](11.%20Graphs/02.%20BFS%20and%20DFS/02.%20Multi-Source%20BFS/02.%20542.%2001%20Matrix.md) | Medium | Enqueue every zero cell as a BFS source at once to compute nearest-zero distance for all cells | [542. 01 Matrix](https://leetcode.com/problems/01-matrix/) | `O(m*n)` | `O(m*n)` |
 
 ### Reversed-Thinking Trick (border inward)
 
 | # | Problem | Difficulty | Key Idea | Source | Time | Space |
 |:---:|:---|:---:|:---|:---:|:---:|:---:|
-| 1 | [130. Surrounded Regions](11.%20Graphs/02.%20BFS%20and%20DFS/08.%20130.%20Surrounded%20Regions.md) | Medium | Instead of checking every region for enclosure, mark safe cells by flooding inward from the border | [130. Surrounded Regions](https://leetcode.com/problems/surrounded-regions/) | `O(m*n)` | `O(m*n)` |
-| 2 | [1020. Number of Enclaves](11.%20Graphs/02.%20BFS%20and%20DFS/09.%201020.%20Number%20of%20Enclaves.md) | Medium | Apply the same border-inward flood-fill trick, but tally surviving land cells instead of flipping them | [1020. Number of Enclaves](https://leetcode.com/problems/number-of-enclaves/) | `O(m*n)` | `O(m*n)` |
+| 1 | [130. Surrounded Regions](11.%20Graphs/02.%20BFS%20and%20DFS/04.%20Boundary%20Traversal/01.%20130.%20Surrounded%20Regions.md) | Medium | Instead of checking every region for enclosure, mark safe cells by flooding inward from the border | [130. Surrounded Regions](https://leetcode.com/problems/surrounded-regions/) | `O(m*n)` | `O(m*n)` |
+| 2 | [1020. Number of Enclaves](11.%20Graphs/02.%20BFS%20and%20DFS/04.%20Boundary%20Traversal/02.%201020.%20Number%20of%20Enclaves.md) | Medium | Apply the same border-inward flood-fill trick, but tally surviving land cells instead of flipping them | [1020. Number of Enclaves](https://leetcode.com/problems/number-of-enclaves/) | `O(m*n)` | `O(m*n)` |
 
 ### Cycle Detection & Bipartite Check
 
 | # | Problem | Difficulty | Key Idea | Source | Time | Space |
 |:---:|:---|:---:|:---|:---:|:---:|:---:|
-| 1 | [Detect Cycle — Undirected, BFS](11.%20Graphs/02.%20BFS%20and%20DFS/05.%20Detect%20Cycle%20in%20an%20Undirected%20Graph%20using%20BFS.md) | Medium | Track each (node, parent) pair during BFS so revisiting a non-parent neighbor reveals a cycle | [Detect cycle in an undirected graph](https://www.geeksforgeeks.org/problems/detect-cycle-in-an-undirected-graph/1) | `O(V + 2E)` | `O(V)` |
-| 2 | [Detect Cycle — Undirected, DFS](11.%20Graphs/02.%20BFS%20and%20DFS/06.%20Detect%20Cycle%20in%20an%20Undirected%20Graph%20using%20DFS.md) | Medium | Same parent-tracking cycle check as the BFS version, implemented recursively with DFS instead | [Detect cycle in an undirected graph](https://www.geeksforgeeks.org/problems/detect-cycle-in-an-undirected-graph/1) | `O(V + 2E)` | `O(V)` |
-| 3 | [785. Is Graph Bipartite (BFS)](11.%20Graphs/02.%20BFS%20and%20DFS/11.%20785.%20Is%20Graph%20Bipartite%20%28BFS%29.md) | Medium | Attempt to 2-color the graph via BFS, failing whenever two adjacent nodes get the same color | [785. Is Graph Bipartite?](https://leetcode.com/problems/is-graph-bipartite/) | `O(V+E)` | `O(V)` |
-| 4 | [785. Is Graph Bipartite (DFS)](11.%20Graphs/02.%20BFS%20and%20DFS/12.%20785.%20Is%20Graph%20Bipartite%20%28DFS%29.md) | Medium | Performs the same 2-coloring bipartiteness check as the BFS version, but recursively via DFS | [785. Is Graph Bipartite?](https://leetcode.com/problems/is-graph-bipartite/) | `O(V+E)` | `O(V)` |
-| 5 | [Detect Cycle in a Directed Graph](11.%20Graphs/02.%20BFS%20and%20DFS/13.%20Detect%20Cycle%20in%20a%20Directed%20Graph%20using%20DFS.md) | Medium | Maintain visited and path_visited sets during DFS to distinguish a cycle-forming back-edge from a cross-edge | [Directed Graph Cycle](https://www.geeksforgeeks.org/problems/detect-cycle-in-a-directed-graph/1) | `O(V+E)` | `O(V)` |
-| 6 | [802. Find Eventual Safe States](11.%20Graphs/02.%20BFS%20and%20DFS/14.%20802.%20Find%20Eventual%20Safe%20States.md) | Medium | Reuses the directed cycle-detection machinery, memoizing per node whether it eventually leads to a cycle | [802. Find Eventual Safe States](https://leetcode.com/problems/find-eventual-safe-states/) | `O(V+E)` | `O(V)` |
+| 1 | [Detect Cycle — Undirected, BFS](11.%20Graphs/02.%20BFS%20and%20DFS/03.%20Undirected%20Cycle%20Detection/01.%20Detect%20Cycle%20in%20an%20Undirected%20Graph%20using%20BFS.md) | Medium | Track each (node, parent) pair during BFS so revisiting a non-parent neighbor reveals a cycle | [Detect cycle in an undirected graph](https://www.geeksforgeeks.org/problems/detect-cycle-in-an-undirected-graph/1) | `O(V + 2E)` | `O(V)` |
+| 2 | [Detect Cycle — Undirected, DFS](11.%20Graphs/02.%20BFS%20and%20DFS/03.%20Undirected%20Cycle%20Detection/02.%20Detect%20Cycle%20in%20an%20Undirected%20Graph%20using%20DFS.md) | Medium | Same parent-tracking cycle check as the BFS version, implemented recursively with DFS instead | [Detect cycle in an undirected graph](https://www.geeksforgeeks.org/problems/detect-cycle-in-an-undirected-graph/1) | `O(V + 2E)` | `O(V)` |
+| 3 | [785. Is Graph Bipartite (BFS)](11.%20Graphs/02.%20BFS%20and%20DFS/05.%20Bipartite%20Graph/01.%20785.%20Is%20Graph%20Bipartite%20%28BFS%29.md) | Medium | Attempt to 2-color the graph via BFS, failing whenever two adjacent nodes get the same color | [785. Is Graph Bipartite?](https://leetcode.com/problems/is-graph-bipartite/) | `O(V+E)` | `O(V)` |
+| 4 | [785. Is Graph Bipartite (DFS)](11.%20Graphs/02.%20BFS%20and%20DFS/05.%20Bipartite%20Graph/02.%20785.%20Is%20Graph%20Bipartite%20%28DFS%29.md) | Medium | Performs the same 2-coloring bipartiteness check as the BFS version, but recursively via DFS | [785. Is Graph Bipartite?](https://leetcode.com/problems/is-graph-bipartite/) | `O(V+E)` | `O(V)` |
+| 5 | [Detect Cycle in a Directed Graph](11.%20Graphs/02.%20BFS%20and%20DFS/06.%20Directed%20Cycle%20Detection/01.%20Detect%20Cycle%20in%20a%20Directed%20Graph%20using%20DFS.md) | Medium | Maintain visited and path_visited sets during DFS to distinguish a cycle-forming back-edge from a cross-edge | [Directed Graph Cycle](https://www.geeksforgeeks.org/problems/detect-cycle-in-a-directed-graph/1) | `O(V+E)` | `O(V)` |
+| 6 | [802. Find Eventual Safe States](11.%20Graphs/02.%20BFS%20and%20DFS/06.%20Directed%20Cycle%20Detection/02.%20802.%20Find%20Eventual%20Safe%20States.md) | Medium | Reuses the directed cycle-detection machinery, memoizing per node whether it eventually leads to a cycle | [802. Find Eventual Safe States](https://leetcode.com/problems/find-eventual-safe-states/) | `O(V+E)` | `O(V)` |
