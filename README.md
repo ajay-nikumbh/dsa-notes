@@ -7,6 +7,7 @@ Every problem note follows the same shape, so patterns stay comparable across to
 ```mermaid
 ---
 config:
+  layout: dagre
   flowchart:
     curve: basis
     nodeSpacing: 30
@@ -75,6 +76,7 @@ Green = complete, orange = in progress, blue = planned, dashed = separate track.
 ```mermaid
 ---
 config:
+  layout: dagre
   flowchart:
     curve: basis
     nodeSpacing: 50
