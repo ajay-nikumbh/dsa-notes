@@ -430,8 +430,8 @@ Folder layout mirrors the pattern order below. **Written** = full note; **Pendin
 
 | # | Problem | Difficulty | Key Idea | Status |
 |:---:|:---|:---:|:---|:---:|
-| 1 | [547. Number of Provinces (DSU)](07.%20Disjoint%20Set%20Union/02.%20Basic%20Connectivity%20and%20Components/01.%20547.%20Number%20of%20Provinces%20%28DSU%29.md) | Medium | Union every connected pair; count nodes that are their own parent | Pending |
-| 2 | [1971. Find if Path Exists in Graph](07.%20Disjoint%20Set%20Union/02.%20Basic%20Connectivity%20and%20Components/02.%201971.%20Find%20if%20Path%20Exists%20in%20Graph.md) | Easy | Union all edges, then check find(source) == find(destination) | Pending |
+| 1 | [547. Number of Provinces (DSU)](07.%20Disjoint%20Set%20Union/02.%20Basic%20Connectivity%20and%20Components/01.%20547.%20Number%20of%20Provinces%20%28DSU%29.md) | Medium | Union every connected pair; count nodes that are their own parent | Written |
+| 2 | [1971. Find if Path Exists in Graph](07.%20Disjoint%20Set%20Union/02.%20Basic%20Connectivity%20and%20Components/02.%201971.%20Find%20if%20Path%20Exists%20in%20Graph.md) | Easy | Union all edges, then check find(source) == find(destination) | Written |
 
 #### Cycle Detection and Redundant Connections
 

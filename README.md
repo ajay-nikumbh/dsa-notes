@@ -41,13 +41,13 @@ Counts are problems written, broken down by difficulty tier.
 | 08 | Trees | Traversals, BST properties, LCA | – | – | – | – | Planned |
 | 09 | Heaps | Top-K, merge K sorted, running median | – | – | – | – | Planned |
 | 10 | Greedy | Interval scheduling, exchange argument | – | – | – | – | Planned |
-| 11 | [**Graphs**](11.%20Graphs/) | BFS/DFS, topo sort, Dijkstra, MST, DSU | 4 | 15 | – | **19** | In progress |
+| 11 | [**Graphs**](11.%20Graphs/) | BFS/DFS, topo sort, Dijkstra, MST, DSU | 5 | 16 | – | **21** | In progress |
 | 12 | Dynamic Programming | 1D/2D states, knapsack, LIS | – | – | – | – | Planned |
 | 13 | Maths and Geometry | Number theory, matrix rotation, GCD | – | – | – | – | Planned |
 | 14 | Bit Manipulation | XOR tricks, masks, bit counting | – | – | – | – | Planned |
 | 15 | Intervals | Merge, insert, overlap counting | – | – | – | – | Planned |
 | 16 | Databases | Joins, window functions, aggregation | – | – | – | – | Planned |
-| | **Total** | | **27** | **43** | **27** | **97** | |
+| | **Total** | | **28** | **44** | **27** | **99** | |
 
 ```mermaid
 flowchart TD
@@ -407,8 +407,8 @@ The most general structure in the sheet — arrays, lists, and trees are all res
 
 | # | Problem | Difficulty | Key Idea | Source | Time | Space | Status |
 |:---:|:---|:---:|:---|:---:|:---:|:---:|:---:|
-| 1 | [547. Number of Provinces (DSU)](11.%20Graphs/07.%20Disjoint%20Set%20Union/02.%20Basic%20Connectivity%20and%20Components/01.%20547.%20Number%20of%20Provinces%20%28DSU%29.md) | Medium | Union every connected pair; count nodes that are their own parent | [547. Number of Provinces](https://leetcode.com/problems/number-of-provinces/) | – | – | Pending |
-| 2 | [1971. Find if Path Exists in Graph](11.%20Graphs/07.%20Disjoint%20Set%20Union/02.%20Basic%20Connectivity%20and%20Components/02.%201971.%20Find%20if%20Path%20Exists%20in%20Graph.md) | Easy | Union all edges, then check find(source) == find(destination) | [1971. Find if Path Exists in Graph](https://leetcode.com/problems/find-if-path-exists-in-graph/) | – | – | Pending |
+| 1 | [547. Number of Provinces (DSU)](11.%20Graphs/07.%20Disjoint%20Set%20Union/02.%20Basic%20Connectivity%20and%20Components/01.%20547.%20Number%20of%20Provinces%20%28DSU%29.md) | Medium | Union every connected pair; count nodes that are their own parent | [547. Number of Provinces](https://leetcode.com/problems/number-of-provinces/) | `O(n^2 · α(n))` | `O(n)` | Written |
+| 2 | [1971. Find if Path Exists in Graph](11.%20Graphs/07.%20Disjoint%20Set%20Union/02.%20Basic%20Connectivity%20and%20Components/02.%201971.%20Find%20if%20Path%20Exists%20in%20Graph.md) | Easy | Union all edges, then check find(source) == find(destination) | [1971. Find if Path Exists in Graph](https://leetcode.com/problems/find-if-path-exists-in-graph/) | `O((V + E) · α(V))` | `O(V)` | Written |
 
 #### Cycle Detection and Redundant Connections
 
