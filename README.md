@@ -50,30 +50,56 @@ Counts are problems written, broken down by difficulty tier.
 | 16 | Databases | Joins, window functions, aggregation | – | – | – | – | Planned |
 | | **Total** | | **28** | **50** | **29** | **107** | |
 
-**Suggested learning order.** Each topic uses ideas from the ones before it. Arrays come first. Two pointers and sliding window build on arrays. Binary search, stacks and linked lists need only those basics. Recursion comes before trees. Trees and heaps come before graphs, because graph traversal generalizes tree traversal and Dijkstra needs a heap. Greedy and intervals come next, then dynamic programming, which needs recursion. Bit manipulation, maths and databases can be done any time at the end. Green = complete, orange = in progress, gray = planned.
+**Roadmap.** Arrows point from a topic to the topics that build on it. Start at the top and move down once every arrow into a topic is done. For example, Graphs needs Trees (graph traversal grows from tree traversal) and Heaps (Dijkstra uses a heap). Dynamic Programming needs Recursion and Graphs. Databases is a separate track you can do any time.
+
+Green = complete, orange = in progress, blue = planned. The number in a box is how many notes are written.
 
 ```mermaid
+%%{init: {"flowchart": {"curve": "basis", "nodeSpacing": 45, "rankSpacing": 70}}}%%
 flowchart TD
-    A(["1. Array"]):::done
-    A -.-> B(["2. Two<br/>Pointers"]):::done
-    B -.-> C(["3. Sliding<br/>Window"]):::done
-    C -.-> D(["4. Binary<br/>Search"]):::todo
-    D -.-> E(["5. Stacks and<br/>Queues"]):::todo
-    E -.-> F(["6. Linked<br/>List"]):::todo
-    F -.-> G(["7. Recursion"]):::done
-    G -.-> H(["8. Trees"]):::todo
-    H -.-> I(["9. Heaps"]):::todo
-    I -.-> J(["10. Graphs"]):::inprog
-    J -.-> K(["11. Greedy"]):::todo
-    K -.-> L(["12. Intervals"]):::todo
-    L -.-> M(["13. Dynamic<br/>Programming"]):::todo
-    M -.-> N(["14. Bit<br/>Manipulation"]):::todo
-    N -.-> O(["15. Maths and<br/>Geometry"]):::todo
-    O -.-> P(["16. Databases"]):::todo
+    ARR("Array<br/>38 notes"):::done
+    TP("Two Pointers<br/>5 notes"):::done
+    SQ("Stacks and Queues"):::todo
+    BS("Binary Search"):::todo
+    SW("Sliding Window<br/>15 notes"):::done
+    LL("Linked List"):::todo
+    REC("Recursion<br/>20 notes"):::done
+    TR("Trees"):::todo
+    HP("Heaps"):::todo
+    GR("Graphs<br/>29 notes"):::inprog
+    DP("Dynamic Programming"):::todo
+    IV("Intervals"):::todo
+    GD("Greedy"):::todo
+    BM("Bit Manipulation"):::todo
+    MG("Maths and Geometry"):::todo
+    DB("Databases<br/>(any time)"):::side
 
-    classDef done fill:#065f46,stroke:#10b981,color:#ecfdf5
-    classDef inprog fill:#78350f,stroke:#f59e0b,color:#fef3c7
-    classDef todo fill:#1f2937,stroke:#6b7280,color:#e5e7eb
+    ARR --> TP
+    ARR --> SQ
+    TP --> BS
+    TP --> SW
+    TP --> LL
+    SQ --> REC
+    BS --> TR
+    LL --> TR
+    REC --> TR
+    TR --> HP
+    TR --> GR
+    REC --> DP
+    HP --> IV
+    HP --> GD
+    HP --> GR
+    GR --> DP
+    DP --> BM
+    DP --> MG
+    BM --> MG
+    MG ~~~ DB
+
+    classDef done fill:#065f46,stroke:#10b981,stroke-width:2px,color:#ecfdf5
+    classDef inprog fill:#78350f,stroke:#f59e0b,stroke-width:2px,color:#fef3c7
+    classDef todo fill:#3730a3,stroke:#818cf8,stroke-width:2px,color:#e0e7ff
+    classDef side fill:#1f2937,stroke:#6b7280,stroke-width:2px,stroke-dasharray:4 3,color:#e5e7eb
+    linkStyle default stroke:#e5e7eb,stroke-width:2px
 ```
 
 ## 01. Array
