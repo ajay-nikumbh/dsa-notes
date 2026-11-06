@@ -5,23 +5,41 @@ Structured notes for Data Structures & Algorithms.
 Every problem note follows the same shape, so patterns stay comparable across topics:
 
 ```mermaid
+---
+config:
+  flowchart:
+    curve: basis
+    nodeSpacing: 30
+    rankSpacing: 55
+---
 flowchart TD
-    A(["1. Problem<br/>Statement"]):::a --> B(["2. Core<br/>Theory"]):::b
-    B --> C(["3. Edge<br/>Cases"]):::a
-    C --> D(["4. Brute<br/>Force"]):::c
-    D --> E(["5. Better<br/>Approach"]):::c
-    E --> F(["6. Visual Walkthrough<br/>(story version)"]):::b
-    F --> G(["7. Step-by-Step<br/>Dry Run"]):::a
-    G --> H(["8. Optimal Code<br/>+ Tests"]):::d
-    H --> I(["9. Complexity"]):::b
-    I --> J(["10. Common<br/>Mistakes"]):::a
-    J --> K(["11. Interview<br/>Follow-ups"]):::b
-    K --> L(["12. Interview<br/>Explanation"]):::d
-
-    classDef a fill:#1f2937,stroke:#6b7280,color:#e5e7eb
-    classDef b fill:#1e3a5f,stroke:#3b82f6,color:#dbeafe
-    classDef c fill:#78350f,stroke:#f59e0b,color:#fef3c7
-    classDef d fill:#065f46,stroke:#10b981,color:#ecfdf5
+    N("Every note"):::root
+    N --> U("Understand"):::p1
+    N --> S("Solve"):::p2
+    N --> W("Walk through"):::p3
+    N --> I("Review and Interview"):::p4
+    U --> U1("1 · Problem Statement"):::s1
+    U1 --> U2("2 · Core Theory"):::s1
+    U2 --> U3("3 · Edge Cases"):::s1
+    S --> S1("4 · Brute Force"):::s2
+    S1 --> S2("5 · Better Approach"):::s2
+    W --> W1("6 · Visual Walkthrough<br/>(story)"):::s3
+    W1 --> W2("7 · Step-by-Step<br/>Dry Run"):::s3
+    W2 --> W3("8 · Optimal Code<br/>+ Tests"):::s3
+    I --> I1("9 · Complexity"):::s4
+    I1 --> I2("10 · Common Mistakes"):::s4
+    I2 --> I3("11 · Follow-ups"):::s4
+    I3 --> I4("12 · Explanation"):::s4
+    classDef root fill:#4338ca,stroke:#818cf8,stroke-width:2px,color:#eef2ff
+    classDef p1 fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px,color:#dbeafe
+    classDef p2 fill:#78350f,stroke:#f59e0b,stroke-width:2px,color:#fef3c7
+    classDef p3 fill:#065f46,stroke:#10b981,stroke-width:2px,color:#ecfdf5
+    classDef p4 fill:#581c87,stroke:#a855f7,stroke-width:2px,color:#f3e8ff
+    classDef s1 fill:#eff6ff,stroke:#3b82f6,stroke-width:1.5px,color:#1e3a5f
+    classDef s2 fill:#fffbeb,stroke:#f59e0b,stroke-width:1.5px,color:#78350f
+    classDef s3 fill:#ecfdf5,stroke:#10b981,stroke-width:1.5px,color:#065f46
+    classDef s4 fill:#faf5ff,stroke:#a855f7,stroke-width:1.5px,color:#581c87
+    linkStyle default stroke:#94a3b8,stroke-width:2.5px
 ```
 
 Every code line has a comment above it. Each note traces one example step by step, first as a simple story with pictures, then with the exact arrays. The optimal code ends with asserts that check every traced step, so you can paste it straight into a REPL.
@@ -52,10 +70,16 @@ Counts are problems written, broken down by difficulty tier.
 
 **Roadmap.** Arrows point from a topic to the topics that build on it. Start at the top and move down once every arrow into a topic is done. For example, Graphs needs Trees (graph traversal grows from tree traversal) and Heaps (Dijkstra uses a heap). Dynamic Programming needs Recursion and Graphs. Databases is a separate track you can do any time.
 
-Green = complete, orange = in progress, blue = planned. The number in a box is how many notes are written.
+Green = complete, orange = in progress, blue = planned, dashed = separate track. The number in a box is how many notes are written.
 
 ```mermaid
-%%{init: {"flowchart": {"curve": "basis", "nodeSpacing": 45, "rankSpacing": 70}}}%%
+---
+config:
+  flowchart:
+    curve: basis
+    nodeSpacing: 50
+    rankSpacing: 70
+---
 flowchart TD
     ARR("Array<br/>38 notes"):::done
     TP("Two Pointers<br/>5 notes"):::done
@@ -73,7 +97,6 @@ flowchart TD
     BM("Bit Manipulation"):::todo
     MG("Maths and Geometry"):::todo
     DB("Databases<br/>(any time)"):::side
-
     ARR --> TP
     ARR --> SQ
     TP --> BS
@@ -94,12 +117,11 @@ flowchart TD
     DP --> MG
     BM --> MG
     MG ~~~ DB
-
     classDef done fill:#065f46,stroke:#10b981,stroke-width:2px,color:#ecfdf5
-    classDef inprog fill:#78350f,stroke:#f59e0b,stroke-width:2px,color:#fef3c7
-    classDef todo fill:#3730a3,stroke:#818cf8,stroke-width:2px,color:#e0e7ff
-    classDef side fill:#1f2937,stroke:#6b7280,stroke-width:2px,stroke-dasharray:4 3,color:#e5e7eb
-    linkStyle default stroke:#e5e7eb,stroke-width:2px
+    classDef inprog fill:#b45309,stroke:#f59e0b,stroke-width:2px,color:#fff7ed
+    classDef todo fill:#4338ca,stroke:#818cf8,stroke-width:2px,color:#eef2ff
+    classDef side fill:#374151,stroke:#9ca3af,stroke-width:2px,stroke-dasharray:4 3,color:#f3f4f6
+    linkStyle default stroke:#94a3b8,stroke-width:2.5px
 ```
 
 ## 01. Array
