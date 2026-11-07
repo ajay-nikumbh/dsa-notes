@@ -337,19 +337,31 @@ flowchart TD
 
 ### 04. DP on Subsets and Subsequences
 
+All eleven problems use the same 2D state `f(ind, target)` and the same two choices: **not pick** (move to `ind - 1`) and **pick**. Only three things change: how the two choices are combined, which cell "pick" reads, and which way the one-array loop runs.
+
+| Family | Combine | Pick reads | One-array loop | Problems |
+|:---|:---:|:---|:---:|:---|
+| Can we make it? | `or` | row above | right to left | Subset Sum, 416, Minimum Difference |
+| How many ways? (each item once) | `+` | row above | right to left | Count Subsets, Given Difference, 494 |
+| Best value (each item once) | `max` | row above | right to left | 0-1 Knapsack |
+| Unlimited supply | `min` / `+` / `max` | **same row** | **left to right** | 322, 518, Unbounded Knapsack, Rod Cutting |
+
+**Why the loop direction flips:** with one array, a cell on the left that has already been updated in this pass means "this item was already used". For each-item-once problems, that must not happen, so loop right to left. For unlimited supply, it is exactly what we want, so loop left to right.
+
+
 | # | Problem | Difficulty | Idea | Status |
 |:---:|:---|:---:|:---|:---:|
 | 1 | [Subset Sum Equal To K](04.%20DP%20on%20Subsets%20and%20Subsequences/01.%20Subset%20Sum%20Equal%20To%20K.md) | Medium | Pick / not pick with a target (2D grid) | Written |
 | 2 | [416. Partition Equal Subset Sum](04.%20DP%20on%20Subsets%20and%20Subsequences/02.%20416.%20Partition%20Equal%20Subset%20Sum.md) | Medium | Subset Sum with k = total / 2 | Written |
 | 3 | [Partition Array with Minimum Difference](04.%20DP%20on%20Subsets%20and%20Subsequences/03.%20Partition%20Array%20with%20Minimum%20Difference.md) | Medium | Last row of the Subset Sum table, scan for the closest half | Written |
-| 4 | [Count Subsets with Sum K](04.%20DP%20on%20Subsets%20and%20Subsequences/04.%20Count%20Subsets%20with%20Sum%20K.md) | Medium | Count instead of OR | Pending |
-| 5 | [Partitions With Given Difference](04.%20DP%20on%20Subsets%20and%20Subsequences/05.%20Partitions%20With%20Given%20Difference.md) | Medium | Reduce to counting subsets with (total + d) / 2 | Pending |
-| 6 | [0-1 Knapsack](04.%20DP%20on%20Subsets%20and%20Subsequences/06.%200-1%20Knapsack.md) | Medium | Take or leave each item, best value per capacity | Pending |
-| 7 | [322. Coin Change](04.%20DP%20on%20Subsets%20and%20Subsequences/07.%20322.%20Coin%20Change.md) | Medium | Unlimited coins, minimise the count | Pending |
-| 8 | [518. Coin Change II](04.%20DP%20on%20Subsets%20and%20Subsequences/08.%20518.%20Coin%20Change%20II.md) | Medium | Unlimited coins, count the ways | Pending |
-| 9 | [494. Target Sum](04.%20DP%20on%20Subsets%20and%20Subsequences/09.%20494.%20Target%20Sum.md) | Medium | Signs split into two groups | Pending |
-| 10 | [Unbounded Knapsack](04.%20DP%20on%20Subsets%20and%20Subsequences/10.%20Unbounded%20Knapsack.md) | Medium | Take an item again after taking it | Pending |
-| 11 | [Rod Cutting](04.%20DP%20on%20Subsets%20and%20Subsequences/11.%20Rod%20Cutting.md) | Medium | Unbounded knapsack on rod length | Pending |
+| 4 | [Count Subsets with Sum K](04.%20DP%20on%20Subsets%20and%20Subsequences/04.%20Count%20Subsets%20with%20Sum%20K.md) | Medium | Count instead of OR | Written |
+| 5 | [Partitions With Given Difference](04.%20DP%20on%20Subsets%20and%20Subsequences/05.%20Partitions%20With%20Given%20Difference.md) | Medium | Reduce to counting subsets with (total + d) / 2 | Written |
+| 6 | [0-1 Knapsack](04.%20DP%20on%20Subsets%20and%20Subsequences/06.%200-1%20Knapsack.md) | Medium | Take or leave each item, best value per capacity | Written |
+| 7 | [322. Coin Change](04.%20DP%20on%20Subsets%20and%20Subsequences/07.%20322.%20Coin%20Change.md) | Medium | Unlimited coins, minimise the count | Written |
+| 8 | [518. Coin Change II](04.%20DP%20on%20Subsets%20and%20Subsequences/08.%20518.%20Coin%20Change%20II.md) | Medium | Unlimited coins, count the ways | Written |
+| 9 | [494. Target Sum](04.%20DP%20on%20Subsets%20and%20Subsequences/09.%20494.%20Target%20Sum.md) | Medium | Signs split into two groups | Written |
+| 10 | [Unbounded Knapsack](04.%20DP%20on%20Subsets%20and%20Subsequences/10.%20Unbounded%20Knapsack.md) | Medium | Take an item again after taking it | Written |
+| 11 | [Rod Cutting](04.%20DP%20on%20Subsets%20and%20Subsequences/11.%20Rod%20Cutting.md) | Medium | Unbounded knapsack on rod length | Written |
 
 ## 12. What Comes Next
 
@@ -360,7 +372,7 @@ These DP sections follow, in this order:
 | 01 | One Dimensional DP | Written |
 | 02 | Two Dimensional DP (grids, paths) | Planned |
 | 03 | Three Dimensional DP | Planned |
-| 04 | DP on Subsets and Subsequences (knapsack, coin change, target sum) | In progress |
+| 04 | DP on Subsets and Subsequences (knapsack, coin change, target sum) | Written |
 | 05 | DP on Strings (LCS, edit distance, wildcard) | Planned |
 | 06 | DP on Stocks | Planned |
 | 07 | DP on LIS | Planned |

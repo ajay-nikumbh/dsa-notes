@@ -62,12 +62,12 @@ Counts are problems written, broken down by difficulty tier.
 | 09 | Heaps | Top-K, merge K sorted, running median | – | – | – | – | Planned |
 | 10 | Greedy | Interval scheduling, exchange argument | – | – | – | – | Planned |
 | 11 | [**Graphs**](11.%20Graphs/) | BFS/DFS, topo sort, Dijkstra, MST, DSU | 5 | 22 | 2 | **29** | In progress |
-| 12 | [**Dynamic Programming**](12.%20Dynamic%20Programming/) | Recursion → memo → table → space; 1D DP, subsets | 2 | 7 | – | **9** | In progress |
+| 12 | [**Dynamic Programming**](12.%20Dynamic%20Programming/) | Recursion → memo → table → space; 1D DP, subsets, knapsack | 2 | 15 | – | **17** | In progress |
 | 13 | Maths and Geometry | Number theory, matrix rotation, GCD | – | – | – | – | Planned |
 | 14 | Bit Manipulation | XOR tricks, masks, bit counting | – | – | – | – | Planned |
 | 15 | Intervals | Merge, insert, overlap counting | – | – | – | – | Planned |
 | 16 | Databases | Joins, window functions, aggregation | – | – | – | – | Planned |
-| | **Total** | | **64** | **75** | **23** | **162** | |
+| | **Total** | | **64** | **83** | **23** | **170** | |
 
 **Roadmap.** Arrows point from a topic to the topics that build on it. Start at the top and move down once every arrow into a topic is done. For example, Graphs needs Trees (graph traversal grows from tree traversal) and Heaps (Dijkstra uses a heap). Dynamic Programming needs Recursion and Graphs. Databases is a separate track you can do any time.
 
@@ -93,7 +93,7 @@ flowchart TD
     TR("Trees"):::todo
     HP("Heaps"):::todo
     GR("Graphs<br/>29 notes"):::inprog
-    DP("Dynamic Programming<br/>9 notes"):::inprog
+    DP("Dynamic Programming<br/>17 notes"):::inprog
     IV("Intervals"):::todo
     GD("Greedy"):::todo
     BM("Bit Manipulation"):::todo
@@ -650,14 +650,14 @@ DP is recursion that remembers its answers. Every note climbs the same ladder: r
 
 | # | Problem | Difficulty | Key Idea | Source | Time | Space | Status |
 |:---:|:---|:---:|:---|:---:|:---:|:---:|:---:|
-| 1 | [Subset Sum Equal To K](12.%20Dynamic%20Programming/04.%20DP%20on%20Subsets%20and%20Subsequences/01.%20Subset%20Sum%20Equal%20To%20K.md) | Medium | Pick / not pick with a target; a 2D grid of index and target | [Subset Sum Problem](https://www.geeksforgeeks.org/problems/subset-sum-problem-1611555638/1) | `O(n·k)` | `O(k)` | Written |
-| 2 | [416. Partition Equal Subset Sum](12.%20Dynamic%20Programming/04.%20DP%20on%20Subsets%20and%20Subsequences/02.%20416.%20Partition%20Equal%20Subset%20Sum.md) | Medium | Odd total is False; otherwise Subset Sum with k = total / 2 | [416. Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/) | `O(n · k)` | `O(k)` | Written |
-| 3 | [Partition Array with Minimum Difference](12.%20Dynamic%20Programming/04.%20DP%20on%20Subsets%20and%20Subsequences/03.%20Partition%20Array%20with%20Minimum%20Difference.md) | Medium | Fill the last row for k = total, then scan s1 up to half to minimise |total - 2 * s1| | [GfG: Minimum sum partition](https://www.geeksforgeeks.org/problems/minimum-sum-partition3317/1) | `O(n · S)` | `O(S)` | Written |
-| 4 | [Count Subsets with Sum K](12.%20Dynamic%20Programming/04.%20DP%20on%20Subsets%20and%20Subsequences/04.%20Count%20Subsets%20with%20Sum%20K.md) | Medium | Same table as Subset Sum, but add the pick and not-pick counts instead of OR | [Perfect Sum Problem](https://www.geeksforgeeks.org/problems/perfect-sum-problem5633/1) | – | – | Pending |
-| 5 | [Partitions With Given Difference](12.%20Dynamic%20Programming/04.%20DP%20on%20Subsets%20and%20Subsequences/05.%20Partitions%20With%20Given%20Difference.md) | Medium | S1 - S2 = d becomes S1 = (total + d) / 2, then count subsets with that sum | [Partitions with Given Difference](https://www.geeksforgeeks.org/problems/partitions-with-given-difference/1) | – | – | Pending |
-| 6 | [0-1 Knapsack](12.%20Dynamic%20Programming/04.%20DP%20on%20Subsets%20and%20Subsequences/06.%200-1%20Knapsack.md) | Medium | For each item: take it (if it fits) or leave it; keep the best value per capacity | [0 - 1 Knapsack Problem](https://www.geeksforgeeks.org/problems/0-1-knapsack-problem0945/1) | – | – | Pending |
-| 7 | [322. Coin Change](12.%20Dynamic%20Programming/04.%20DP%20on%20Subsets%20and%20Subsequences/07.%20322.%20Coin%20Change.md) | Medium | Unlimited coins: after taking a coin, stay on the same coin; minimise the count | [322. Coin Change](https://leetcode.com/problems/coin-change/) | – | – | Pending |
-| 8 | [518. Coin Change II](12.%20Dynamic%20Programming/04.%20DP%20on%20Subsets%20and%20Subsequences/08.%20518.%20Coin%20Change%20II.md) | Medium | Count the ways with unlimited coins; take keeps the same index | [518. Coin Change II](https://leetcode.com/problems/coin-change-ii/) | – | – | Pending |
-| 9 | [494. Target Sum](12.%20Dynamic%20Programming/04.%20DP%20on%20Subsets%20and%20Subsequences/09.%20494.%20Target%20Sum.md) | Medium | Plus and minus signs split the array into two groups: same as Partitions With Given Difference | [494. Target Sum](https://leetcode.com/problems/target-sum/) | – | – | Pending |
-| 10 | [Unbounded Knapsack](12.%20Dynamic%20Programming/04.%20DP%20on%20Subsets%20and%20Subsequences/10.%20Unbounded%20Knapsack.md) | Medium | Like 0-1 Knapsack, but after taking an item you can take it again | [Knapsack with Duplicate Items](https://www.geeksforgeeks.org/problems/knapsack-with-duplicate-items4201/1) | – | – | Pending |
-| 11 | [Rod Cutting](12.%20Dynamic%20Programming/04.%20DP%20on%20Subsets%20and%20Subsequences/11.%20Rod%20Cutting.md) | Medium | Piece lengths are items, rod length is capacity: unbounded knapsack | [Rod Cutting](https://www.geeksforgeeks.org/problems/rod-cutting0840/1) | – | – | Pending |
+| 1 | [Subset Sum Equal To K](12.%20Dynamic%20Programming/04.%20DP%20on%20Subsets%20and%20Subsequences/01.%20Subset%20Sum%20Equal%20To%20K.md) | Medium | Pick / not pick with a target (2D grid) | [Subset Sum Problem](https://www.geeksforgeeks.org/problems/subset-sum-problem-1611555638/1) | `O(n·k)` | `O(k)` | Written |
+| 2 | [416. Partition Equal Subset Sum](12.%20Dynamic%20Programming/04.%20DP%20on%20Subsets%20and%20Subsequences/02.%20416.%20Partition%20Equal%20Subset%20Sum.md) | Medium | Subset Sum with k = total / 2 | [416. Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/) | `O(n · k)` | `O(k)` | Written |
+| 3 | [Partition Array with Minimum Difference](12.%20Dynamic%20Programming/04.%20DP%20on%20Subsets%20and%20Subsequences/03.%20Partition%20Array%20with%20Minimum%20Difference.md) | Medium | Last row of the Subset Sum table, scan for the closest half | [GfG: Minimum sum partition](https://www.geeksforgeeks.org/problems/minimum-sum-partition3317/1) | `O(n · S)` | `O(S)` | Written |
+| 4 | [Count Subsets with Sum K](12.%20Dynamic%20Programming/04.%20DP%20on%20Subsets%20and%20Subsequences/04.%20Count%20Subsets%20with%20Sum%20K.md) | Medium | Count instead of OR | [Perfect Sum Problem](https://www.geeksforgeeks.org/problems/perfect-sum-problem5633/1) | `O(n·k)` | `O(k)` | Written |
+| 5 | [Partitions With Given Difference](12.%20Dynamic%20Programming/04.%20DP%20on%20Subsets%20and%20Subsequences/05.%20Partitions%20With%20Given%20Difference.md) | Medium | Reduce to counting subsets with (total + d) / 2 | [Partitions with Given Difference](https://www.geeksforgeeks.org/problems/partitions-with-given-difference/1) | `O(n·target)` | `O(target)` | Written |
+| 6 | [0-1 Knapsack](12.%20Dynamic%20Programming/04.%20DP%20on%20Subsets%20and%20Subsequences/06.%200-1%20Knapsack.md) | Medium | Take or leave each item, best value per capacity | [0 - 1 Knapsack Problem](https://www.geeksforgeeks.org/problems/0-1-knapsack-problem0945/1) | `O(n·W)` | `O(W)` | Written |
+| 7 | [322. Coin Change](12.%20Dynamic%20Programming/04.%20DP%20on%20Subsets%20and%20Subsequences/07.%20322.%20Coin%20Change.md) | Medium | Unlimited coins, minimise the count | [322. Coin Change](https://leetcode.com/problems/coin-change/) | `O(n·amount)` | `O(amount)` | Written |
+| 8 | [518. Coin Change II](12.%20Dynamic%20Programming/04.%20DP%20on%20Subsets%20and%20Subsequences/08.%20518.%20Coin%20Change%20II.md) | Medium | Unlimited coins, count the ways | [518. Coin Change II](https://leetcode.com/problems/coin-change-ii/) | `O(n · amount)` | `O(amount)` | Written |
+| 9 | [494. Target Sum](12.%20Dynamic%20Programming/04.%20DP%20on%20Subsets%20and%20Subsequences/09.%20494.%20Target%20Sum.md) | Medium | Signs split into two groups | [494. Target Sum](https://leetcode.com/problems/target-sum/) | `O(n·S)` | `O(S)` | Written |
+| 10 | [Unbounded Knapsack](12.%20Dynamic%20Programming/04.%20DP%20on%20Subsets%20and%20Subsequences/10.%20Unbounded%20Knapsack.md) | Medium | Take an item again after taking it | [Knapsack with Duplicate Items](https://www.geeksforgeeks.org/problems/knapsack-with-duplicate-items4201/1) | `O(n·W)` | `O(W)` | Written |
+| 11 | [Rod Cutting](12.%20Dynamic%20Programming/04.%20DP%20on%20Subsets%20and%20Subsequences/11.%20Rod%20Cutting.md) | Medium | Unbounded knapsack on rod length | [Rod Cutting](https://www.geeksforgeeks.org/problems/rod-cutting0840/1) | `O(N·N)` | `O(N)` | Written |
