@@ -62,12 +62,12 @@ Counts are problems written, broken down by difficulty tier.
 | 09 | Heaps | Top-K, merge K sorted, running median | – | – | – | – | Planned |
 | 10 | Greedy | Interval scheduling, exchange argument | – | – | – | – | Planned |
 | 11 | [**Graphs**](11.%20Graphs/) | BFS/DFS, topo sort, Dijkstra, MST, DSU | 5 | 22 | 2 | **29** | In progress |
-| 12 | Dynamic Programming | 1D/2D states, knapsack, LIS | – | – | – | – | Planned |
+| 12 | [**Dynamic Programming**](12.%20Dynamic%20Programming/) | Recursion → memo → table → space; 1D DP done | 2 | 4 | – | **6** | In progress |
 | 13 | Maths and Geometry | Number theory, matrix rotation, GCD | – | – | – | – | Planned |
 | 14 | Bit Manipulation | XOR tricks, masks, bit counting | – | – | – | – | Planned |
 | 15 | Intervals | Merge, insert, overlap counting | – | – | – | – | Planned |
 | 16 | Databases | Joins, window functions, aggregation | – | – | – | – | Planned |
-| | **Total** | | **62** | **68** | **23** | **153** | |
+| | **Total** | | **64** | **72** | **23** | **159** | |
 
 **Roadmap.** Arrows point from a topic to the topics that build on it. Start at the top and move down once every arrow into a topic is done. For example, Graphs needs Trees (graph traversal grows from tree traversal) and Heaps (Dijkstra uses a heap). Dynamic Programming needs Recursion and Graphs. Databases is a separate track you can do any time.
 
@@ -93,7 +93,7 @@ flowchart TD
     TR("Trees"):::todo
     HP("Heaps"):::todo
     GR("Graphs<br/>29 notes"):::inprog
-    DP("Dynamic Programming"):::todo
+    DP("Dynamic Programming<br/>6 notes"):::inprog
     IV("Intervals"):::todo
     GD("Greedy"):::todo
     BM("Bit Manipulation"):::todo
@@ -629,3 +629,19 @@ The most general structure in the sheet — arrays, lists, and trees are all res
 | 2 | [1192. Bridges in Graph (Tarjan's Algorithm)](11.%20Graphs/08.%20Famous%20Graph%20Algorithms/02.%201192.%20Bridges%20in%20Graph%20%28Tarjan%27s%20Algorithm%29.md) | Hard | Edge u-v is a bridge when low[v] > tin[u] | [1192. Critical Connections in a Network](https://leetcode.com/problems/critical-connections-in-a-network/) | – | – | Pending |
 | 3 | [Articulation Points in Graph](11.%20Graphs/08.%20Famous%20Graph%20Algorithms/03.%20Articulation%20Points%20in%20Graph.md) | Hard | Non-root u is a cut vertex when some child has low[v] >= tin[u]; root needs 2+ children | [Articulation Point - I](https://www.geeksforgeeks.org/problems/articulation-point-1/1) | – | – | Pending |
 
+## 12. Dynamic Programming
+
+DP is recursion that remembers its answers. Every note climbs the same ladder: recursion, then memoization (top-down), then tabulation (bottom-up), then space optimization. Each step has pictures of how the dp table fills.
+
+**[Read the full DP guide →](12.%20Dynamic%20Programming/)** teaches DP from zero: how to spot it, the five words you need, and the 4-step ladder with every table fill drawn.
+
+### One Dimensional DP
+
+| # | Problem | Difficulty | Key Idea | Source | Time | Space | Status |
+|:---:|:---|:---:|:---|:---:|:---:|:---:|:---:|
+| 1 | [509. Fibonacci Number](12.%20Dynamic%20Programming/01.%20One%20Dimensional%20DP/01.%20509.%20Fibonacci%20Number.md) | Easy | Counting ways: each answer is the sum of the two before it | [509. Fibonacci Number](https://leetcode.com/problems/fibonacci-number/) | `O(n)` | `O(1)` | Written |
+| 2 | [70. Climbing Stairs](12.%20Dynamic%20Programming/01.%20One%20Dimensional%20DP/02.%2070.%20Climbing%20Stairs.md) | Easy | Ways to reach step n = ways to n-1 + ways to n-2, same as Fibonacci | [70. Climbing Stairs](https://leetcode.com/problems/climbing-stairs/) | `O(n)` | `O(1)` | Written |
+| 3 | [Frog Jump](12.%20Dynamic%20Programming/01.%20One%20Dimensional%20DP/03.%20Frog%20Jump.md) | Medium | Min energy over two choices: jump 1 or jump 2 back | [GfG: Frog Jump (Geek Jump)](https://www.geeksforgeeks.org/problems/geek-jump/1) | `O(n)` | `O(1)` | Written |
+| 4 | [Frog Jump with K Distances](12.%20Dynamic%20Programming/01.%20One%20Dimensional%20DP/04.%20Frog%20Jump%20with%20K%20Distances.md) | Medium | Min energy over k choices; space O(k) with a rolling window | [GfG: Minimal Cost](https://www.geeksforgeeks.org/problems/minimal-cost/1) | `O(n·k)` | `O(k)` | Written |
+| 5 | [198. House Robber](12.%20Dynamic%20Programming/01.%20One%20Dimensional%20DP/05.%20198.%20House%20Robber.md) | Medium | Pick this house + best up to i-2, or skip it and keep best up to i-1 | [198. House Robber](https://leetcode.com/problems/house-robber/) | `O(n)` | `O(1)` | Written |
+| 6 | [213. House Robber II](12.%20Dynamic%20Programming/01.%20One%20Dimensional%20DP/06.%20213.%20House%20Robber%20II.md) | Medium | Circle: run House Robber twice, skipping first or last house | [213. House Robber II](https://leetcode.com/problems/house-robber-ii/) | `O(n)` | `O(1)` | Written |
