@@ -184,13 +184,28 @@ def fib_memo(n):
 
 **How the notebook fills for `n = 5`.** The calls go down the left side first, so `dp[2]` fills first:
 
-```text
-call f(5) → f(4) → f(3) → f(2) → f(1)=1, f(0)=0
+Each row is the notebook after one fill. Green = just filled. Orange = notebook hit (read, no new calls). Dashed = still computing.
 
-dp[2] = 1     dp: [-1][-1][ 1][-1][-1][-1]
-dp[3] = 2     dp: [-1][-1][ 1][ 2][-1][-1]   (f(1) is a base case)
-dp[4] = 3     dp: [-1][-1][ 1][ 2][ 3][-1]   (f(2) → notebook hit, no new calls)
-dp[5] = 5     dp: [-1][-1][ 1][ 2][ 3][ 5]   (f(3) → notebook hit, no new calls)
+```mermaid
+block-beta
+  columns 7
+  hx[" "] h0["dp[0]"] h1["dp[1]"] h2["dp[2]"] h3["dp[3]"] h4["dp[4]"] h5["dp[5]"]
+  l0["dp[2] = 1"] r0c0["-1"] r0c1["-1"] r0c2["1"] r0c3["-1"] r0c4["-1"] r0c5["-1"]
+  l1["dp[3] = 2"] r1c0["-1"] r1c1["-1"] r1c2["1"] r1c3["2"] r1c4["-1"] r1c5["-1"]
+  l2["dp[4] = 3"] r2c0["-1"] r2c1["-1"] r2c2["1"] r2c3["2"] r2c4["3"] r2c5["-1"]
+  l3["dp[5] = 5"] r3c0["-1"] r3c1["-1"] r3c2["1"] r3c3["2"] r3c4["3"] r3c5["5"]
+  classDef head fill:none,stroke:none,color:#64748b
+  class hx,h0,h1,h2,h3,h4,h5,l0,l1,l2,l3 head
+  classDef empty fill:#f1f5f9,stroke:#94a3b8,color:#64748b
+  class r0c0,r0c1,r1c0,r1c1,r2c0,r2c1,r3c0,r3c1 empty
+  classDef new fill:#065f46,stroke:#10b981,color:#ecfdf5,stroke-width:3px
+  class r0c2,r1c3,r2c4,r3c5 new
+  classDef wait fill:#fef3c7,stroke:#f59e0b,color:#78350f,stroke-dasharray:4 3
+  class r0c3,r0c4,r0c5,r1c4,r1c5,r2c5 wait
+  classDef done fill:#1e3a5f,stroke:#3b82f6,color:#dbeafe
+  class r1c2,r2c3,r3c2,r3c4 done
+  classDef read fill:#78350f,stroke:#f59e0b,color:#fef3c7
+  class r2c2,r3c3 read
 ```
 
 Each `f(k)` is now solved once, so the work is `O(n)`.
@@ -211,31 +226,50 @@ Each `f(k)` is now solved once, so the work is `O(n)`.
 
 **How the table fills for `n = 5`:**
 
-```text
-i:      0   1   2   3   4   5
-start: [ 0][ 1][  ][  ][  ][  ]    base cases written
-
-i = 2: [ 0][ 1][ 1][  ][  ][  ]    dp[2] = dp[1] + dp[0] = 1 + 0
-i = 3: [ 0][ 1][ 1][ 2][  ][  ]    dp[3] = dp[2] + dp[1] = 1 + 1
-i = 4: [ 0][ 1][ 1][ 2][ 3][  ]    dp[4] = dp[3] + dp[2] = 2 + 1
-i = 5: [ 0][ 1][ 1][ 2][ 3][ 5]    dp[5] = dp[4] + dp[3] = 3 + 2
-
-answer = dp[5] = 5
+```mermaid
+block-beta
+  columns 7
+  hx[" "] h0["i = 0"] h1["i = 1"] h2["i = 2"] h3["i = 3"] h4["i = 4"] h5["i = 5"]
+  l0["start"] r0c0["0"] r0c1["1"] r0c2[" "] r0c3[" "] r0c4[" "] r0c5[" "]
+  l1["i = 2"] r1c0["0"] r1c1["1"] r1c2["1"] r1c3[" "] r1c4[" "] r1c5[" "]
+  l2["i = 3"] r2c0["0"] r2c1["1"] r2c2["1"] r2c3["2"] r2c4[" "] r2c5[" "]
+  l3["i = 4"] r3c0["0"] r3c1["1"] r3c2["1"] r3c3["2"] r3c4["3"] r3c5[" "]
+  l4["i = 5"] r4c0["0"] r4c1["1"] r4c2["1"] r4c3["2"] r4c4["3"] r4c5["5"]
+  classDef head fill:none,stroke:none,color:#64748b
+  class hx,h0,h1,h2,h3,h4,h5,l0,l1,l2,l3,l4 head
+  classDef new fill:#065f46,stroke:#10b981,color:#ecfdf5,stroke-width:3px
+  class r0c0,r0c1,r1c2,r2c3,r3c4,r4c5 new
+  classDef empty fill:#f1f5f9,stroke:#94a3b8,color:#64748b
+  class r0c2,r0c3,r0c4,r0c5,r1c3,r1c4,r1c5,r2c4,r2c5,r3c5 empty
+  classDef read fill:#78350f,stroke:#f59e0b,color:#fef3c7
+  class r1c0,r1c1,r2c1,r2c2,r3c2,r3c3,r4c3,r4c4 read
+  classDef done fill:#1e3a5f,stroke:#3b82f6,color:#dbeafe
+  class r2c0,r3c0,r3c1,r4c0,r4c1,r4c2 done
 ```
+
+Orange = the two cells being read. Green = the cell being filled. `dp[i] = dp[i-1] + dp[i-2]`, so the answer is `dp[5] = 5`.
 
 ## 8. Step 4: Space Optimization
 
 Look at the table fill above. To fill `dp[i]`, we only read `dp[i-1]` and `dp[i-2]`. Older cells are never read again. So we keep only two variables.
 
-```text
-          prev2  prev   curr
-i = 2:      0     1  →   1     then slide: prev2 = 1, prev = 1
-i = 3:      1     1  →   2     then slide: prev2 = 1, prev = 2
-i = 4:      1     2  →   3     then slide: prev2 = 2, prev = 3
-i = 5:      2     3  →   5     then slide: prev2 = 3, prev = 5
-
-answer = prev = 5
+```mermaid
+block-beta
+  columns 4
+  hx[" "] h0["prev2"] h1["prev"] h2["curr"]
+  l0["i = 2"] r0c0["0"] r0c1["1"] r0c2["1"]
+  l1["i = 3"] r1c0["1"] r1c1["1"] r1c2["2"]
+  l2["i = 4"] r2c0["1"] r2c1["2"] r2c2["3"]
+  l3["i = 5"] r3c0["2"] r3c1["3"] r3c2["5"]
+  classDef head fill:none,stroke:none,color:#64748b
+  class hx,h0,h1,h2,l0,l1,l2,l3 head
+  classDef read fill:#78350f,stroke:#f59e0b,color:#fef3c7
+  class r0c0,r0c1,r1c0,r1c1,r2c0,r2c1,r3c0,r3c1 read
+  classDef new fill:#065f46,stroke:#10b981,color:#ecfdf5,stroke-width:3px
+  class r0c2,r1c2,r2c2,r3c2 new
 ```
+
+After each row, slide: `prev2 = prev`, `prev = curr`. After `i = 5`, `prev = 5` is the answer.
 
 **Rule:** if `dp[i]` only reads the last `k` cells, keep only `k` variables (or a list of size `k`). For Fibonacci, Climbing Stairs, Frog Jump and House Robber, `k = 2`, so space is `O(1)`. For Frog Jump with K distances, it is `O(k)`.
 
