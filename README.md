@@ -52,7 +52,7 @@ Counts are problems written, broken down by difficulty tier.
 | # | Topic | Core Focus | Easy | Medium | Hard | Total | Status |
 |:---:|:---|:---|:---:|:---:|:---:|:---:|:---:|
 | 01 | [**Array**](01.%20Array/) | Traversal, prefix sums, Kadane, cyclic sort, difference arrays | 48 | 31 | 5 | **84** | Complete |
-| 02 | [**Two Pointers**](02.%20Two%20pointers/) | Opposite-end pairs, palindromes, container/water; 263-problem pattern list | 1 | 3 | 1 | **5** | In progress |
+| 02 | [**Two Pointers**](02.%20Two%20pointers/) | Opposite-end pairs, palindromes, container/water | 1 | 3 | 1 | **5** | Complete |
 | 03 | Stacks and Queues | Monotonic stack, next greater element | – | – | – | – | Planned |
 | 04 | [**Sliding Window**](04.%20Sliding%20window/) | Fixed/variable windows, at-most trick | 6 | 7 | 2 | **15** | Complete |
 | 05 | Linked List | Reversal, cycle detection, merge | – | – | – | – | Planned |
@@ -84,7 +84,7 @@ config:
 ---
 flowchart TD
     ARR("Array<br/>84 notes"):::done
-    TP("Two Pointers<br/>5 notes"):::inprog
+    TP("Two Pointers<br/>5 notes"):::done
     SQ("Stacks and Queues"):::todo
     BS("Binary Search"):::todo
     SW("Sliding Window<br/>15 notes"):::done
@@ -321,7 +321,7 @@ Foundation topic. Every later pattern — two pointers, sliding window, binary s
 
 Two indices moving under a rule, replacing a nested loop. The hard part is proving that the pointer you move can be thrown away safely.
 
-**[Read the full Two Pointers guide →](02.%20Two%20pointers/)** covers the core idea, why it is correct, all four forms, duplicates, and the full **263-problem list in 17 patterns**. Every written note follows the note rules: simple language, Mermaid pointer pictures at every step, constraints with a growth chart, a story walkthrough and tests in the code.
+**[Read the full Two Pointers guide →](02.%20Two%20pointers/)** covers the core idea, why it is correct, all four forms, and duplicates. Every written note follows the note rules: simple language, Mermaid pointer pictures at every step, constraints with a growth chart, a story walkthrough and tests in the code.
 
 ### Opposite-End Pairs on Sorted
 
