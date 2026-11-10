@@ -8,6 +8,15 @@ Plain recursion keeps solving the same small problem again and again. DP solves 
 
 This page teaches the idea once, slowly. Every problem note in this folder then follows the same four steps.
 
+**What every note in this folder has:**
+
+- Your own lecture notes first, every point kept, then extra explanation on top.
+- The problem in simple words, and the constraints explained: what the limits mean, plus a chart of how fast plain recursion blows up compared with DP.
+- The 4 steps (recursion, memoization, tabulation, space optimization), each with Mermaid pictures: the recursion tree with repeated calls in gold, the dp array or grid after every fill, and the cells each step reads.
+- A kid-friendly story walkthrough, then the exact step-by-step trace.
+- Python code with a comment above every line, and tests at the end that check every traced step.
+- Common mistakes, interview follow-ups, a memory hook, and a 30-second interview explanation.
+
 ## Contents
 
 1. [The Big Idea in One Picture](#1-the-big-idea-in-one-picture)

@@ -633,7 +633,7 @@ The most general structure in the sheet — arrays, lists, and trees are all res
 
 DP is recursion that remembers its answers. Every note climbs the same ladder: recursion, then memoization (top-down), then tabulation (bottom-up), then space optimization. Each step has pictures of how the dp table fills.
 
-**[Read the full DP guide →](12.%20Dynamic%20Programming/)** teaches DP from zero: how to spot it, the five words you need, and the 4-step ladder with every table fill drawn.
+**[Read the full DP guide →](12.%20Dynamic%20Programming/)** teaches DP from zero: how to spot it, the five words you need, and the 4-step ladder with every table fill drawn. Sections done so far: One Dimensional DP (6 notes) and DP on Subsets and Subsequences (11 notes). Every note draws its dp arrays and grids as Mermaid diagrams and explains its constraints with a growth chart.
 
 ### One Dimensional DP
 
