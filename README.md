@@ -52,7 +52,7 @@ Counts are problems written, broken down by difficulty tier.
 | # | Topic | Core Focus | Easy | Medium | Hard | Total | Status |
 |:---:|:---|:---|:---:|:---:|:---:|:---:|:---:|
 | 01 | [**Array**](01.%20Array/) | Traversal, prefix sums, Kadane, cyclic sort, difference arrays | 48 | 31 | 5 | **84** | Complete |
-| 02 | [**Two Pointers**](02.%20Two%20pointers/) | Converging pointers, fast/slow, fix one + scan | 1 | 3 | 1 | **5** | Complete |
+| 02 | [**Two Pointers**](02.%20Two%20pointers/) | Opposite-end pairs, palindromes, container/water; 263-problem pattern list | 1 | 3 | 1 | **5** | In progress |
 | 03 | Stacks and Queues | Monotonic stack, next greater element | – | – | – | – | Planned |
 | 04 | [**Sliding Window**](04.%20Sliding%20window/) | Fixed/variable windows, at-most trick | 6 | 7 | 2 | **15** | Complete |
 | 05 | Linked List | Reversal, cycle detection, merge | – | – | – | – | Planned |
@@ -84,7 +84,7 @@ config:
 ---
 flowchart TD
     ARR("Array<br/>84 notes"):::done
-    TP("Two Pointers<br/>5 notes"):::done
+    TP("Two Pointers<br/>5 notes"):::inprog
     SQ("Stacks and Queues"):::todo
     BS("Binary Search"):::todo
     SW("Sliding Window<br/>15 notes"):::done
@@ -319,24 +319,29 @@ Foundation topic. Every later pattern — two pointers, sliding window, binary s
 
 ## 02. Two Pointers
 
-Two indices moving under a rule, replacing a nested loop. The hard part is proving the pointer you move can be discarded safely.
+Two indices moving under a rule, replacing a nested loop. The hard part is proving that the pointer you move can be thrown away safely.
 
-**[Read the full Two Pointers guide →](02.%20Two%20pointers/)** covers all four forms and the correctness argument for each.
+**[Read the full Two Pointers guide →](02.%20Two%20pointers/)** covers the core idea, why it is correct, all four forms, duplicates, and the full **263-problem list in 17 patterns**. Every written note follows the note rules: simple language, Mermaid pointer pictures at every step, constraints with a growth chart, a story walkthrough and tests in the code.
 
-### Converging Pointers (start + end, walk inward)
+### Opposite-End Pairs on Sorted
 
-| # | Problem | Difficulty | Key Idea | Source | Time | Space |
-|:---:|:---|:---:|:---|:---:|:---:|:---:|
-| 1 | [125. Valid Palindrome](02.%20Two%20pointers/01.%20Basics/01.%20125.%20Valid%20Palindrome.md) | Easy | Move both pointers inward, skipping non-alphanumeric characters, and compare cased-down letters as you go | [125. Valid Palindrome](https://leetcode.com/problems/valid-palindrome/) | `O(n)` | `O(1)` |
-| 2 | [167. Two Sum II](02.%20Two%20pointers/02.%20Medium/02.%20167.%20Two%20Sum%20II%20-%20Input%20Array%20Is%20Sorted.md) | Medium | Because the array is sorted, comparing the pair sum to the target tells you exactly which pointer to move next | [167. Two Sum II - Input Array Is Sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) | `O(n)` | `O(1)` |
-| 3 | [11. Container With Most Water](02.%20Two%20pointers/02.%20Medium/03.%2011.%20Container%20With%20Most%20Water.md) | Medium | Always advance the pointer at the shorter line, since keeping it can never yield a taller container | [11. Container With Most Water](https://leetcode.com/problems/container-with-most-water/) | `O(n)` | `O(1)` |
-| 4 | [42. Trapping Rain Water](02.%20Two%20pointers/03.%20Hard/01.%2042.%20Trapping%20Rain%20Water.md) | Hard | Move the side with the smaller max height inward, since its own running max safely bounds the trapped water | [42. Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/) | `O(n)` | `O(1)` |
+| # | Problem | Difficulty | Key Idea | Source | Time | Space | Status |
+|:---:|:---|:---:|:---|:---:|:---:|:---:|:---:|
+| 1 | [167. Two Sum II - Input Array Is Sorted](02.%20Two%20pointers/01.%20Opposite-End%20Pairs%20on%20Sorted/01.%20167.%20Two%20Sum%20II%20-%20Input%20Array%20Is%20Sorted.md) | Medium | Sorted order tells you which end to drop: too small moves left, too big moves right | [167. Two Sum II - Input Array Is Sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) | `O(n)` | `O(1)` | Written |
+| 2 | [15. 3Sum](02.%20Two%20pointers/01.%20Opposite-End%20Pairs%20on%20Sorted/02.%2015.%203Sum.md) | Medium | Sort, fix one number, then two pointers on the rest; skip duplicates on all three | [15. 3Sum](https://leetcode.com/problems/3sum/) | `O(n^2)` | `O(1)` extra | Written |
 
-### Fix One + Scan (outer index, two-pointer the rest)
+### Palindrome Verify-Construct
 
-| # | Problem | Difficulty | Key Idea | Source | Time | Space |
-|:---:|:---|:---:|:---|:---:|:---:|:---:|
-| 1 | [15. 3Sum](02.%20Two%20pointers/02.%20Medium/01.%2015.%203Sum.md) | Medium | Sort the array, fix one element as the outer index, then use converging pointers to find the remaining pair | [15. 3Sum](https://leetcode.com/problems/3sum/) | `O(n^2)` | `O(1)` |
+| # | Problem | Difficulty | Key Idea | Source | Time | Space | Status |
+|:---:|:---|:---:|:---|:---:|:---:|:---:|:---:|
+| 1 | [125. Valid Palindrome](02.%20Two%20pointers/02.%20Palindrome%20Verify-Construct/01.%20125.%20Valid%20Palindrome.md) | Easy | Skip non-alphanumerics, lowercase, compare from both ends inward | [125. Valid Palindrome](https://leetcode.com/problems/valid-palindrome/) | `O(n)` | `O(1)` | Written |
+
+### Container-Area Maximization
+
+| # | Problem | Difficulty | Key Idea | Source | Time | Space | Status |
+|:---:|:---|:---:|:---|:---:|:---:|:---:|:---:|
+| 1 | [11. Container With Most Water](02.%20Two%20pointers/11.%20Container-Area%20Maximization/01.%2011.%20Container%20With%20Most%20Water.md) | Medium | Width × shorter line; always move the shorter line, it can never do better | [11. Container With Most Water](https://leetcode.com/problems/container-with-most-water/) | `O(n)` | `O(1)` | Written |
+| 2 | [42. Trapping Rain Water](02.%20Two%20pointers/11.%20Container-Area%20Maximization/02.%2042.%20Trapping%20Rain%20Water.md) | Hard | Water at i = min(left max, right max) − height; process the smaller side | [42. Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/) | `O(n)` | `O(1)` | Written |
 
 ## 04. Sliding Window
 
