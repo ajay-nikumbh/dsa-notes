@@ -347,7 +347,7 @@ Two indices moving under a rule, replacing a nested loop. The hard part is provi
 
 Two pointers bound a region that grows right and shrinks left. Turns `O(n^2)` subarray scans into one `O(n)` pass.
 
-**[Read the full Sliding Window guide →](04.%20Sliding%20window/)** covers both window shapes, the universal skeleton, and the at-most trick.
+**[Read the full Sliding Window guide →](04.%20Sliding%20window/)** covers both window shapes, the universal skeleton, and the at-most trick. All 15 notes follow the note rules: simple language, Mermaid pictures of the window at every step, a story walkthrough, constraints explained with a growth chart, code with a comment above every line, and tests at the end.
 
 ### Introduction
 
@@ -392,7 +392,7 @@ Two pointers bound a region that grows right and shrinks left. Turns `O(n^2)` su
 
 | # | Problem | Difficulty | Key Idea | Source | Time | Space |
 |:---:|:---|:---:|:---|:---:|:---:|:---:|
-| 1 | [76. Minimum Window Substring](04.%20Sliding%20window/06.%20Hard/01.%2076.%20Minimum%20Window%20Substring.md) | Hard | Track a `have == required` counter to know instantly when the window satisfies every needed character | [76. Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/) | `O(n+m)` | `O(charset)` |
+| 1 | [76. Minimum Window Substring](04.%20Sliding%20window/06.%20Hard/01.%2076.%20Minimum%20Window%20Substring.md) | Hard | Track a `formed == required` counter to know instantly when the window satisfies every needed character | [76. Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/) | `O(n+m)` | `O(charset)` |
 
 ## 07. Recursion
 

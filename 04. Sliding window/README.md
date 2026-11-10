@@ -24,17 +24,32 @@ This page teaches the topic from zero: the two window shapes, the universal skel
 Brute force examines every subarray:
 
 ```python
+# Every start
 for start in range(n):
+
+    # Every end after it
     for end in range(start, n):
-        check(nums[start:end + 1])      # O(n^2) windows
+
+        # Check this window: O(n^2) windows in total
+        check(nums[start:end + 1])
 ```
 
 A sliding window keeps one region and *edits* it instead of rebuilding it:
 
-```text
-[ 1  3  2  5  4  1 ]
-  └──────┘                 window [0..2]
-     └──────┘              slide right: drop 1, add 5
+```mermaid
+block-beta
+  columns 7
+  hx[" "] h0["i = 0"] h1["i = 1"] h2["i = 2"] h3["i = 3"] h4["i = 4"] h5["i = 5"]
+  l0["window 0..2"] r0c0["1"] r0c1["3"] r0c2["2"] r0c3["5"] r0c4["4"] r0c5["1"]
+  l1["slide: drop 1, add 5"] r1c0["1"] r1c1["3"] r1c2["2"] r1c3["5"] r1c4["4"] r1c5["1"]
+  classDef head fill:none,stroke:none,color:#64748b
+  class hx,h0,h1,h2,h3,h4,h5,l0,l1 head
+  classDef new fill:#065f46,stroke:#10b981,color:#ecfdf5,stroke-width:3px
+  class r0c0,r0c1,r0c2,r1c1,r1c2,r1c3 new
+  classDef old fill:#e2e8f0,stroke:#64748b,color:#0f172a
+  class r0c3,r0c4,r0c5,r1c4,r1c5 old
+  classDef read fill:#78350f,stroke:#f59e0b,color:#fef3c7
+  class r1c0 read
 ```
 
 Adding and removing one element each costs `O(1)`, and each pointer only moves forward, so total work is `O(n)`.
@@ -59,22 +74,48 @@ flowchart LR
 The window size `k` never changes. Compute the first window, then slide: add the entering element, remove the leaving one.
 
 ```python
+# Max sum of any window of size k
 def max_sum_fixed(nums, k):
-    window = sum(nums[:k])              # first window
+
+    # Sum of the first window
+    window = sum(nums[:k])
+
+    # It is the best so far
     best = window
+
+    # Every new right end
     for right in range(k, len(nums)):
-        window += nums[right]           # element enters
-        window -= nums[right - k]       # element leaves
+
+        # The new element enters
+        window += nums[right]
+
+        # The oldest element leaves
+        window -= nums[right - k]
+
+        # Keep the best sum
         best = max(best, window)
+
+    # Best window sum
     return best
 ```
 
-```text
-nums = [1, 3, 2, 5, 4],  k = 3
+`nums = [1, 3, 2, 5, 4]`, `k = 3`. Green = window, orange = the element that just left.
 
-[1 3 2] 5  4     sum = 6
- 1 [3 2 5] 4     sum = 10   (+5 -1)
- 1  3 [2 5 4]    sum = 11   (+4 -3)
+```mermaid
+block-beta
+  columns 6
+  hx[" "] h0["i = 0"] h1["i = 1"] h2["i = 2"] h3["i = 3"] h4["i = 4"]
+  l0["sum = 6"] r0c0["1"] r0c1["3"] r0c2["2"] r0c3["5"] r0c4["4"]
+  l1["sum = 10 (+5, -1)"] r1c0["1"] r1c1["3"] r1c2["2"] r1c3["5"] r1c4["4"]
+  l2["sum = 11 (+4, -3)"] r2c0["1"] r2c1["3"] r2c2["2"] r2c3["5"] r2c4["4"]
+  classDef head fill:none,stroke:none,color:#64748b
+  class hx,h0,h1,h2,h3,h4,l0,l1,l2 head
+  classDef new fill:#065f46,stroke:#10b981,color:#ecfdf5,stroke-width:3px
+  class r0c0,r0c1,r0c2,r1c1,r1c2,r1c3,r2c2,r2c3,r2c4 new
+  classDef old fill:#e2e8f0,stroke:#64748b,color:#0f172a
+  class r0c3,r0c4,r1c4,r2c0 old
+  classDef read fill:#78350f,stroke:#f59e0b,color:#fef3c7
+  class r1c0,r2c1 read
 ```
 
 No inner loop at all. The window is always exactly `k` wide, so there is nothing to decide.
@@ -84,15 +125,34 @@ No inner loop at all. The window is always exactly `k` wide, so there is nothing
 The window grows and shrinks to satisfy a condition. This is the far more common shape.
 
 ```python
+# Longest valid window (general shape)
 def longest_valid(nums):
+
+    # Left edge of the window
     left = 0
+
+    # Longest valid length so far
     best = 0
+
+    # Add one element at a time
     for right in range(len(nums)):
-        add(nums[right])                # expand
+
+        # Expand: add the new element to the window state
+        add(nums[right])
+
+        # Shrink while the window breaks the rule
         while not valid():
-            remove(nums[left])          # shrink
+
+            # Remove the leftmost element from the state
+            remove(nums[left])
+
+            # Move the left edge
             left += 1
+
+        # The window is valid: record its length
         best = max(best, right - left + 1)
+
+    # Longest valid length
     return best
 ```
 
@@ -109,20 +169,37 @@ Three decisions define any variable-window problem:
 Nearly every problem in this topic is this template with the three decisions filled in:
 
 ```python
+# The universal sliding window template
 def template(nums, limit):
+
+    # Window state (sum, counts, ...)
     state = init()
+
+    # Left edge of the window
     left = 0
+
+    # Answer so far
     answer = init_answer()
 
+    # Add one element at a time
     for right in range(len(nums)):
-        state.add(nums[right])                 # 1. expand
 
-        while violates(state, limit):          # 2. restore validity
+        # 1. Expand
+        state.add(nums[right])
+
+        # 2. Restore validity
+        while violates(state, limit):
+
+            # Remove the leftmost element
             state.remove(nums[left])
+
+            # Move the left edge
             left += 1
 
-        answer = update(answer, left, right)   # 3. record
+        # 3. Record
+        answer = update(answer, left, right)
 
+    # Final answer
     return answer
 ```
 
@@ -140,14 +217,22 @@ The update position flips depending on the goal. This trips people up constantly
 | Example | 3, 424, 1004 | 209, 76 |
 
 ```python
-# Maximise: shrink until valid, then measure
+# Longest window: shrink until valid
 while len(window_map) > k:
+
+    # Remove from the left
     shrink()
+
+# Then measure once
 best = max(best, right - left + 1)
 
-# Minimise: measure at every valid size, then shrink further
+# Shortest window: measure at every valid size
 while current_sum >= target:
-    best = min(best, right - left + 1)      # record BEFORE removing
+
+    # Record BEFORE removing, while the window is valid
+    best = min(best, right - left + 1)
+
+    # Then shrink further
     shrink()
 ```
 
@@ -163,16 +248,24 @@ right - left + 1
 
 new subarrays, namely every subarray that **ends at `right`** and starts anywhere inside the window.
 
-```text
-window = [2, 5, 1]  with left=0, right=2
+`window = [2, 5, 1]`, `left = 0`, `right = 2`. The subarrays ending at `right`:
 
-subarrays ending at right:
-  [1]          start = 2
-  [5, 1]       start = 1
-  [2, 5, 1]    start = 0
-
-count = 3 = right - left + 1
+```mermaid
+block-beta
+  columns 4
+  hx[" "] h0["i = 0"] h1["i = 1"] h2["i = 2"]
+  l0["start = 2"] r0c0["2"] r0c1["5"] r0c2["1"]
+  l1["start = 1"] r1c0["2"] r1c1["5"] r1c2["1"]
+  l2["start = 0"] r2c0["2"] r2c1["5"] r2c2["1"]
+  classDef head fill:none,stroke:none,color:#64748b
+  class hx,h0,h1,h2,l0,l1,l2 head
+  classDef old fill:#e2e8f0,stroke:#64748b,color:#0f172a
+  class r0c0,r0c1,r1c0 old
+  classDef new fill:#065f46,stroke:#10b981,color:#ecfdf5,stroke-width:3px
+  class r0c2,r1c1,r1c2,r2c0,r2c1,r2c2 new
 ```
+
+`count = 3 = right - left + 1`
 
 Because each `right` is processed once, summing these contributions counts every valid subarray exactly once, with no double-counting.
 
@@ -202,7 +295,10 @@ flowchart LR
 Both passes are `O(n)`, so the total stays `O(n)`.
 
 ```python
+# Count subarrays with exactly k of something
 def exactly(nums, k):
+
+    # Two "at most" counts, subtracted
     return at_most(nums, k) - at_most(nums, k - 1)
 ```
 
@@ -234,10 +330,16 @@ so "sum > target, therefore shrink" is simply wrong.
 A genuine subtlety worth knowing.
 
 ```python
-while invalid():     # window always valid; true size each step
+# Strict: the window is always valid, its true size every step
+while invalid():
+
+    # Shrink as much as needed
     shrink()
 
-if invalid():        # window never shrinks, only slides
+# Lazy: the window never shrinks, it only slides
+if invalid():
+
+    # Shrink at most one step
     shrink_once()
 ```
 
@@ -322,7 +424,7 @@ Use `while` by default. Reach for `if` only on longest-length problems, and know
 
 | # | Problem | Difficulty | Key Idea | Time | Space |
 |:---:|:---|:---:|:---|:---:|:---:|
-| 1 | [76. Minimum Window Substring](06.%20Hard/01.%2076.%20Minimum%20Window%20Substring.md) | Hard | `have == required` counter; record inside the shrink | `O(n+m)` | `O(charset)` |
+| 1 | [76. Minimum Window Substring](06.%20Hard/01.%2076.%20Minimum%20Window%20Substring.md) | Hard | `formed == required` counter; record inside the shrink | `O(n+m)` | `O(charset)` |
 
 ## Where This Leads
 
