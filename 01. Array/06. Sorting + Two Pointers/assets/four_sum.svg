@@ -1,0 +1,362 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="330" viewBox="0 0 560 330" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+<rect x="1" y="1" width="558" height="328" rx="14" fill="#ffffff" stroke="#cbd5e1"/>
+<text x="280.0" y="30" text-anchor="middle" font-size="17" font-weight="700" fill="#0f172a">4Sum: fix two + two pointers</text>
+<g opacity="1"><animate attributeName="opacity" values="1;0;0;0;0;0;0;0;0;0;0" keyTimes="0.0000;0.0800;0.1600;0.2400;0.3200;0.4000;0.4800;0.5600;0.6400;0.7200;0.8000" calcMode="discrete" dur="22.5s" repeatCount="indefinite"/>
+<text x="542" y="30" text-anchor="end" font-size="12" fill="#64748b">step 1/11</text>
+<text x="100.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">0</text>
+<rect x="68.0" y="70" width="64" height="64" rx="10" fill="#e2e8f0" stroke="#64748b" stroke-width="2"/>
+<text x="100.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#0f172a">-2</text>
+<text x="172.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">1</text>
+<rect x="140.0" y="70" width="64" height="64" rx="10" fill="#e2e8f0" stroke="#64748b" stroke-width="2"/>
+<text x="172.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#0f172a">-1</text>
+<text x="244.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">2</text>
+<rect x="212.0" y="70" width="64" height="64" rx="10" fill="#e2e8f0" stroke="#64748b" stroke-width="2"/>
+<text x="244.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#0f172a">0</text>
+<text x="316.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">3</text>
+<rect x="284.0" y="70" width="64" height="64" rx="10" fill="#e2e8f0" stroke="#64748b" stroke-width="2"/>
+<text x="316.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#0f172a">0</text>
+<text x="388.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">4</text>
+<rect x="356.0" y="70" width="64" height="64" rx="10" fill="#e2e8f0" stroke="#64748b" stroke-width="2"/>
+<text x="388.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#0f172a">1</text>
+<text x="460.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">5</text>
+<rect x="428.0" y="70" width="64" height="64" rx="10" fill="#e2e8f0" stroke="#64748b" stroke-width="2"/>
+<text x="460.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#0f172a">2</text>
+<text x="280.0" y="250" text-anchor="middle" font-size="14" fill="#334155">teams: none yet</text>
+<text x="280.0" y="312" text-anchor="middle" font-size="16" font-weight="700" fill="#b45309">📏 Sorted. Find teams of four that sum to 0.</text>
+</g>
+<g opacity="0"><animate attributeName="opacity" values="0;1;0;0;0;0;0;0;0;0;0" keyTimes="0.0000;0.0800;0.1600;0.2400;0.3200;0.4000;0.4800;0.5600;0.6400;0.7200;0.8000" calcMode="discrete" dur="22.5s" repeatCount="indefinite"/>
+<text x="542" y="30" text-anchor="end" font-size="12" fill="#64748b">step 2/11</text>
+<text x="100.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">0</text>
+<rect x="68.0" y="70" width="64" height="64" rx="10" fill="#1e3a5f" stroke="#3b82f6" stroke-width="2"/>
+<text x="100.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#dbeafe">-2</text>
+<text x="172.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">1</text>
+<rect x="140.0" y="70" width="64" height="64" rx="10" fill="#1e3a5f" stroke="#3b82f6" stroke-width="2"/>
+<text x="172.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#dbeafe">-1</text>
+<text x="244.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">2</text>
+<rect x="212.0" y="70" width="64" height="64" rx="10" fill="#78350f" stroke="#f59e0b" stroke-width="2"/>
+<text x="244.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#fef3c7">0</text>
+<text x="316.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">3</text>
+<rect x="284.0" y="70" width="64" height="64" rx="10" fill="#e2e8f0" stroke="#64748b" stroke-width="2"/>
+<text x="316.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#0f172a">0</text>
+<text x="388.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">4</text>
+<rect x="356.0" y="70" width="64" height="64" rx="10" fill="#e2e8f0" stroke="#64748b" stroke-width="2"/>
+<text x="388.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#0f172a">1</text>
+<text x="460.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">5</text>
+<rect x="428.0" y="70" width="64" height="64" rx="10" fill="#78350f" stroke="#f59e0b" stroke-width="2"/>
+<text x="460.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#fef3c7">2</text>
+<path d="M100.0 142 l-8 12 h16 z" fill="#334155"/>
+<rect x="80.0" y="152" width="40" height="24" rx="12" fill="#7c3aed"/>
+<text x="100.0" y="169" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">i</text>
+<path d="M172.0 142 l-8 12 h16 z" fill="#334155"/>
+<rect x="152.0" y="152" width="40" height="24" rx="12" fill="#0891b2"/>
+<text x="172.0" y="169" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">j</text>
+<path d="M244.0 142 l-8 12 h16 z" fill="#334155"/>
+<rect x="224.0" y="152" width="40" height="24" rx="12" fill="#2563eb"/>
+<text x="244.0" y="169" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">L</text>
+<path d="M460.0 142 l-8 12 h16 z" fill="#334155"/>
+<rect x="440.0" y="152" width="40" height="24" rx="12" fill="#db2777"/>
+<text x="460.0" y="169" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">R</text>
+<text x="280.0" y="250" text-anchor="middle" font-size="14" fill="#334155">-2 + -1 + 0 + 2 = -1</text>
+<text x="280.0" y="270" text-anchor="middle" font-size="14" fill="#334155">teams: none yet</text>
+<text x="280.0" y="312" text-anchor="middle" font-size="16" font-weight="700" fill="#b45309">👉 too small: left moves right</text>
+</g>
+<g opacity="0"><animate attributeName="opacity" values="0;0;1;0;0;0;0;0;0;0;0" keyTimes="0.0000;0.0800;0.1600;0.2400;0.3200;0.4000;0.4800;0.5600;0.6400;0.7200;0.8000" calcMode="discrete" dur="22.5s" repeatCount="indefinite"/>
+<text x="542" y="30" text-anchor="end" font-size="12" fill="#64748b">step 3/11</text>
+<text x="100.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">0</text>
+<rect x="68.0" y="70" width="64" height="64" rx="10" fill="#1e3a5f" stroke="#3b82f6" stroke-width="2"/>
+<text x="100.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#dbeafe">-2</text>
+<text x="172.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">1</text>
+<rect x="140.0" y="70" width="64" height="64" rx="10" fill="#1e3a5f" stroke="#3b82f6" stroke-width="2"/>
+<text x="172.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#dbeafe">-1</text>
+<text x="244.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">2</text>
+<rect x="212.0" y="70" width="64" height="64" rx="10" fill="#e2e8f0" stroke="#64748b" stroke-width="2"/>
+<text x="244.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#0f172a">0</text>
+<text x="316.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">3</text>
+<rect x="284.0" y="70" width="64" height="64" rx="10" fill="#78350f" stroke="#f59e0b" stroke-width="2"/>
+<text x="316.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#fef3c7">0</text>
+<text x="388.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">4</text>
+<rect x="356.0" y="70" width="64" height="64" rx="10" fill="#e2e8f0" stroke="#64748b" stroke-width="2"/>
+<text x="388.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#0f172a">1</text>
+<text x="460.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">5</text>
+<rect x="428.0" y="70" width="64" height="64" rx="10" fill="#78350f" stroke="#f59e0b" stroke-width="2"/>
+<text x="460.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#fef3c7">2</text>
+<path d="M100.0 142 l-8 12 h16 z" fill="#334155"/>
+<rect x="80.0" y="152" width="40" height="24" rx="12" fill="#7c3aed"/>
+<text x="100.0" y="169" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">i</text>
+<path d="M172.0 142 l-8 12 h16 z" fill="#334155"/>
+<rect x="152.0" y="152" width="40" height="24" rx="12" fill="#0891b2"/>
+<text x="172.0" y="169" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">j</text>
+<path d="M316.0 142 l-8 12 h16 z" fill="#334155"/>
+<rect x="296.0" y="152" width="40" height="24" rx="12" fill="#2563eb"/>
+<text x="316.0" y="169" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">L</text>
+<path d="M460.0 142 l-8 12 h16 z" fill="#334155"/>
+<rect x="440.0" y="152" width="40" height="24" rx="12" fill="#db2777"/>
+<text x="460.0" y="169" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">R</text>
+<text x="280.0" y="250" text-anchor="middle" font-size="14" fill="#334155">-2 + -1 + 0 + 2 = -1</text>
+<text x="280.0" y="270" text-anchor="middle" font-size="14" fill="#334155">teams: none yet</text>
+<text x="280.0" y="312" text-anchor="middle" font-size="16" font-weight="700" fill="#b45309">👉 too small: left moves right</text>
+</g>
+<g opacity="0"><animate attributeName="opacity" values="0;0;0;1;0;0;0;0;0;0;0" keyTimes="0.0000;0.0800;0.1600;0.2400;0.3200;0.4000;0.4800;0.5600;0.6400;0.7200;0.8000" calcMode="discrete" dur="22.5s" repeatCount="indefinite"/>
+<text x="542" y="30" text-anchor="end" font-size="12" fill="#64748b">step 4/11</text>
+<text x="100.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">0</text>
+<rect x="68.0" y="70" width="64" height="64" rx="10" fill="#065f46" stroke="#10b981" stroke-width="3"/>
+<text x="100.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#ecfdf5">-2</text>
+<text x="172.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">1</text>
+<rect x="140.0" y="70" width="64" height="64" rx="10" fill="#065f46" stroke="#10b981" stroke-width="3"/>
+<text x="172.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#ecfdf5">-1</text>
+<text x="244.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">2</text>
+<rect x="212.0" y="70" width="64" height="64" rx="10" fill="#e2e8f0" stroke="#64748b" stroke-width="2"/>
+<text x="244.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#0f172a">0</text>
+<text x="316.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">3</text>
+<rect x="284.0" y="70" width="64" height="64" rx="10" fill="#e2e8f0" stroke="#64748b" stroke-width="2"/>
+<text x="316.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#0f172a">0</text>
+<text x="388.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">4</text>
+<rect x="356.0" y="70" width="64" height="64" rx="10" fill="#065f46" stroke="#10b981" stroke-width="3"/>
+<text x="388.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#ecfdf5">1</text>
+<text x="460.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">5</text>
+<rect x="428.0" y="70" width="64" height="64" rx="10" fill="#065f46" stroke="#10b981" stroke-width="3"/>
+<text x="460.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#ecfdf5">2</text>
+<path d="M100.0 142 l-8 12 h16 z" fill="#334155"/>
+<rect x="80.0" y="152" width="40" height="24" rx="12" fill="#7c3aed"/>
+<text x="100.0" y="169" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">i</text>
+<path d="M172.0 142 l-8 12 h16 z" fill="#334155"/>
+<rect x="152.0" y="152" width="40" height="24" rx="12" fill="#0891b2"/>
+<text x="172.0" y="169" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">j</text>
+<path d="M388.0 142 l-8 12 h16 z" fill="#334155"/>
+<rect x="368.0" y="152" width="40" height="24" rx="12" fill="#2563eb"/>
+<text x="388.0" y="169" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">L</text>
+<path d="M460.0 142 l-8 12 h16 z" fill="#334155"/>
+<rect x="440.0" y="152" width="40" height="24" rx="12" fill="#db2777"/>
+<text x="460.0" y="169" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">R</text>
+<text x="280.0" y="250" text-anchor="middle" font-size="14" fill="#334155">-2 + -1 + 1 + 2 = 0</text>
+<text x="280.0" y="270" text-anchor="middle" font-size="14" fill="#334155">teams: [-2, -1, 1, 2]</text>
+<text x="280.0" y="312" text-anchor="middle" font-size="16" font-weight="700" fill="#b45309">🎯 sum 0: save the team, move both</text>
+</g>
+<g opacity="0"><animate attributeName="opacity" values="0;0;0;0;1;0;0;0;0;0;0" keyTimes="0.0000;0.0800;0.1600;0.2400;0.3200;0.4000;0.4800;0.5600;0.6400;0.7200;0.8000" calcMode="discrete" dur="22.5s" repeatCount="indefinite"/>
+<text x="542" y="30" text-anchor="end" font-size="12" fill="#64748b">step 5/11</text>
+<text x="100.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">0</text>
+<rect x="68.0" y="70" width="64" height="64" rx="10" fill="#065f46" stroke="#10b981" stroke-width="3"/>
+<text x="100.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#ecfdf5">-2</text>
+<text x="172.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">1</text>
+<rect x="140.0" y="70" width="64" height="64" rx="10" fill="#e2e8f0" stroke="#64748b" stroke-width="2"/>
+<text x="172.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#0f172a">-1</text>
+<text x="244.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">2</text>
+<rect x="212.0" y="70" width="64" height="64" rx="10" fill="#065f46" stroke="#10b981" stroke-width="3"/>
+<text x="244.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#ecfdf5">0</text>
+<text x="316.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">3</text>
+<rect x="284.0" y="70" width="64" height="64" rx="10" fill="#065f46" stroke="#10b981" stroke-width="3"/>
+<text x="316.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#ecfdf5">0</text>
+<text x="388.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">4</text>
+<rect x="356.0" y="70" width="64" height="64" rx="10" fill="#e2e8f0" stroke="#64748b" stroke-width="2"/>
+<text x="388.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#0f172a">1</text>
+<text x="460.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">5</text>
+<rect x="428.0" y="70" width="64" height="64" rx="10" fill="#065f46" stroke="#10b981" stroke-width="3"/>
+<text x="460.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#ecfdf5">2</text>
+<path d="M100.0 142 l-8 12 h16 z" fill="#334155"/>
+<rect x="80.0" y="152" width="40" height="24" rx="12" fill="#7c3aed"/>
+<text x="100.0" y="169" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">i</text>
+<path d="M244.0 142 l-8 12 h16 z" fill="#334155"/>
+<rect x="224.0" y="152" width="40" height="24" rx="12" fill="#0891b2"/>
+<text x="244.0" y="169" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">j</text>
+<path d="M316.0 142 l-8 12 h16 z" fill="#334155"/>
+<rect x="296.0" y="152" width="40" height="24" rx="12" fill="#2563eb"/>
+<text x="316.0" y="169" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">L</text>
+<path d="M460.0 142 l-8 12 h16 z" fill="#334155"/>
+<rect x="440.0" y="152" width="40" height="24" rx="12" fill="#db2777"/>
+<text x="460.0" y="169" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">R</text>
+<text x="280.0" y="250" text-anchor="middle" font-size="14" fill="#334155">-2 + 0 + 0 + 2 = 0</text>
+<text x="280.0" y="270" text-anchor="middle" font-size="14" fill="#334155">teams: [-2, -1, 1, 2], [-2, 0, 0, 2]</text>
+<text x="280.0" y="312" text-anchor="middle" font-size="16" font-weight="700" fill="#b45309">🎯 sum 0: save the team, move both</text>
+</g>
+<g opacity="0"><animate attributeName="opacity" values="0;0;0;0;0;1;0;0;0;0;0" keyTimes="0.0000;0.0800;0.1600;0.2400;0.3200;0.4000;0.4800;0.5600;0.6400;0.7200;0.8000" calcMode="discrete" dur="22.5s" repeatCount="indefinite"/>
+<text x="542" y="30" text-anchor="end" font-size="12" fill="#64748b">step 6/11</text>
+<text x="100.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">0</text>
+<rect x="68.0" y="70" width="64" height="64" rx="10" fill="#1e3a5f" stroke="#3b82f6" stroke-width="2"/>
+<text x="100.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#dbeafe">-2</text>
+<text x="172.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">1</text>
+<rect x="140.0" y="70" width="64" height="64" rx="10" fill="#e2e8f0" stroke="#64748b" stroke-width="2"/>
+<text x="172.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#0f172a">-1</text>
+<text x="244.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">2</text>
+<rect x="212.0" y="70" width="64" height="64" rx="10" fill="#e2e8f0" stroke="#64748b" stroke-width="2"/>
+<text x="244.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#0f172a">0</text>
+<text x="316.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">3</text>
+<rect x="284.0" y="70" width="64" height="64" rx="10" fill="#7f1d1d" stroke="#ef4444" stroke-width="2"/>
+<text x="316.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#fee2e2">0</text>
+<text x="388.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">4</text>
+<rect x="356.0" y="70" width="64" height="64" rx="10" fill="#e2e8f0" stroke="#64748b" stroke-width="2"/>
+<text x="388.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#0f172a">1</text>
+<text x="460.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">5</text>
+<rect x="428.0" y="70" width="64" height="64" rx="10" fill="#e2e8f0" stroke="#64748b" stroke-width="2"/>
+<text x="460.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#0f172a">2</text>
+<path d="M100.0 142 l-8 12 h16 z" fill="#334155"/>
+<rect x="80.0" y="152" width="40" height="24" rx="12" fill="#7c3aed"/>
+<text x="100.0" y="169" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">i</text>
+<path d="M316.0 142 l-8 12 h16 z" fill="#334155"/>
+<rect x="296.0" y="152" width="40" height="24" rx="12" fill="#0891b2"/>
+<text x="316.0" y="169" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">j</text>
+<text x="280.0" y="250" text-anchor="middle" font-size="14" fill="#334155">0 == 0</text>
+<text x="280.0" y="270" text-anchor="middle" font-size="14" fill="#334155">teams: [-2, -1, 1, 2], [-2, 0, 0, 2]</text>
+<text x="280.0" y="312" text-anchor="middle" font-size="16" font-weight="700" fill="#b45309">⏭️ same j value as before: skip it</text>
+</g>
+<g opacity="0"><animate attributeName="opacity" values="0;0;0;0;0;0;1;0;0;0;0" keyTimes="0.0000;0.0800;0.1600;0.2400;0.3200;0.4000;0.4800;0.5600;0.6400;0.7200;0.8000" calcMode="discrete" dur="22.5s" repeatCount="indefinite"/>
+<text x="542" y="30" text-anchor="end" font-size="12" fill="#64748b">step 7/11</text>
+<text x="100.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">0</text>
+<rect x="68.0" y="70" width="64" height="64" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+<text x="100.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#94a3b8">-2</text>
+<text x="172.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">1</text>
+<rect x="140.0" y="70" width="64" height="64" rx="10" fill="#1e3a5f" stroke="#3b82f6" stroke-width="2"/>
+<text x="172.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#dbeafe">-1</text>
+<text x="244.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">2</text>
+<rect x="212.0" y="70" width="64" height="64" rx="10" fill="#1e3a5f" stroke="#3b82f6" stroke-width="2"/>
+<text x="244.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#dbeafe">0</text>
+<text x="316.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">3</text>
+<rect x="284.0" y="70" width="64" height="64" rx="10" fill="#78350f" stroke="#f59e0b" stroke-width="2"/>
+<text x="316.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#fef3c7">0</text>
+<text x="388.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">4</text>
+<rect x="356.0" y="70" width="64" height="64" rx="10" fill="#e2e8f0" stroke="#64748b" stroke-width="2"/>
+<text x="388.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#0f172a">1</text>
+<text x="460.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">5</text>
+<rect x="428.0" y="70" width="64" height="64" rx="10" fill="#78350f" stroke="#f59e0b" stroke-width="2"/>
+<text x="460.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#fef3c7">2</text>
+<path d="M172.0 142 l-8 12 h16 z" fill="#334155"/>
+<rect x="152.0" y="152" width="40" height="24" rx="12" fill="#7c3aed"/>
+<text x="172.0" y="169" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">i</text>
+<path d="M244.0 142 l-8 12 h16 z" fill="#334155"/>
+<rect x="224.0" y="152" width="40" height="24" rx="12" fill="#0891b2"/>
+<text x="244.0" y="169" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">j</text>
+<path d="M316.0 142 l-8 12 h16 z" fill="#334155"/>
+<rect x="296.0" y="152" width="40" height="24" rx="12" fill="#2563eb"/>
+<text x="316.0" y="169" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">L</text>
+<path d="M460.0 142 l-8 12 h16 z" fill="#334155"/>
+<rect x="440.0" y="152" width="40" height="24" rx="12" fill="#db2777"/>
+<text x="460.0" y="169" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">R</text>
+<text x="280.0" y="250" text-anchor="middle" font-size="14" fill="#334155">-1 + 0 + 0 + 2 = 1</text>
+<text x="280.0" y="270" text-anchor="middle" font-size="14" fill="#334155">teams: [-2, -1, 1, 2], [-2, 0, 0, 2]</text>
+<text x="280.0" y="312" text-anchor="middle" font-size="16" font-weight="700" fill="#b45309">👈 too big: right moves left</text>
+</g>
+<g opacity="0"><animate attributeName="opacity" values="0;0;0;0;0;0;0;1;0;0;0" keyTimes="0.0000;0.0800;0.1600;0.2400;0.3200;0.4000;0.4800;0.5600;0.6400;0.7200;0.8000" calcMode="discrete" dur="22.5s" repeatCount="indefinite"/>
+<text x="542" y="30" text-anchor="end" font-size="12" fill="#64748b">step 8/11</text>
+<text x="100.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">0</text>
+<rect x="68.0" y="70" width="64" height="64" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+<text x="100.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#94a3b8">-2</text>
+<text x="172.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">1</text>
+<rect x="140.0" y="70" width="64" height="64" rx="10" fill="#065f46" stroke="#10b981" stroke-width="3"/>
+<text x="172.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#ecfdf5">-1</text>
+<text x="244.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">2</text>
+<rect x="212.0" y="70" width="64" height="64" rx="10" fill="#065f46" stroke="#10b981" stroke-width="3"/>
+<text x="244.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#ecfdf5">0</text>
+<text x="316.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">3</text>
+<rect x="284.0" y="70" width="64" height="64" rx="10" fill="#065f46" stroke="#10b981" stroke-width="3"/>
+<text x="316.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#ecfdf5">0</text>
+<text x="388.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">4</text>
+<rect x="356.0" y="70" width="64" height="64" rx="10" fill="#065f46" stroke="#10b981" stroke-width="3"/>
+<text x="388.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#ecfdf5">1</text>
+<text x="460.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">5</text>
+<rect x="428.0" y="70" width="64" height="64" rx="10" fill="#e2e8f0" stroke="#64748b" stroke-width="2"/>
+<text x="460.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#0f172a">2</text>
+<path d="M172.0 142 l-8 12 h16 z" fill="#334155"/>
+<rect x="152.0" y="152" width="40" height="24" rx="12" fill="#7c3aed"/>
+<text x="172.0" y="169" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">i</text>
+<path d="M244.0 142 l-8 12 h16 z" fill="#334155"/>
+<rect x="224.0" y="152" width="40" height="24" rx="12" fill="#0891b2"/>
+<text x="244.0" y="169" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">j</text>
+<path d="M316.0 142 l-8 12 h16 z" fill="#334155"/>
+<rect x="296.0" y="152" width="40" height="24" rx="12" fill="#2563eb"/>
+<text x="316.0" y="169" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">L</text>
+<path d="M388.0 142 l-8 12 h16 z" fill="#334155"/>
+<rect x="368.0" y="152" width="40" height="24" rx="12" fill="#db2777"/>
+<text x="388.0" y="169" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">R</text>
+<text x="280.0" y="250" text-anchor="middle" font-size="14" fill="#334155">-1 + 0 + 0 + 1 = 0</text>
+<text x="280.0" y="270" text-anchor="middle" font-size="14" fill="#334155">teams: [-2, -1, 1, 2], [-2, 0, 0, 2], [-1, 0, 0, 1]</text>
+<text x="280.0" y="312" text-anchor="middle" font-size="16" font-weight="700" fill="#b45309">🎯 sum 0: save the team, move both</text>
+</g>
+<g opacity="0"><animate attributeName="opacity" values="0;0;0;0;0;0;0;0;1;0;0" keyTimes="0.0000;0.0800;0.1600;0.2400;0.3200;0.4000;0.4800;0.5600;0.6400;0.7200;0.8000" calcMode="discrete" dur="22.5s" repeatCount="indefinite"/>
+<text x="542" y="30" text-anchor="end" font-size="12" fill="#64748b">step 9/11</text>
+<text x="100.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">0</text>
+<rect x="68.0" y="70" width="64" height="64" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+<text x="100.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#94a3b8">-2</text>
+<text x="172.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">1</text>
+<rect x="140.0" y="70" width="64" height="64" rx="10" fill="#1e3a5f" stroke="#3b82f6" stroke-width="2"/>
+<text x="172.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#dbeafe">-1</text>
+<text x="244.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">2</text>
+<rect x="212.0" y="70" width="64" height="64" rx="10" fill="#e2e8f0" stroke="#64748b" stroke-width="2"/>
+<text x="244.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#0f172a">0</text>
+<text x="316.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">3</text>
+<rect x="284.0" y="70" width="64" height="64" rx="10" fill="#7f1d1d" stroke="#ef4444" stroke-width="2"/>
+<text x="316.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#fee2e2">0</text>
+<text x="388.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">4</text>
+<rect x="356.0" y="70" width="64" height="64" rx="10" fill="#e2e8f0" stroke="#64748b" stroke-width="2"/>
+<text x="388.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#0f172a">1</text>
+<text x="460.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">5</text>
+<rect x="428.0" y="70" width="64" height="64" rx="10" fill="#e2e8f0" stroke="#64748b" stroke-width="2"/>
+<text x="460.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#0f172a">2</text>
+<path d="M172.0 142 l-8 12 h16 z" fill="#334155"/>
+<rect x="152.0" y="152" width="40" height="24" rx="12" fill="#7c3aed"/>
+<text x="172.0" y="169" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">i</text>
+<path d="M316.0 142 l-8 12 h16 z" fill="#334155"/>
+<rect x="296.0" y="152" width="40" height="24" rx="12" fill="#0891b2"/>
+<text x="316.0" y="169" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">j</text>
+<text x="280.0" y="250" text-anchor="middle" font-size="14" fill="#334155">0 == 0</text>
+<text x="280.0" y="270" text-anchor="middle" font-size="14" fill="#334155">teams: [-2, -1, 1, 2], [-2, 0, 0, 2], [-1, 0, 0, 1]</text>
+<text x="280.0" y="312" text-anchor="middle" font-size="16" font-weight="700" fill="#b45309">⏭️ same j value as before: skip it</text>
+</g>
+<g opacity="0"><animate attributeName="opacity" values="0;0;0;0;0;0;0;0;0;1;0" keyTimes="0.0000;0.0800;0.1600;0.2400;0.3200;0.4000;0.4800;0.5600;0.6400;0.7200;0.8000" calcMode="discrete" dur="22.5s" repeatCount="indefinite"/>
+<text x="542" y="30" text-anchor="end" font-size="12" fill="#64748b">step 10/11</text>
+<text x="100.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">0</text>
+<rect x="68.0" y="70" width="64" height="64" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+<text x="100.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#94a3b8">-2</text>
+<text x="172.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">1</text>
+<rect x="140.0" y="70" width="64" height="64" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+<text x="172.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#94a3b8">-1</text>
+<text x="244.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">2</text>
+<rect x="212.0" y="70" width="64" height="64" rx="10" fill="#1e3a5f" stroke="#3b82f6" stroke-width="2"/>
+<text x="244.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#dbeafe">0</text>
+<text x="316.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">3</text>
+<rect x="284.0" y="70" width="64" height="64" rx="10" fill="#1e3a5f" stroke="#3b82f6" stroke-width="2"/>
+<text x="316.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#dbeafe">0</text>
+<text x="388.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">4</text>
+<rect x="356.0" y="70" width="64" height="64" rx="10" fill="#78350f" stroke="#f59e0b" stroke-width="2"/>
+<text x="388.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#fef3c7">1</text>
+<text x="460.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">5</text>
+<rect x="428.0" y="70" width="64" height="64" rx="10" fill="#78350f" stroke="#f59e0b" stroke-width="2"/>
+<text x="460.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#fef3c7">2</text>
+<path d="M244.0 142 l-8 12 h16 z" fill="#334155"/>
+<rect x="224.0" y="152" width="40" height="24" rx="12" fill="#7c3aed"/>
+<text x="244.0" y="169" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">i</text>
+<path d="M316.0 142 l-8 12 h16 z" fill="#334155"/>
+<rect x="296.0" y="152" width="40" height="24" rx="12" fill="#0891b2"/>
+<text x="316.0" y="169" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">j</text>
+<path d="M388.0 142 l-8 12 h16 z" fill="#334155"/>
+<rect x="368.0" y="152" width="40" height="24" rx="12" fill="#2563eb"/>
+<text x="388.0" y="169" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">L</text>
+<path d="M460.0 142 l-8 12 h16 z" fill="#334155"/>
+<rect x="440.0" y="152" width="40" height="24" rx="12" fill="#db2777"/>
+<text x="460.0" y="169" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">R</text>
+<text x="280.0" y="250" text-anchor="middle" font-size="14" fill="#334155">0 + 0 + 1 + 2 = 3</text>
+<text x="280.0" y="270" text-anchor="middle" font-size="14" fill="#334155">teams: [-2, -1, 1, 2], [-2, 0, 0, 2], [-1, 0, 0, 1]</text>
+<text x="280.0" y="312" text-anchor="middle" font-size="16" font-weight="700" fill="#b45309">👈 too big: right moves left</text>
+</g>
+<g opacity="0"><animate attributeName="opacity" values="0;0;0;0;0;0;0;0;0;0;1" keyTimes="0.0000;0.0800;0.1600;0.2400;0.3200;0.4000;0.4800;0.5600;0.6400;0.7200;0.8000" calcMode="discrete" dur="22.5s" repeatCount="indefinite"/>
+<text x="542" y="30" text-anchor="end" font-size="12" fill="#64748b">step 11/11</text>
+<text x="100.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">0</text>
+<rect x="68.0" y="70" width="64" height="64" rx="10" fill="#e2e8f0" stroke="#64748b" stroke-width="2"/>
+<text x="100.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#0f172a">-2</text>
+<text x="172.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">1</text>
+<rect x="140.0" y="70" width="64" height="64" rx="10" fill="#e2e8f0" stroke="#64748b" stroke-width="2"/>
+<text x="172.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#0f172a">-1</text>
+<text x="244.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">2</text>
+<rect x="212.0" y="70" width="64" height="64" rx="10" fill="#e2e8f0" stroke="#64748b" stroke-width="2"/>
+<text x="244.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#0f172a">0</text>
+<text x="316.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">3</text>
+<rect x="284.0" y="70" width="64" height="64" rx="10" fill="#e2e8f0" stroke="#64748b" stroke-width="2"/>
+<text x="316.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#0f172a">0</text>
+<text x="388.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">4</text>
+<rect x="356.0" y="70" width="64" height="64" rx="10" fill="#e2e8f0" stroke="#64748b" stroke-width="2"/>
+<text x="388.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#0f172a">1</text>
+<text x="460.0" y="62" text-anchor="middle" font-size="12" fill="#64748b">5</text>
+<rect x="428.0" y="70" width="64" height="64" rx="10" fill="#e2e8f0" stroke="#64748b" stroke-width="2"/>
+<text x="460.0" y="109.0" text-anchor="middle" font-size="20" font-weight="700" fill="#0f172a">2</text>
+<text x="280.0" y="250" text-anchor="middle" font-size="14" fill="#334155">[-2, -1, 1, 2], [-2, 0, 0, 2], [-1, 0, 0, 1]</text>
+<text x="280.0" y="312" text-anchor="middle" font-size="16" font-weight="700" fill="#b45309">✅ Answer: 3 teams</text>
+</g>
+</svg>
