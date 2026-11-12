@@ -200,6 +200,8 @@ Foundation topic. Every later pattern — two pointers, sliding window, binary s
 
 ### Sorting + Two Pointers
 
+All three notes have a 🎬 step-by-step animation at the top, story pictures with icons, and a constraints chart.
+
 | # | Problem | Difficulty | Key Idea | Source | Time | Space | Status |
 |:---:|:---|:---:|:---|:---:|:---:|:---:|:---:|
 | 1 | [1. Two Sum](01.%20Array/06.%20Sorting%20%2B%20Two%20Pointers/01.%201.%20Two%20Sum.md) | Easy | Hash map of complements, or sort + two pointers | [1. Two Sum](https://leetcode.com/problems/two-sum/) | `O(n)` | `O(n)` | Written |

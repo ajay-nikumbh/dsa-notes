@@ -742,6 +742,8 @@ Folders follow the pattern order below. **Written** = full note; **Pending** = q
 
 ### 06. Sorting + Two Pointers
 
+All three notes have a 🎬 step-by-step animation at the top, story pictures with icons, and a constraints chart.
+
 | # | Problem | Difficulty | Key Idea | Status |
 |:---:|:---|:---:|:---|:---:|
 | 1 | [1. Two Sum](06.%20Sorting%20%2B%20Two%20Pointers/01.%201.%20Two%20Sum.md) | Easy | Hash map of complements, or sort + two pointers | Written |
