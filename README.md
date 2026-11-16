@@ -200,7 +200,7 @@ Foundation topic. Every later pattern — two pointers, sliding window, binary s
 
 ### Sorting + Two Pointers
 
-All three notes have story pictures with icons, full-width tables, and a constraints chart.
+All three notes trace a medium-size example end to end, explain the constraints in plain words, and use diagram-design pictures and full-width tables.
 
 | # | Problem | Difficulty | Key Idea | Source | Time | Space | Status |
 |:---:|:---|:---:|:---|:---:|:---:|:---:|:---:|
