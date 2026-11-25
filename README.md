@@ -4,46 +4,9 @@ Structured notes for Data Structures & Algorithms.
 
 Every problem note follows the same shape, so patterns stay comparable across topics:
 
-```mermaid
----
-config:
-  layout: dagre
-  flowchart:
-    curve: basis
-    nodeSpacing: 30
-    rankSpacing: 55
----
-flowchart TD
-    N("Every note"):::root
-    N --> U("Understand"):::p1
-    N --> S("Solve"):::p2
-    N --> W("Walk through"):::p3
-    N --> I("Review and Interview"):::p4
-    U --> U1("1 · Problem Statement"):::s1
-    U1 --> U2("2 · Core Theory"):::s1
-    U2 --> U3("3 · Edge Cases"):::s1
-    S --> S1("4 · Brute Force"):::s2
-    S1 --> S2("5 · Better Approach"):::s2
-    W --> W1("6 · Visual Walkthrough<br/>(story)"):::s3
-    W1 --> W2("7 · Step-by-Step<br/>Dry Run"):::s3
-    W2 --> W3("8 · Optimal Code<br/>+ Tests"):::s3
-    I --> I1("9 · Complexity"):::s4
-    I1 --> I2("10 · Common Mistakes"):::s4
-    I2 --> I3("11 · Follow-ups"):::s4
-    I3 --> I4("12 · Explanation"):::s4
-    classDef root fill:#4338ca,stroke:#818cf8,stroke-width:2px,color:#eef2ff
-    classDef p1 fill:#1e3a5f,stroke:#3b82f6,stroke-width:2px,color:#dbeafe
-    classDef p2 fill:#78350f,stroke:#f59e0b,stroke-width:2px,color:#fef3c7
-    classDef p3 fill:#065f46,stroke:#10b981,stroke-width:2px,color:#ecfdf5
-    classDef p4 fill:#581c87,stroke:#a855f7,stroke-width:2px,color:#f3e8ff
-    classDef s1 fill:#eff6ff,stroke:#3b82f6,stroke-width:1.5px,color:#1e3a5f
-    classDef s2 fill:#fffbeb,stroke:#f59e0b,stroke-width:1.5px,color:#78350f
-    classDef s3 fill:#ecfdf5,stroke:#10b981,stroke-width:1.5px,color:#065f46
-    classDef s4 fill:#faf5ff,stroke:#a855f7,stroke-width:1.5px,color:#581c87
-    linkStyle default stroke:#94a3b8,stroke-width:2.5px
-```
+![Every note follows four phases: Understand (problem and example, constraints in plain words, core idea and flowchart, edge cases), Solve (brute force, better approach, better run on the example), Walk through (the array we take, one picture per step, all steps table, clean LeetCode code) and Review (complexity, common mistakes, follow-ups, interview explanation)](images/every-note-shape.png)
 
-Every code line has a comment above it. Each note traces one example step by step, first as a simple story with pictures, then with the exact arrays. The optimal code ends with asserts that check every traced step, so you can paste it straight into a REPL.
+Every code line has a comment above it. Each note says which array it uses, then walks through it one step at a time, with a picture for every step and arrows showing where each pointer stands. The optimal code is clean, so you can paste it straight into LeetCode. The newest notes (Array: Sorting + Two Pointers, Rotation and Cyclic Arrays) follow this shape fully; older notes are being moved to it topic by topic.
 
 ## Topics
 
@@ -71,60 +34,9 @@ Counts are problems written, broken down by difficulty tier.
 
 **Roadmap.** Arrows point from a topic to the topics that build on it. Start at the top and move down once every arrow into a topic is done. For example, Graphs needs Trees (graph traversal grows from tree traversal) and Heaps (Dijkstra uses a heap). Dynamic Programming needs Recursion and Graphs. Databases is a separate track you can do any time.
 
-Green = complete, orange = in progress, blue = planned, dashed = separate track. The number in a box is how many notes are written.
+Solid border = complete, orange = in progress, dashed = planned, grey dotted = separate track. The number in a box is how many notes are written.
 
-```mermaid
----
-config:
-  layout: dagre
-  flowchart:
-    curve: basis
-    nodeSpacing: 50
-    rankSpacing: 70
----
-flowchart TD
-    ARR("Array<br/>84 notes"):::done
-    TP("Two Pointers<br/>5 notes"):::done
-    SQ("Stacks and Queues"):::todo
-    BS("Binary Search"):::todo
-    SW("Sliding Window<br/>15 notes"):::done
-    LL("Linked List"):::todo
-    REC("Recursion<br/>20 notes"):::done
-    TR("Trees"):::todo
-    HP("Heaps"):::todo
-    GR("Graphs<br/>29 notes"):::inprog
-    DP("Dynamic Programming<br/>17 notes"):::inprog
-    IV("Intervals"):::todo
-    GD("Greedy"):::todo
-    BM("Bit Manipulation"):::todo
-    MG("Maths and Geometry"):::todo
-    DB("Databases<br/>(any time)"):::side
-    ARR --> TP
-    ARR --> SQ
-    TP --> BS
-    TP --> SW
-    TP --> LL
-    SQ --> REC
-    BS --> TR
-    LL --> TR
-    REC --> TR
-    TR --> HP
-    TR --> GR
-    REC --> DP
-    HP --> IV
-    HP --> GD
-    HP --> GR
-    GR --> DP
-    DP --> BM
-    DP --> MG
-    BM --> MG
-    MG ~~~ DB
-    classDef done fill:#065f46,stroke:#10b981,stroke-width:2px,color:#ecfdf5
-    classDef inprog fill:#b45309,stroke:#f59e0b,stroke-width:2px,color:#fff7ed
-    classDef todo fill:#4338ca,stroke:#818cf8,stroke-width:2px,color:#eef2ff
-    classDef side fill:#374151,stroke:#9ca3af,stroke-width:2px,stroke-dasharray:4 3,color:#f3f4f6
-    linkStyle default stroke:#94a3b8,stroke-width:2.5px
-```
+![Topic roadmap: Array leads to Two Pointers and Stacks and Queues; then Binary Search, Sliding Window, Linked List and Recursion; then Trees, Heaps, Graphs, Intervals, Greedy, Dynamic Programming, Bit Manipulation and Maths and Geometry. Databases is a separate track.](images/topic-roadmap.png)
 
 ## 01. Array
 
