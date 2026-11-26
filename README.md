@@ -10,7 +10,7 @@ Every code line has a comment above it. Each note says which array it uses, then
 
 ## Topics
 
-Counts are problems written, broken down by difficulty tier. Theory notes (like the two Trees basics) count in the total only.
+Counts are problems written, broken down by difficulty tier. Theory notes (like the Trees basics and traversals intro) count in the total only.
 
 | # | Topic | Core Focus | Easy | Medium | Hard | Total | Status |
 |:---:|:---|:---|:---:|:---:|:---:|:---:|:---:|
@@ -21,7 +21,7 @@ Counts are problems written, broken down by difficulty tier. Theory notes (like 
 | 05 | Linked List | Reversal, cycle detection, merge | – | – | – | – | Planned |
 | 06 | Binary Search | On answer space, rotated arrays | – | – | – | – | Planned |
 | 07 | [**Recursion**](07.%20Recursion/) | Pick/not-pick, backtracking, constraints | 2 | 5 | 13 | **20** | Complete |
-| 08 | [**Trees**](08.%20Trees/) | Tree basics, traversals, views, BST | – | – | – | **2** | In progress |
+| 08 | [**Trees**](08.%20Trees/) | Tree basics, traversals, views, BST | 3 | 3 | – | **9** | In progress |
 | 09 | Heaps | Top-K, merge K sorted, running median | – | – | – | – | Planned |
 | 10 | Greedy | Interval scheduling, exchange argument | – | – | – | – | Planned |
 | 11 | [**Graphs**](11.%20Graphs/) | BFS/DFS, topo sort, Dijkstra, MST, DSU | 5 | 22 | 2 | **29** | In progress |
@@ -30,7 +30,7 @@ Counts are problems written, broken down by difficulty tier. Theory notes (like 
 | 14 | Bit Manipulation | XOR tricks, masks, bit counting | – | – | – | – | Planned |
 | 15 | Intervals | Merge, insert, overlap counting | – | – | – | – | Planned |
 | 16 | Databases | Joins, window functions, aggregation | – | – | – | – | Planned |
-| | **Total** | | **64** | **83** | **23** | **172** | |
+| | **Total** | | **67** | **86** | **23** | **179** | |
 
 **Roadmap.** Arrows point from a topic to the topics that build on it. Start at the top and move down once every arrow into a topic is done. For example, Graphs needs Trees (graph traversal grows from tree traversal) and Heaps (Dijkstra uses a heap). Dynamic Programming needs Recursion and Graphs. Databases is a separate track you can do any time.
 
@@ -362,6 +362,18 @@ Trees store things in a hierarchy: one root, and every other node below exactly 
 |:---:|:---|:---:|:---|:---:|:---:|:---:|
 | 1 | [Introduction to Trees](08.%20Trees/01.%20Basics/01.%20Introduction%20to%20Trees.md) | Theory | Root, leaf, level and height, and the five types: full, complete, perfect, balanced, degenerate | Lecture notes | `O(n)` checks | `O(h)` |
 | 2 | [Tree Representation](08.%20Trees/01.%20Basics/02.%20Tree%20Representation.md) | Theory | Each node holds a value and two links; build a tree by hand or from the LeetCode list | Lecture notes | `O(n)` build | `O(n)` |
+
+### Tree Traversals
+
+| # | Note / Problem | Difficulty | Key Idea | Source | Time | Space |
+|:---:|:---|:---:|:---|:---:|:---:|:---:|
+| 1 | [Binary Tree Traversals](08.%20Trees/02.%20Tree%20traversals/03.%20Binary%20Tree%20Traversals.md) | Theory | BFS and DFS; preorder, inorder, postorder and level order, and writing them by hand | Lecture notes | `O(n)` | `O(h)` |
+| 2 | [144. Binary Tree Preorder Traversal](08.%20Trees/02.%20Tree%20traversals/04.%20144.%20Binary%20Tree%20Preorder%20Traversal.md) | Easy | Root, left, right; with a stack, push right before left; Morris for `O(1)` space | [144](https://leetcode.com/problems/binary-tree-preorder-traversal/) | `O(n)` | `O(h)` |
+| 3 | [94. Binary Tree Inorder Traversal](08.%20Trees/02.%20Tree%20traversals/05.%2094.%20Binary%20Tree%20Inorder%20Traversal.md) | Easy | Go left as far as possible, visit on the way back, then turn right | [94](https://leetcode.com/problems/binary-tree-inorder-traversal/) | `O(n)` | `O(h)` |
+| 4 | [145. Binary Tree Postorder Traversal](08.%20Trees/02.%20Tree%20traversals/06.%20145.%20Binary%20Tree%20Postorder%20Traversal.md) | Easy | Visit a node after both subtrees; one stack needs a `prev` pointer | [145](https://leetcode.com/problems/binary-tree-postorder-traversal/) | `O(n)` | `O(h)` |
+| 5 | [102. Binary Tree Level Order Traversal](08.%20Trees/02.%20Tree%20traversals/07.%20102.%20Binary%20Tree%20Level%20Order%20Traversal.md) | Medium | A queue holds one level; take out `len(queue)` nodes per round | [102](https://leetcode.com/problems/binary-tree-level-order-traversal/) | `O(n)` | `O(n)` |
+| 6 | [103. Binary Tree Zigzag Level Order Traversal](08.%20Trees/02.%20Tree%20traversals/08.%20103.%20Binary%20Tree%20Zigzag%20Level%20Order%20Traversal.md) | Medium | Level order with a direction flag; write each level at the back or the front of a deque | [103](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/) | `O(n)` | `O(n)` |
+| 7 | [All in One Traversal](08.%20Trees/02.%20Tree%20traversals/09.%20All%20in%20One%20Traversal.md) | Medium | A stack of (node, state): states 1, 2, 3 give preorder, inorder, postorder in one pass | Lecture notes | `O(n)` | `O(n)` |
 
 ## 11. Graphs
 

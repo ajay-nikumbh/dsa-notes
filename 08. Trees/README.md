@@ -11,7 +11,7 @@ Read the sections in order. Every note follows the same shape as the rest of thi
 | # | Section | What it teaches | Notes | Status |
 |:---:|:---|:---|:---:|:---:|
 | 01 | Basics | What a tree is, its parts, the five types, and how to store one in code | 2 | Written |
-| 02 | Tree Traversals | Visiting every node: preorder, inorder, postorder, level order and zigzag | 7 | Planned |
+| 02 | Tree Traversals | Visiting every node: preorder, inorder, postorder, level order and zigzag | 7 | Written |
 | 03 | Basic Problems | First recursive problems: depth, balance, diameter, path sum, same tree | 5 | Planned |
 | 04 | Views | What you see from the side, top or bottom, and the boundary walk | 6 | Planned |
 | 05 | Problems on Trees | Symmetry, paths, ancestors, width, distances, building and flattening trees | 13 | Planned |
@@ -32,13 +32,13 @@ Visiting every node: preorder, inorder, postorder, level order and zigzag.
 
 | # | Note / Problem | Key idea | Source | Status |
 |:---:|:---|:---|:---:|:---:|
-| 1 | Binary tree traversals | Key idea is added when this note is written | Lecture notes (GfG style) | Planned |
-| 2 | 144. Binary Tree Preorder Traversal | Key idea is added when this note is written | LeetCode problem 144 | Planned |
-| 3 | 94. Binary Tree Inorder Traversal | Key idea is added when this note is written | LeetCode problem 94 | Planned |
-| 4 | 145. Binary Tree Post order Traversal | Key idea is added when this note is written | LeetCode problem 145 | Planned |
-| 5 | 102. Binary Tree Level Order Traversal | Key idea is added when this note is written | LeetCode problem 102 | Planned |
-| 6 | 103. Binary Tree Zigzag Level Order Traversal | Key idea is added when this note is written | LeetCode problem 103 | Planned |
-| 7 | All in one traversal | Key idea is added when this note is written | Lecture notes (GfG style) | Planned |
+| 1 | [Binary Tree Traversals](02.%20Tree%20traversals/03.%20Binary%20Tree%20Traversals.md) | BFS and DFS; preorder, inorder, postorder and level order, and writing them by hand | Lecture notes | Written |
+| 2 | [144. Binary Tree Preorder Traversal](02.%20Tree%20traversals/04.%20144.%20Binary%20Tree%20Preorder%20Traversal.md) | Root, left, right; with a stack, push right before left; Morris for `O(1)` space | [144](https://leetcode.com/problems/binary-tree-preorder-traversal/) | Written |
+| 3 | [94. Binary Tree Inorder Traversal](02.%20Tree%20traversals/05.%2094.%20Binary%20Tree%20Inorder%20Traversal.md) | Go left as far as possible, visit on the way back, then turn right | [94](https://leetcode.com/problems/binary-tree-inorder-traversal/) | Written |
+| 4 | [145. Binary Tree Postorder Traversal](02.%20Tree%20traversals/06.%20145.%20Binary%20Tree%20Postorder%20Traversal.md) | Visit a node after both subtrees; one stack needs a `prev` pointer | [145](https://leetcode.com/problems/binary-tree-postorder-traversal/) | Written |
+| 5 | [102. Binary Tree Level Order Traversal](02.%20Tree%20traversals/07.%20102.%20Binary%20Tree%20Level%20Order%20Traversal.md) | A queue holds one level; take out `len(queue)` nodes per round | [102](https://leetcode.com/problems/binary-tree-level-order-traversal/) | Written |
+| 6 | [103. Binary Tree Zigzag Level Order Traversal](02.%20Tree%20traversals/08.%20103.%20Binary%20Tree%20Zigzag%20Level%20Order%20Traversal.md) | Level order with a direction flag; write each level at the back or the front of a deque | [103](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/) | Written |
+| 7 | [All in One Traversal](02.%20Tree%20traversals/09.%20All%20in%20One%20Traversal.md) | A stack of (node, state): states 1, 2, 3 give preorder, inorder, postorder in one pass | Lecture notes | Written |
 
 ## 03. Basic Problems
 
