@@ -21,7 +21,7 @@ Counts are problems written, broken down by difficulty tier. Theory notes (like 
 | 05 | Linked List | Reversal, cycle detection, merge | – | – | – | – | Planned |
 | 06 | Binary Search | On answer space, rotated arrays | – | – | – | – | Planned |
 | 07 | [**Recursion**](07.%20Recursion/) | Pick/not-pick, backtracking, constraints | 2 | 5 | 13 | **20** | Complete |
-| 08 | [**Trees**](08.%20Trees/) | Tree basics, traversals, views, BST | 8 | 7 | 2 | **20** | In progress |
+| 08 | [**Trees**](08.%20Trees/) | Tree basics, traversals, views, BST | 11 | 14 | 4 | **33** | In progress |
 | 09 | Heaps | Top-K, merge K sorted, running median | – | – | – | – | Planned |
 | 10 | Greedy | Interval scheduling, exchange argument | – | – | – | – | Planned |
 | 11 | [**Graphs**](11.%20Graphs/) | BFS/DFS, topo sort, Dijkstra, MST, DSU | 5 | 22 | 2 | **29** | In progress |
@@ -30,7 +30,7 @@ Counts are problems written, broken down by difficulty tier. Theory notes (like 
 | 14 | Bit Manipulation | XOR tricks, masks, bit counting | – | – | – | – | Planned |
 | 15 | Intervals | Merge, insert, overlap counting | – | – | – | – | Planned |
 | 16 | Databases | Joins, window functions, aggregation | – | – | – | – | Planned |
-| | **Total** | | **72** | **90** | **25** | **190** | |
+| | **Total** | | **75** | **97** | **27** | **203** | |
 
 **Roadmap.** Arrows point from a topic to the topics that build on it. Start at the top and move down once every arrow into a topic is done. For example, Graphs needs Trees (graph traversal grows from tree traversal) and Heaps (Dijkstra uses a heap). Dynamic Programming needs Recursion and Graphs. Databases is a separate track you can do any time.
 
@@ -395,6 +395,24 @@ Trees store things in a hierarchy: one root, and every other node below exactly 
 | 4 | [Bottom View of Binary Tree](08.%20Trees/04.%20Views/18.%20Bottom%20View%20of%20Binary%20Tree.md) | Medium | BFS with columns; overwrite, so the last node met in each column stays | [GfG](https://www.geeksforgeeks.org/problems/bottom-view-of-binary-tree/1) | `O(n)` | `O(n)` |
 | 5 | [199. Binary Tree Right Side View](08.%20Trees/04.%20Views/19.%20199.%20Binary%20Tree%20Right%20Side%20View.md) | Medium | One node per level; DFS right-first records the first node on each new level | [199](https://leetcode.com/problems/binary-tree-right-side-view/) | `O(n)` | `O(h)` |
 | 6 | [Left View of Binary Tree](08.%20Trees/04.%20Views/20.%20Left%20View%20of%20Binary%20Tree.md) | Easy | Same as the right view with the two recursive calls swapped | [GfG](https://www.geeksforgeeks.org/problems/left-view-of-binary-tree/1) | `O(n)` | `O(h)` |
+
+### Problems on Trees
+
+| # | Problem | Difficulty | Key Idea | Source | Time | Space |
+|:---:|:---|:---:|:---|:---:|:---:|:---:|
+| 1 | [101. Symmetric Tree](08.%20Trees/05.%20Problem%20on%20trees/21.%20101.%20Symmetric%20Tree.md) | Easy | Compare the two halves as mirrors: outer with outer, inner with inner | [101](https://leetcode.com/problems/symmetric-tree/) | `O(n)` | `O(h)` |
+| 2 | [257. Binary Tree Paths](08.%20Trees/05.%20Problem%20on%20trees/22.%20257.%20Binary%20Tree%20Paths.md) | Easy | DFS with one shared path list: push going down, save at a leaf, pop going back | [257](https://leetcode.com/problems/binary-tree-paths/) | `O(n x h)` | `O(h)` |
+| 3 | [236. Lowest Common Ancestor of a Binary Tree](08.%20Trees/05.%20Problem%20on%20trees/23.%20236.%20Lowest%20Common%20Ancestor%20of%20a%20Binary%20Tree.md) | Medium | Return p, q or None from below; the first node where both sides answer is the LCA | [236](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/) | `O(n)` | `O(h)` |
+| 4 | [662. Maximum Width of Binary Tree](08.%20Trees/05.%20Problem%20on%20trees/24.%20662.%20Maximum%20Width%20of%20Binary%20Tree.md) | Medium | Number spots like a complete tree; width is last minus first plus 1, reset numbers each level | [662](https://leetcode.com/problems/maximum-width-of-binary-tree/) | `O(n)` | `O(w)` |
+| 5 | [Children Sum Property](08.%20Trees/05.%20Problem%20on%20trees/25.%20Children%20Sum%20Property.md) | Medium | Going down, lift small children to the parent; coming back up, set each node to its children's sum | [GfG](https://www.geeksforgeeks.org/problems/children-sum-parent/1) | `O(n)` | `O(h)` |
+| 6 | [863. All Nodes Distance K in Binary Tree](08.%20Trees/05.%20Problem%20on%20trees/26.%20863.%20All%20Nodes%20Distance%20K%20in%20Binary%20Tree.md) | Medium | Store parents, then BFS from the target for k rounds with a visited set | [863](https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/) | `O(n)` | `O(n)` |
+| 7 | [Time To Burn Tree](08.%20Trees/05.%20Problem%20on%20trees/27.%20Time%20To%20Burn%20Tree.md) | Hard | Parent map, then BFS rounds from the start node; count rounds until all nodes burn | [2385](https://leetcode.com/problems/amount-of-time-for-binary-tree-to-be-infected/) | `O(n)` | `O(n)` |
+| 8 | [222. Count Complete Tree Nodes](08.%20Trees/05.%20Problem%20on%20trees/28.%20222.%20Count%20Complete%20Tree%20Nodes.md) | Easy | Equal left and right edge heights mean a perfect subtree: count it as 2^h - 1 | [222](https://leetcode.com/problems/count-complete-tree-nodes/) | `O((log n)^2)` | `O(log n)` |
+| 9 | [Requirements needed to construct a Unique Binary Tree](08.%20Trees/05.%20Problem%20on%20trees/29.%20Requirements%20needed%20to%20construct%20a%20Unique%20Binary%20Tree.md) | Theory | Inorder plus preorder, or inorder plus postorder; preorder plus postorder is not enough | Lecture notes | - | - |
+| 10 | [105. Construct Binary Tree from Preorder and Inorder Traversal](08.%20Trees/05.%20Problem%20on%20trees/30.%20105.%20Construct%20Binary%20Tree%20from%20Preorder%20and%20Inorder%20Traversal.md) | Medium | First preorder value is the root; its inorder index splits left and right; a dict finds it in O(1) | [105](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) | `O(n)` | `O(n)` |
+| 11 | [106. Construct Binary Tree from Inorder and Postorder Traversal](08.%20Trees/05.%20Problem%20on%20trees/31.%20106.%20Construct%20Binary%20Tree%20from%20Inorder%20and%20Postorder%20Traversal.md) | Medium | Last postorder value is the root; same inorder split with a dict | [106](https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/) | `O(n)` | `O(n)` |
+| 12 | [297. Serialize and Deserialize Binary Tree](08.%20Trees/05.%20Problem%20on%20trees/32.%20297.%20Serialize%20and%20Deserialize%20Binary%20Tree.md) | Hard | Level order with a marker for every empty spot; read back in the same order | [297](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/) | `O(n)` | `O(n)` |
+| 13 | [114. Flatten Binary Tree to Linked List](08.%20Trees/05.%20Problem%20on%20trees/33.%20114.%20Flatten%20Binary%20Tree%20to%20Linked%20List.md) | Medium | Hang the old right side on the rightmost node of the left side, move left to right, walk right | [114](https://leetcode.com/problems/flatten-binary-tree-to-linked-list/) | `O(n)` | `O(1)` |
 
 ## 11. Graphs
 

@@ -14,7 +14,7 @@ Read the sections in order. Every note follows the same shape as the rest of thi
 | 02 | Tree Traversals | Visiting every node: preorder, inorder, postorder, level order and zigzag | 7 | Written |
 | 03 | Basic Problems | First recursive problems: depth, balance, diameter, path sum, same tree | 5 | Written |
 | 04 | Views | What you see from the side, top or bottom, and the boundary walk | 6 | Written |
-| 05 | Problems on Trees | Symmetry, paths, ancestors, width, distances, building and flattening trees | 13 | Planned |
+| 05 | Problems on Trees | Symmetry, paths, ancestors, width, distances, building and flattening trees | 13 | Written |
 | 06 | Binary Search Trees | Trees kept in sorted order: search, floor, ceil, insert, delete, validate, iterate, recover | 15 | Planned |
 
 ## 01. Basics
@@ -71,19 +71,19 @@ Symmetry, paths, ancestors, width, distances, building and flattening trees.
 
 | # | Note / Problem | Key idea | Source | Status |
 |:---:|:---|:---|:---:|:---:|
-| 1 | 101. Symmetric Tree | Key idea is added when this note is written | LeetCode problem 101 | Planned |
-| 2 | 257. Binary Tree Paths | Key idea is added when this note is written | LeetCode problem 257 | Planned |
-| 3 | 236. Lowest Common Ancestor of a Binary Tree | Key idea is added when this note is written | LeetCode problem 236 | Planned |
-| 4 | 662. Maximum Width of Binary Tree | Key idea is added when this note is written | LeetCode problem 662 | Planned |
-| 5 | Children Sum Property | Key idea is added when this note is written | Lecture notes (GfG style) | Planned |
-| 6 | 863. All Nodes Distance K in Binary Tree | Key idea is added when this note is written | LeetCode problem 863 | Planned |
-| 7 | Time To Burn Tree | Key idea is added when this note is written | Lecture notes (GfG style) | Planned |
-| 8 | 222. Count Complete Tree Nodes | Key idea is added when this note is written | LeetCode problem 222 | Planned |
-| 9 | Requirements needed to construct a Unique Binary Tree | Key idea is added when this note is written | Lecture notes (GfG style) | Planned |
-| 10 | 105. Construct Binary Tree from Preorder and Inorder Traversal | Key idea is added when this note is written | LeetCode problem 105 | Planned |
-| 11 | 106. Construct Binary Tree from Inorder and Postorder Traversal | Key idea is added when this note is written | LeetCode problem 106 | Planned |
-| 12 | 297. Serialize and Deserialize Binary Tree | Key idea is added when this note is written | LeetCode problem 297 | Planned |
-| 13 | 114. Flatten Binary Tree to Linked List | Key idea is added when this note is written | LeetCode problem 114 | Planned |
+| 1 | [101. Symmetric Tree](05.%20Problem%20on%20trees/21.%20101.%20Symmetric%20Tree.md) | Compare the two halves as mirrors: outer with outer, inner with inner | [101](https://leetcode.com/problems/symmetric-tree/) | Written |
+| 2 | [257. Binary Tree Paths](05.%20Problem%20on%20trees/22.%20257.%20Binary%20Tree%20Paths.md) | DFS with one shared path list: push going down, save at a leaf, pop going back | [257](https://leetcode.com/problems/binary-tree-paths/) | Written |
+| 3 | [236. Lowest Common Ancestor of a Binary Tree](05.%20Problem%20on%20trees/23.%20236.%20Lowest%20Common%20Ancestor%20of%20a%20Binary%20Tree.md) | Return p, q or None from below; the first node where both sides answer is the LCA | [236](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/) | Written |
+| 4 | [662. Maximum Width of Binary Tree](05.%20Problem%20on%20trees/24.%20662.%20Maximum%20Width%20of%20Binary%20Tree.md) | Number spots like a complete tree; width is last minus first plus 1, reset numbers each level | [662](https://leetcode.com/problems/maximum-width-of-binary-tree/) | Written |
+| 5 | [Children Sum Property](05.%20Problem%20on%20trees/25.%20Children%20Sum%20Property.md) | Going down, lift small children to the parent; coming back up, set each node to its children's sum | [GfG](https://www.geeksforgeeks.org/problems/children-sum-parent/1) | Written |
+| 6 | [863. All Nodes Distance K in Binary Tree](05.%20Problem%20on%20trees/26.%20863.%20All%20Nodes%20Distance%20K%20in%20Binary%20Tree.md) | Store parents, then BFS from the target for k rounds with a visited set | [863](https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/) | Written |
+| 7 | [Time To Burn Tree](05.%20Problem%20on%20trees/27.%20Time%20To%20Burn%20Tree.md) | Parent map, then BFS rounds from the start node; count rounds until all nodes burn | [2385](https://leetcode.com/problems/amount-of-time-for-binary-tree-to-be-infected/) | Written |
+| 8 | [222. Count Complete Tree Nodes](05.%20Problem%20on%20trees/28.%20222.%20Count%20Complete%20Tree%20Nodes.md) | Equal left and right edge heights mean a perfect subtree: count it as 2^h - 1 | [222](https://leetcode.com/problems/count-complete-tree-nodes/) | Written |
+| 9 | [Requirements needed to construct a Unique Binary Tree](05.%20Problem%20on%20trees/29.%20Requirements%20needed%20to%20construct%20a%20Unique%20Binary%20Tree.md) | Inorder plus preorder, or inorder plus postorder; preorder plus postorder is not enough | Lecture notes | Written |
+| 10 | [105. Construct Binary Tree from Preorder and Inorder Traversal](05.%20Problem%20on%20trees/30.%20105.%20Construct%20Binary%20Tree%20from%20Preorder%20and%20Inorder%20Traversal.md) | First preorder value is the root; its inorder index splits left and right; a dict finds it in O(1) | [105](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) | Written |
+| 11 | [106. Construct Binary Tree from Inorder and Postorder Traversal](05.%20Problem%20on%20trees/31.%20106.%20Construct%20Binary%20Tree%20from%20Inorder%20and%20Postorder%20Traversal.md) | Last postorder value is the root; same inorder split with a dict | [106](https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/) | Written |
+| 12 | [297. Serialize and Deserialize Binary Tree](05.%20Problem%20on%20trees/32.%20297.%20Serialize%20and%20Deserialize%20Binary%20Tree.md) | Level order with a marker for every empty spot; read back in the same order | [297](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/) | Written |
+| 13 | [114. Flatten Binary Tree to Linked List](05.%20Problem%20on%20trees/33.%20114.%20Flatten%20Binary%20Tree%20to%20Linked%20List.md) | Hang the old right side on the rightmost node of the left side, move left to right, walk right | [114](https://leetcode.com/problems/flatten-binary-tree-to-linked-list/) | Written |
 
 ## 06. Binary Search Trees
 
