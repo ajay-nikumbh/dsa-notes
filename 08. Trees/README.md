@@ -12,7 +12,7 @@ Read the sections in order. Every note follows the same shape as the rest of thi
 |:---:|:---|:---|:---:|:---:|
 | 01 | Basics | What a tree is, its parts, the five types, and how to store one in code | 2 | Written |
 | 02 | Tree Traversals | Visiting every node: preorder, inorder, postorder, level order and zigzag | 7 | Written |
-| 03 | Basic Problems | First recursive problems: depth, balance, diameter, path sum, same tree | 5 | Planned |
+| 03 | Basic Problems | First recursive problems: depth, balance, diameter, path sum, same tree | 5 | Written |
 | 04 | Views | What you see from the side, top or bottom, and the boundary walk | 6 | Planned |
 | 05 | Problems on Trees | Symmetry, paths, ancestors, width, distances, building and flattening trees | 13 | Planned |
 | 06 | Binary Search Trees | Trees kept in sorted order: search, floor, ceil, insert, delete, validate, iterate, recover | 15 | Planned |
@@ -46,11 +46,11 @@ First recursive problems: depth, balance, diameter, path sum, same tree.
 
 | # | Note / Problem | Key idea | Source | Status |
 |:---:|:---|:---|:---:|:---:|
-| 1 | 104. Maximum Depth of Binary Tree | Key idea is added when this note is written | LeetCode problem 104 | Planned |
-| 2 | 110. Balanced Binary Tree | Key idea is added when this note is written | LeetCode problem 110 | Planned |
-| 3 | 543. Diameter of Binary Tree | Key idea is added when this note is written | LeetCode problem 543 | Planned |
-| 4 | 124. Binary Tree Maximum Path Sum | Key idea is added when this note is written | LeetCode problem 124 | Planned |
-| 5 | 100. Same Tree | Key idea is added when this note is written | LeetCode problem 100 | Planned |
+| 1 | [104. Maximum Depth of Binary Tree](03.%20Basic%20problems/10.%20104.%20Maximum%20Depth%20of%20Binary%20Tree.md) | Depth of a node is 1 plus the deeper child; computed bottom-up | [104](https://leetcode.com/problems/maximum-depth-of-binary-tree/) | Written |
+| 2 | [110. Balanced Binary Tree](03.%20Basic%20problems/11.%20110.%20Balanced%20Binary%20Tree.md) | Heights bottom-up; return -1 the moment two sides differ by more than 1 | [110](https://leetcode.com/problems/balanced-binary-tree/) | Written |
+| 3 | [543. Diameter of Binary Tree](03.%20Basic%20problems/12.%20543.%20Diameter%20of%20Binary%20Tree.md) | Every path bends at one node; track left height plus right height while returning heights | [543](https://leetcode.com/problems/diameter-of-binary-tree/) | Written |
+| 4 | [124. Binary Tree Maximum Path Sum](03.%20Basic%20problems/13.%20124.%20Binary%20Tree%20Maximum%20Path%20Sum.md) | Return one-sided gains, drop negative sides, track value plus both gains | [124](https://leetcode.com/problems/binary-tree-maximum-path-sum/) | Written |
+| 5 | [100. Same Tree](03.%20Basic%20problems/14.%20100.%20Same%20Tree.md) | Walk both trees together; empty spots must match too | [100](https://leetcode.com/problems/same-tree/) | Written |
 
 ## 04. Views
 

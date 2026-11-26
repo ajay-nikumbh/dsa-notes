@@ -21,7 +21,7 @@ Counts are problems written, broken down by difficulty tier. Theory notes (like 
 | 05 | Linked List | Reversal, cycle detection, merge | – | – | – | – | Planned |
 | 06 | Binary Search | On answer space, rotated arrays | – | – | – | – | Planned |
 | 07 | [**Recursion**](07.%20Recursion/) | Pick/not-pick, backtracking, constraints | 2 | 5 | 13 | **20** | Complete |
-| 08 | [**Trees**](08.%20Trees/) | Tree basics, traversals, views, BST | 3 | 3 | – | **9** | In progress |
+| 08 | [**Trees**](08.%20Trees/) | Tree basics, traversals, views, BST | 7 | 3 | 1 | **14** | In progress |
 | 09 | Heaps | Top-K, merge K sorted, running median | – | – | – | – | Planned |
 | 10 | Greedy | Interval scheduling, exchange argument | – | – | – | – | Planned |
 | 11 | [**Graphs**](11.%20Graphs/) | BFS/DFS, topo sort, Dijkstra, MST, DSU | 5 | 22 | 2 | **29** | In progress |
@@ -30,7 +30,7 @@ Counts are problems written, broken down by difficulty tier. Theory notes (like 
 | 14 | Bit Manipulation | XOR tricks, masks, bit counting | – | – | – | – | Planned |
 | 15 | Intervals | Merge, insert, overlap counting | – | – | – | – | Planned |
 | 16 | Databases | Joins, window functions, aggregation | – | – | – | – | Planned |
-| | **Total** | | **67** | **86** | **23** | **179** | |
+| | **Total** | | **71** | **86** | **24** | **184** | |
 
 **Roadmap.** Arrows point from a topic to the topics that build on it. Start at the top and move down once every arrow into a topic is done. For example, Graphs needs Trees (graph traversal grows from tree traversal) and Heaps (Dijkstra uses a heap). Dynamic Programming needs Recursion and Graphs. Databases is a separate track you can do any time.
 
@@ -374,6 +374,16 @@ Trees store things in a hierarchy: one root, and every other node below exactly 
 | 5 | [102. Binary Tree Level Order Traversal](08.%20Trees/02.%20Tree%20traversals/07.%20102.%20Binary%20Tree%20Level%20Order%20Traversal.md) | Medium | A queue holds one level; take out `len(queue)` nodes per round | [102](https://leetcode.com/problems/binary-tree-level-order-traversal/) | `O(n)` | `O(n)` |
 | 6 | [103. Binary Tree Zigzag Level Order Traversal](08.%20Trees/02.%20Tree%20traversals/08.%20103.%20Binary%20Tree%20Zigzag%20Level%20Order%20Traversal.md) | Medium | Level order with a direction flag; write each level at the back or the front of a deque | [103](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/) | `O(n)` | `O(n)` |
 | 7 | [All in One Traversal](08.%20Trees/02.%20Tree%20traversals/09.%20All%20in%20One%20Traversal.md) | Medium | A stack of (node, state): states 1, 2, 3 give preorder, inorder, postorder in one pass | Lecture notes | `O(n)` | `O(n)` |
+
+### Basic Problems
+
+| # | Problem | Difficulty | Key Idea | Source | Time | Space |
+|:---:|:---|:---:|:---|:---:|:---:|:---:|
+| 1 | [104. Maximum Depth of Binary Tree](08.%20Trees/03.%20Basic%20problems/10.%20104.%20Maximum%20Depth%20of%20Binary%20Tree.md) | Easy | Depth of a node is 1 plus the deeper child; computed bottom-up | [104](https://leetcode.com/problems/maximum-depth-of-binary-tree/) | `O(n)` | `O(h)` |
+| 2 | [110. Balanced Binary Tree](08.%20Trees/03.%20Basic%20problems/11.%20110.%20Balanced%20Binary%20Tree.md) | Easy | Heights bottom-up; return -1 the moment two sides differ by more than 1 | [110](https://leetcode.com/problems/balanced-binary-tree/) | `O(n)` | `O(h)` |
+| 3 | [543. Diameter of Binary Tree](08.%20Trees/03.%20Basic%20problems/12.%20543.%20Diameter%20of%20Binary%20Tree.md) | Easy | Every path bends at one node; track left height plus right height while returning heights | [543](https://leetcode.com/problems/diameter-of-binary-tree/) | `O(n)` | `O(h)` |
+| 4 | [124. Binary Tree Maximum Path Sum](08.%20Trees/03.%20Basic%20problems/13.%20124.%20Binary%20Tree%20Maximum%20Path%20Sum.md) | Hard | Return one-sided gains, drop negative sides, track value plus both gains | [124](https://leetcode.com/problems/binary-tree-maximum-path-sum/) | `O(n)` | `O(h)` |
+| 5 | [100. Same Tree](08.%20Trees/03.%20Basic%20problems/14.%20100.%20Same%20Tree.md) | Easy | Walk both trees together; empty spots must match too | [100](https://leetcode.com/problems/same-tree/) | `O(n)` | `O(h)` |
 
 ## 11. Graphs
 
