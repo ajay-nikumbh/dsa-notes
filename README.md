@@ -10,7 +10,7 @@ Every code line has a comment above it. Each note says which array it uses, then
 
 ## Topics
 
-Counts are problems written, broken down by difficulty tier.
+Counts are problems written, broken down by difficulty tier. Theory notes (like the two Trees basics) count in the total only.
 
 | # | Topic | Core Focus | Easy | Medium | Hard | Total | Status |
 |:---:|:---|:---|:---:|:---:|:---:|:---:|:---:|
@@ -21,7 +21,7 @@ Counts are problems written, broken down by difficulty tier.
 | 05 | Linked List | Reversal, cycle detection, merge | – | – | – | – | Planned |
 | 06 | Binary Search | On answer space, rotated arrays | – | – | – | – | Planned |
 | 07 | [**Recursion**](07.%20Recursion/) | Pick/not-pick, backtracking, constraints | 2 | 5 | 13 | **20** | Complete |
-| 08 | Trees | Traversals, BST properties, LCA | – | – | – | – | Planned |
+| 08 | [**Trees**](08.%20Trees/) | Tree basics, traversals, views, BST | – | – | – | **2** | In progress |
 | 09 | Heaps | Top-K, merge K sorted, running median | – | – | – | – | Planned |
 | 10 | Greedy | Interval scheduling, exchange argument | – | – | – | – | Planned |
 | 11 | [**Graphs**](11.%20Graphs/) | BFS/DFS, topo sort, Dijkstra, MST, DSU | 5 | 22 | 2 | **29** | In progress |
@@ -30,7 +30,7 @@ Counts are problems written, broken down by difficulty tier.
 | 14 | Bit Manipulation | XOR tricks, masks, bit counting | – | – | – | – | Planned |
 | 15 | Intervals | Merge, insert, overlap counting | – | – | – | – | Planned |
 | 16 | Databases | Joins, window functions, aggregation | – | – | – | – | Planned |
-| | **Total** | | **64** | **83** | **23** | **170** | |
+| | **Total** | | **64** | **83** | **23** | **172** | |
 
 **Roadmap.** Arrows point from a topic to the topics that build on it. Start at the top and move down once every arrow into a topic is done. For example, Graphs needs Trees (graph traversal grows from tree traversal) and Heaps (Dijkstra uses a heap). Dynamic Programming needs Recursion and Graphs. Databases is a separate track you can do any time.
 
@@ -349,6 +349,19 @@ One question repeated at every level: what are my choices here, and which do I t
 | 5 | [M-Coloring Problem](07.%20Recursion/03.%20Hard%20Problems/05.%20M-Coloring%20Problem.md) | Hard | Assign colors to graph vertices one at a time, backtracking whenever a constraint is violated | [M-Coloring Problem](https://www.geeksforgeeks.org/problems/m-coloring-problem-1587115620/1) | `O(M^V)` | `O(V)` |
 | 6 | [Sudoku Solver](07.%20Recursion/03.%20Hard%20Problems/06.%20Sudoku%20Solver.md) | Hard | Use boolean propagation to prune invalid digits and stop as soon as one solution is found | [37. Sudoku Solver](https://leetcode.com/problems/sudoku-solver/) | `O(9^E)` | `O(E)` |
 | 7 | [Expression Add Operators](07.%20Recursion/03.%20Hard%20Problems/07.%20Expression%20Add%20Operators.md) | Hard | At each split point, branch over every operator choice between the digit groups | [282. Expression Add Operators](https://leetcode.com/problems/expression-add-operators/) | `O(N * 4^N)` | `O(N)` |
+
+## 08. Trees
+
+Trees store things in a hierarchy: one root, and every other node below exactly one parent. This chapter starts from the parts of a tree and the five types of binary tree, then moves to traversals, views, classic problems and binary search trees.
+
+**[Read the Trees guide](08.%20Trees/)** for the full chapter plan (6 sections, 48 notes planned).
+
+### Basics
+
+| # | Note | Difficulty | Key Idea | Source | Time | Space |
+|:---:|:---|:---:|:---|:---:|:---:|:---:|
+| 1 | [Introduction to Trees](08.%20Trees/01.%20Basics/01.%20Introduction%20to%20Trees.md) | Theory | Root, leaf, level and height, and the five types: full, complete, perfect, balanced, degenerate | Lecture notes | `O(n)` checks | `O(h)` |
+| 2 | [Tree Representation](08.%20Trees/01.%20Basics/02.%20Tree%20Representation.md) | Theory | Each node holds a value and two links; build a tree by hand or from the LeetCode list | Lecture notes | `O(n)` build | `O(n)` |
 
 ## 11. Graphs
 
