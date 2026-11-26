@@ -21,7 +21,7 @@ Counts are problems written, broken down by difficulty tier. Theory notes (like 
 | 05 | Linked List | Reversal, cycle detection, merge | – | – | – | – | Planned |
 | 06 | Binary Search | On answer space, rotated arrays | – | – | – | – | Planned |
 | 07 | [**Recursion**](07.%20Recursion/) | Pick/not-pick, backtracking, constraints | 2 | 5 | 13 | **20** | Complete |
-| 08 | [**Trees**](08.%20Trees/) | Tree basics, traversals, views, BST | 7 | 3 | 1 | **14** | In progress |
+| 08 | [**Trees**](08.%20Trees/) | Tree basics, traversals, views, BST | 8 | 7 | 2 | **20** | In progress |
 | 09 | Heaps | Top-K, merge K sorted, running median | – | – | – | – | Planned |
 | 10 | Greedy | Interval scheduling, exchange argument | – | – | – | – | Planned |
 | 11 | [**Graphs**](11.%20Graphs/) | BFS/DFS, topo sort, Dijkstra, MST, DSU | 5 | 22 | 2 | **29** | In progress |
@@ -30,7 +30,7 @@ Counts are problems written, broken down by difficulty tier. Theory notes (like 
 | 14 | Bit Manipulation | XOR tricks, masks, bit counting | – | – | – | – | Planned |
 | 15 | Intervals | Merge, insert, overlap counting | – | – | – | – | Planned |
 | 16 | Databases | Joins, window functions, aggregation | – | – | – | – | Planned |
-| | **Total** | | **71** | **86** | **24** | **184** | |
+| | **Total** | | **72** | **90** | **25** | **190** | |
 
 **Roadmap.** Arrows point from a topic to the topics that build on it. Start at the top and move down once every arrow into a topic is done. For example, Graphs needs Trees (graph traversal grows from tree traversal) and Heaps (Dijkstra uses a heap). Dynamic Programming needs Recursion and Graphs. Databases is a separate track you can do any time.
 
@@ -384,6 +384,17 @@ Trees store things in a hierarchy: one root, and every other node below exactly 
 | 3 | [543. Diameter of Binary Tree](08.%20Trees/03.%20Basic%20problems/12.%20543.%20Diameter%20of%20Binary%20Tree.md) | Easy | Every path bends at one node; track left height plus right height while returning heights | [543](https://leetcode.com/problems/diameter-of-binary-tree/) | `O(n)` | `O(h)` |
 | 4 | [124. Binary Tree Maximum Path Sum](08.%20Trees/03.%20Basic%20problems/13.%20124.%20Binary%20Tree%20Maximum%20Path%20Sum.md) | Hard | Return one-sided gains, drop negative sides, track value plus both gains | [124](https://leetcode.com/problems/binary-tree-maximum-path-sum/) | `O(n)` | `O(h)` |
 | 5 | [100. Same Tree](08.%20Trees/03.%20Basic%20problems/14.%20100.%20Same%20Tree.md) | Easy | Walk both trees together; empty spots must match too | [100](https://leetcode.com/problems/same-tree/) | `O(n)` | `O(h)` |
+
+### Views
+
+| # | Problem | Difficulty | Key Idea | Source | Time | Space |
+|:---:|:---|:---:|:---|:---:|:---:|:---:|
+| 1 | [545. Boundary of Binary Tree](08.%20Trees/04.%20Views/15.%20545.%20Boundary%20of%20Binary%20Tree.md) | Medium | Root, left edge down, leaves left to right, right edge up; leaves added once | [545](https://leetcode.com/problems/boundary-of-binary-tree/) | `O(n)` | `O(h)` |
+| 2 | [987. Vertical Order Traversal of a Binary Tree](08.%20Trees/04.%20Views/16.%20987.%20Vertical%20Order%20Traversal%20of%20a%20Binary%20Tree.md) | Hard | Give each node (column, row); sort by column, row, then value | [987](https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/) | `O(n log n)` | `O(n)` |
+| 3 | [Top View of Binary Tree](08.%20Trees/04.%20Views/17.%20Top%20View%20of%20Binary%20Tree.md) | Medium | BFS with columns; keep the first node met in each column | [GfG](https://www.geeksforgeeks.org/problems/top-view-of-binary-tree/1) | `O(n)` | `O(n)` |
+| 4 | [Bottom View of Binary Tree](08.%20Trees/04.%20Views/18.%20Bottom%20View%20of%20Binary%20Tree.md) | Medium | BFS with columns; overwrite, so the last node met in each column stays | [GfG](https://www.geeksforgeeks.org/problems/bottom-view-of-binary-tree/1) | `O(n)` | `O(n)` |
+| 5 | [199. Binary Tree Right Side View](08.%20Trees/04.%20Views/19.%20199.%20Binary%20Tree%20Right%20Side%20View.md) | Medium | One node per level; DFS right-first records the first node on each new level | [199](https://leetcode.com/problems/binary-tree-right-side-view/) | `O(n)` | `O(h)` |
+| 6 | [Left View of Binary Tree](08.%20Trees/04.%20Views/20.%20Left%20View%20of%20Binary%20Tree.md) | Easy | Same as the right view with the two recursive calls swapped | [GfG](https://www.geeksforgeeks.org/problems/left-view-of-binary-tree/1) | `O(n)` | `O(h)` |
 
 ## 11. Graphs
 

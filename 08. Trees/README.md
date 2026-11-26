@@ -13,7 +13,7 @@ Read the sections in order. Every note follows the same shape as the rest of thi
 | 01 | Basics | What a tree is, its parts, the five types, and how to store one in code | 2 | Written |
 | 02 | Tree Traversals | Visiting every node: preorder, inorder, postorder, level order and zigzag | 7 | Written |
 | 03 | Basic Problems | First recursive problems: depth, balance, diameter, path sum, same tree | 5 | Written |
-| 04 | Views | What you see from the side, top or bottom, and the boundary walk | 6 | Planned |
+| 04 | Views | What you see from the side, top or bottom, and the boundary walk | 6 | Written |
 | 05 | Problems on Trees | Symmetry, paths, ancestors, width, distances, building and flattening trees | 13 | Planned |
 | 06 | Binary Search Trees | Trees kept in sorted order: search, floor, ceil, insert, delete, validate, iterate, recover | 15 | Planned |
 
@@ -58,12 +58,12 @@ What you see from the side, top or bottom, and the boundary walk.
 
 | # | Note / Problem | Key idea | Source | Status |
 |:---:|:---|:---|:---:|:---:|
-| 1 | 545. Boundary of Binary Tree | Key idea is added when this note is written | LeetCode problem 545 | Planned |
-| 2 | 987. Vertical Order Traversal of a Binary Tree | Key idea is added when this note is written | LeetCode problem 987 | Planned |
-| 3 | Top View of Binary Tree | Key idea is added when this note is written | Lecture notes (GfG style) | Planned |
-| 4 | Bottom View of Binary Tree | Key idea is added when this note is written | Lecture notes (GfG style) | Planned |
-| 5 | 199. Binary Tree Right Side View | Key idea is added when this note is written | LeetCode problem 199 | Planned |
-| 6 | 199. Binary Tree Left Side View | Key idea is added when this note is written | LeetCode problem 199 | Planned |
+| 1 | [545. Boundary of Binary Tree](04.%20Views/15.%20545.%20Boundary%20of%20Binary%20Tree.md) | Root, left edge down, leaves left to right, right edge up; leaves added once | [545](https://leetcode.com/problems/boundary-of-binary-tree/) | Written |
+| 2 | [987. Vertical Order Traversal of a Binary Tree](04.%20Views/16.%20987.%20Vertical%20Order%20Traversal%20of%20a%20Binary%20Tree.md) | Give each node (column, row); sort by column, row, then value | [987](https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/) | Written |
+| 3 | [Top View of Binary Tree](04.%20Views/17.%20Top%20View%20of%20Binary%20Tree.md) | BFS with columns; keep the first node met in each column | [GfG](https://www.geeksforgeeks.org/problems/top-view-of-binary-tree/1) | Written |
+| 4 | [Bottom View of Binary Tree](04.%20Views/18.%20Bottom%20View%20of%20Binary%20Tree.md) | BFS with columns; overwrite, so the last node met in each column stays | [GfG](https://www.geeksforgeeks.org/problems/bottom-view-of-binary-tree/1) | Written |
+| 5 | [199. Binary Tree Right Side View](04.%20Views/19.%20199.%20Binary%20Tree%20Right%20Side%20View.md) | One node per level; DFS right-first records the first node on each new level | [199](https://leetcode.com/problems/binary-tree-right-side-view/) | Written |
+| 6 | [Left View of Binary Tree](04.%20Views/20.%20Left%20View%20of%20Binary%20Tree.md) | Same as the right view with the two recursive calls swapped | [GfG](https://www.geeksforgeeks.org/problems/left-view-of-binary-tree/1) | Written |
 
 ## 05. Problems on Trees
 
