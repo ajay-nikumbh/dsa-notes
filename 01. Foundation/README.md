@@ -124,7 +124,7 @@ All three notes trace a medium-size example end to end, explain the constraints 
 
 ### Dutch National Flag (Partitioning)
 
-| # | Problem | Difficulty | Key Idea | Source | Time | Space | Status |
+| # | Problem&ensp;&#8203;&ensp;&#8203;&ensp;&#8203;&ensp;&#8203;&ensp;&#8203;&ensp;&#8203;&ensp;&#8203;&ensp;&#8203;&ensp;&#8203;&ensp;&#8203;&ensp;&#8203;&ensp;&#8203; | Difficulty | Key Idea | Source | Time | Space | Status |
 |:---:|:---|:---:|:---|:---:|:---:|:---:|:---:|
 | 1 | [75. Sort Colors](01.%20Array/07.%20Dutch%20National%20Flag%20%28Partitioning%29/01.%2075.%20Sort%20Colors.md) | Medium | Three regions with low, mid, high pointers | [75. Sort Colors](https://leetcode.com/problems/sort-colors/) | `O(n)` | `O(1)` | Written |
 
